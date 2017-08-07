@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "wallet", schema = "PassITForward", catalog = "")
 public class WalletEntity {
     private int walletId;
-    private String walletValue;
+    private int walletValue;
 
     @Id
     @Column(name = "walletID", nullable = false)
@@ -22,12 +22,12 @@ public class WalletEntity {
     }
 
     @Basic
-    @Column(name = "walletValue", nullable = false, length = 45)
-    public String getWalletValue() {
+    @Column(name = "walletValue", nullable = false)
+    public int getWalletValue() {
         return walletValue;
     }
 
-    public void setWalletValue(String walletValue) {
+    public void setWalletValue(int walletValue) {
         this.walletValue = walletValue;
     }
 
@@ -39,7 +39,7 @@ public class WalletEntity {
         WalletEntity that = (WalletEntity) o;
 
         if (walletId != that.walletId) return false;
-        if (walletValue != null ? !walletValue.equals(that.walletValue) : that.walletValue != null) return false;
+        if (walletValue != that.walletValue) return false;
 
         return true;
     }
@@ -47,7 +47,7 @@ public class WalletEntity {
     @Override
     public int hashCode() {
         int result = walletId;
-        result = 31 * result + (walletValue != null ? walletValue.hashCode() : 0);
+        result = 31 * result + walletValue;
         return result;
     }
 }
