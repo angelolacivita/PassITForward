@@ -29,7 +29,6 @@ public class HomeController {
     @RequestMapping("/login")
     //the String method returns the jsp page that we want to show
     public String login(){
-
         return "login";
     }
 
