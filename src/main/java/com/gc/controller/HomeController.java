@@ -21,9 +21,16 @@ public class HomeController {
 
     @RequestMapping("/")
     //the String method returns the jsp page that we want to show
-    public String hello(){
+    public String welcome(){
 
         return "welcome";
+    }
+
+    @RequestMapping("/login")
+    //the String method returns the jsp page that we want to show
+    public String login(){
+
+        return "login";
     }
 
     @RequestMapping("/create-profile")
