@@ -78,4 +78,10 @@ public class HomeController {
         return "languageselect";
     }
 
+
+    @RequestMapping("/newComment")
+
+    public String newComment() {
+        return "newComment";
+    }
 }
