@@ -1,4 +1,5 @@
 package com.gc.controller;
+
 import com.gc.models.UsersEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,20 +16,31 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 
-
 @Controller
 public class HomeController {
 
     @RequestMapping("/")
     //the String method returns the jsp page that we want to show
-    public String welcome(){
+    public String welcome() {
 
         return "welcome";
     }
 
+    @RequestMapping("/home")
+    //the String method returns the jsp page that we want to show
+    public String home() {
+
+        return "home";
+    }
+
     @RequestMapping("/login")
     //the String method returns the jsp page that we want to show
-    public String login(){
+    public String login(@RequestParam("username") String username,
+                        @RequestParam("password") String password,
+                        Model model) {
+        model.addAttribute("username", username);
+        model.addAttribute("password", password);
+
         return "login";
     }
 
@@ -61,7 +73,7 @@ public class HomeController {
 
     @RequestMapping("/registration")
     //the String method returns the jsp page that we want to show
-    public String registration(){
+    public String registration() {
 
         return "registration";
     }
