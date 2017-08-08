@@ -14,12 +14,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 
 /**
- * Created by angelo on 8/7/17.
+ * (Alphabetica Order)
+ *
+ * Farha Hanif
+ * https://github.com/fhanif
+ *
+ * Angelo LaCivita
+ * https://github.com/angelolacivita
+ *
+ * Matthew Menna
+ * https://github.com/mattmenna
+ * https://www.linkedin.com/in/matthew-menna/
  */
 
 
@@ -49,7 +58,35 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/about")
+    //the String method returns the jsp page that we want to show
+    public String about() {
+
+        return "about";
+    }
+
+    @RequestMapping("/challenges")
+    //the String method returns the jsp page that we want to show
+    public String challenges() {
+
+        return "challenges";
+    }
+
+    @RequestMapping("/contact")
+    //the String method returns the jsp page that we want to show
+    public String contact() {
+
+        return "contact";
+    }
+
+    @RequestMapping("/newcomment")
+    //the String method returns the jsp page that we want to show
+    public String newcomment() {
+
+        return "newcomment";
+    }
+
+    @RequestMapping("/loginsuccess")
     //the String method returns the jsp page that we want to show
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
@@ -57,7 +94,7 @@ public class HomeController {
         model.addAttribute("username", username);
         model.addAttribute("password", password);
 
-        return "login";
+        return "loginsucess";
     }
 
     @RequestMapping("/create-profile")
