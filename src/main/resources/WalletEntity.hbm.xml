@@ -11,5 +11,8 @@
         <property name="walletValue">
             <column name="walletValue" sql-type="int(10)"/>
         </property>
+        <property name="userId">
+            <column name="userID" sql-type="int(10) unsigned"/>
+        </property>
     </class>
 </hibernate-mapping>

@@ -3,14 +3,26 @@ package com.gc.models;
 import javax.persistence.*;
 
 /**
- * Created by angelo on 8/7/17.
+ * Created by angelo on 8/8/17.
  */
 @Entity
 @Table(name = "posts", schema = "PassITForward", catalog = "")
 public class PostsEntity {
+    private int userId;
     private int postId;
     private String postTitle;
     private String postDescription;
+    private int languageId;
+
+    @Basic
+    @Column(name = "userID", nullable = false)
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     @Id
     @Column(name = "postID", nullable = false)
@@ -42,6 +54,16 @@ public class PostsEntity {
         this.postDescription = postDescription;
     }
 
+    @Basic
+    @Column(name = "languageID", nullable = false)
+    public int getLanguageId() {
+        return languageId;
+    }
+
+    public void setLanguageId(int languageId) {
+        this.languageId = languageId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,7 +71,9 @@ public class PostsEntity {
 
         PostsEntity that = (PostsEntity) o;
 
+        if (userId != that.userId) return false;
         if (postId != that.postId) return false;
+        if (languageId != that.languageId) return false;
         if (postTitle != null ? !postTitle.equals(that.postTitle) : that.postTitle != null) return false;
         if (postDescription != null ? !postDescription.equals(that.postDescription) : that.postDescription != null)
             return false;
@@ -59,9 +83,11 @@ public class PostsEntity {
 
     @Override
     public int hashCode() {
-        int result = postId;
+        int result = userId;
+        result = 31 * result + postId;
         result = 31 * result + (postTitle != null ? postTitle.hashCode() : 0);
         result = 31 * result + (postDescription != null ? postDescription.hashCode() : 0);
+        result = 31 * result + languageId;
         return result;
     }
 }
