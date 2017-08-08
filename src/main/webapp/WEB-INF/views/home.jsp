@@ -50,11 +50,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/home">passITforward</a>
+            <a class="navbar-brand" href="/displayLanguages">passITforward</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/home">Home</a></li>
+                <li class="active"><a href="/displayLanguages">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li><a href="/challenges">Challenges</a></li>
@@ -67,49 +67,58 @@
 <div class="jumbotron">
     <div class="container">
         <h1>passITforward</h1>
-        <p>We created passITforward as an alternative to some of the more popular solution websites that don't reward well thought out responses.
-        Our goal is to create a site that encourages users to respond to others problems.</p>
+        <p>Select one of the programming languages below to view user posts on the language topic.</p>
         <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
     </div>
 </div>
 
 <div class="container">
     <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Java</h2>
-            <p>Number of Projects : 10<br>
-            Number of answers: 20<br>
-            Popularity: High</p>
-            <p><a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>C#</h2>
-            <p>Number of Projects : 11<br>
-                Number of answers: 21<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>CSS</h2>
-            <p>Number of Projects : 12<br>
-                Number of answers: 22<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>JavaScript</h2>
-            <p>Number of Projects : 13<br>
-                Number of answers: 23<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <p>Number of Projects : 14<br>
-                Number of answers: 24<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>
-        </div>
+
+        <c:forEach var="myvar" items="${lList}">
+            <div class="row">
+                <div class="col-md-4">
+                <a href ="/displayPosts?languageId=${myvar.languageId}"><h2>${myvar.language}</h2></a>
+
+            </div>
+    </div>
+
+
+        </c:forEach>
+        <%--<div class="col-md-4">--%>
+            <%--<h2>Java</h2>--%>
+            <%--<p>Number of Projects : 10<br>--%>
+            <%--Number of answers: 20<br>--%>
+            <%--Popularity: High</p>--%>
+            <%--<p><a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
+        <%--</div>--%>
+        <%--<div class="col-md-4">--%>
+            <%--<h2>C#</h2>--%>
+            <%--<p>Number of Projects : 11<br>--%>
+                <%--Number of answers: 21<br>--%>
+                <%--Popularity: High</p>--%>
+            <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
+        <%--</div>--%>
+        <%--<div class="col-md-4">--%>
+            <%--<h2>CSS</h2>--%>
+            <%--<p>Number of Projects : 12<br>--%>
+                <%--Number of answers: 22<br>--%>
+                <%--Popularity: High</p>--%>
+            <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
+        <%--</div>--%>
+        <%--<div class="col-md-4">--%>
+            <%--<h2>JavaScript</h2>--%>
+            <%--<p>Number of Projects : 13<br>--%>
+                <%--Number of answers: 23<br>--%>
+                <%--Popularity: High</p>--%>
+            <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
+        <%--</div>--%>
+        <%--<div class="col-md-4">--%>
+            <%--<p>Number of Projects : 14<br>--%>
+                <%--Number of answers: 24<br>--%>
+                <%--Popularity: High</p>--%>
+            <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
+        <%--</div>--%>
     </div>
 
 </div>
