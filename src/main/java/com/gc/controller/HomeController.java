@@ -11,7 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * Created by angelo on 8/7/17.
+ * (Alphabetica Order)
+ *
+ * Farha Hanif
+ * https://github.com/fhanif
+ *
+ * Angelo LaCivita
+ * https://github.com/angelolacivita
+ *
+ * Matthew Menna
+ * https://github.com/mattmenna
+ * https://www.linkedin.com/in/matthew-menna/
  */
 
 
