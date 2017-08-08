@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 
 @Controller
-public class HomeController2 {
+public class HomeController {
 
     private Session getSession() {
 
