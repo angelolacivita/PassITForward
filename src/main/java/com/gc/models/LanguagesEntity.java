@@ -3,22 +3,22 @@ package com.gc.models;
 import javax.persistence.*;
 
 /**
- * Created by angelo on 8/7/17.
+ * Created by angelo on 8/8/17.
  */
 @Entity
 @Table(name = "languages", schema = "PassITForward", catalog = "")
 public class LanguagesEntity {
-    private int languagesId;
+    private int languageId;
     private String language;
 
     @Id
-    @Column(name = "languagesID", nullable = false)
-    public int getLanguagesId() {
-        return languagesId;
+    @Column(name = "languageID", nullable = false)
+    public int getLanguageId() {
+        return languageId;
     }
 
-    public void setLanguagesId(int languagesId) {
-        this.languagesId = languagesId;
+    public void setLanguageId(int languageId) {
+        this.languageId = languageId;
     }
 
     @Basic
@@ -38,7 +38,7 @@ public class LanguagesEntity {
 
         LanguagesEntity that = (LanguagesEntity) o;
 
-        if (languagesId != that.languagesId) return false;
+        if (languageId != that.languageId) return false;
         if (language != null ? !language.equals(that.language) : that.language != null) return false;
 
         return true;
@@ -46,7 +46,7 @@ public class LanguagesEntity {
 
     @Override
     public int hashCode() {
-        int result = languagesId;
+        int result = languageId;
         result = 31 * result + (language != null ? language.hashCode() : 0);
         return result;
     }

@@ -8,11 +8,17 @@
         <id name="postId">
             <column name="postID" sql-type="int(10) unsigned"/>
         </id>
+        <property name="userId">
+            <column name="userID" sql-type="int(10) unsigned"/>
+        </property>
         <property name="postTitle">
             <column name="postTitle" sql-type="varchar(255)"/>
         </property>
         <property name="postDescription">
             <column name="postDescription" sql-type="mediumtext"/>
+        </property>
+        <property name="languageId">
+            <column name="languageID" sql-type="int(10) unsigned"/>
         </property>
     </class>
 </hibernate-mapping>

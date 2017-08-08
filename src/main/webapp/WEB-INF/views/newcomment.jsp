@@ -14,25 +14,22 @@
         #editor {
             position: absolute;
             top: 0;
-            right: 0;
-            bottom: 0;
+            right: 40%;
+            bottom: 40%;
             left: 0;
         }
     </style>
 </head>
 <body>
 
-<div id="editor">function foo(items) {
-    var x = "All this is syntax highlighted";
-    return x;
-    }</div>
+<div id="editor">
+    editor.getSession().setValue(${postDescription});</div>
 
 <script src="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/javascript");
-    editor.resize();
 </script>
 hey button goes here
 </body>
