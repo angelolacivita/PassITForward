@@ -159,11 +159,11 @@ public class HomeController {
         return "showPosts";
     }
 
-        @RequestMapping("/displayLanguages")
+    @RequestMapping("/displayLanguages")
     public ModelAndView listLanguages() {
         ArrayList<LanguagesEntity> languageList = getAllLanguages();
         return new
-                ModelAndView("showLanguages", "lList", languageList);
+                ModelAndView("home", "lList", languageList);
 
     }
     private ArrayList<LanguagesEntity> getAllLanguages() {
