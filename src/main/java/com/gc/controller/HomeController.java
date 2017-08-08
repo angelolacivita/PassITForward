@@ -155,7 +155,6 @@ public class HomeController {
         return "showLanguages";
     }
     @RequestMapping("/showPosts")
-
     public String showPosts() {
         return "showPosts";
     }
