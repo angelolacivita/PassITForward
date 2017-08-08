@@ -16,7 +16,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/resources/favicon.ico">
 
     <title>Signin Template for Bootstrap</title>
 
@@ -44,41 +44,56 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">passITforward</a>
+            <a class="navbar-brand" href="/home">passITforward</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/challenges">Challenges</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav>
+</nav>   <span class="icon-bar"></span>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Challenges</h1>
+        <p>View jstl Java jstl Challenges </p>
+    </div>
+</div>
 
 <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <!--JSTL CREATED Begin-->
+        <div class="col-md-4">
+            <h2>Java</h2>
+            <p>Number of Projects : 10<br>
+            Number of answers: 20<br>
+            Popularity: High</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <!--JSTL CREATED End-->
 
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Thanks for signing in ${username}</p>
     </div>
 
-</div><!-- /.container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
+</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
 </body>
 </html>

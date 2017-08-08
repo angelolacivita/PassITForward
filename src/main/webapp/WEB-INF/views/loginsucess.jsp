@@ -29,7 +29,7 @@
     <link href="<c:url value = "/resources/css/ie10-viewport-bug-workaround.css"/>" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -40,6 +40,7 @@
 </head>
 
 <body>
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -63,28 +64,21 @@
 </nav>   <span class="icon-bar"></span>
 
 
-<div class="container">
-
-    <form class="form-signin" method="GET" action="/loginsuccess">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" name = "username" class="form-control" placeholder="Username" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name = "password" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-
-        <a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email&client_id=4975543103.223648232195">slack</a>
-    </form>
+<div class="jumbotron">
+    <div class="container">
+        <h1>passITforward</h1>
+        <p>Thanks for siging in ${username}</p>
+        <p><a class="btn btn-primary btn-lg" href="/challenges" role="button">Get Started &raquo;</a></p>
+    </div>
+</div>
 
 
-</div> <!-- /container -->
-
-
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
 </body>

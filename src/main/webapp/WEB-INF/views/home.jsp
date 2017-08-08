@@ -16,7 +16,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/resources/favicon.ico">
 
     <title>Signin Template for Bootstrap</title>
 
@@ -49,27 +49,27 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">passITforward</a>
+            <a class="navbar-brand" href="/home">passITforward</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/challenges">Challenges</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav>
+</nav>   <span class="icon-bar"></span>
+
 
 <div class="jumbotron">
     <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a
-            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
-            unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <h1>passITforward</h1>
+        <p>We created passITforward as an alternative to some of the more popular solution websites that don't reward well thought out responses.
+        Our goal is to create a site that encourages users to respond to others problems.</p>
+        <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
     </div>
 </div>
 
@@ -77,25 +77,38 @@
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui. </p>
+            <h2>Java</h2>
+            <p>Number of Projects : 10<br>
+            Number of answers: 20<br>
+            Popularity: High</p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            <h2>C#</h2>
+            <p>Number of Projects : 11<br>
+                Number of answers: 21<br>
+                Popularity: High</p>
+            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            <h2>CSS</h2>
+            <p>Number of Projects : 12<br>
+                Number of answers: 22<br>
+                Popularity: High</p>
+            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>JavaScript</h2>
+            <p>Number of Projects : 13<br>
+                Number of answers: 23<br>
+                Popularity: High</p>
+            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <p>Number of Projects : 14<br>
+                Number of answers: 24<br>
+                Popularity: High</p>
+            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
 
