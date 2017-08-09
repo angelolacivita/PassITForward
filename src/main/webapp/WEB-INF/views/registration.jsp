@@ -138,14 +138,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/home">passITforward</a>
+            <a class="navbar-brand" href="/displayLanguages">passITforward</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/home">Home</a></li>
+                <li class="active"><a href="/displayLanguages">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/challenges">Challenges</a></li>
+                <%--<li><a href="/challenges">Challenges</a></li>--%>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -159,8 +159,9 @@
             <!-- Form Name -->
             <legend>Register</legend>
 
-            <!-- Text input-->
+            <!-- First name-->
             <div class="form-group">
+                <div class="row">
                 <label class="col-md-4 control-label" for="textinput">First name</label>
                 <div class="col-md-4">
                     <input id="textinput" name="firstName" type="text" placeholder="John" class="form-control input-md" required="">
@@ -177,13 +178,13 @@
                 </div>
             </div>
 
-            <!-- Select Basic -->
+            <!-- Select languages -->
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="java" value="checkedValue" checked>
                     Java<br>
                     <input type="checkbox" class="form-check-input" name="" id="javascript" value="checkedValue" checked>
-                    Javascript<br>
+                    JavaScript<br>
                     <input type="checkbox" class="form-check-input" name="" id="C++" value="checkedValue" checked>
                     C++<br>
                     <input type="checkbox" class="form-check-input" name="" id="Python" value="checkedValue" checked>
@@ -192,8 +193,8 @@
                     Ruby<br>
                     <input type="checkbox" class="form-check-input" name="" id="HTML" value="checkedValue" checked>
                     HTML<br>
-                    <input type="checkbox" class="form-check-input" name="" id="CSS" value="checkedValue" checked>
-                    CSS<br>
+                    <input type="checkbox" class="form-check-input" name="" id="PHP" value="checkedValue" checked>
+                    PHP<br>
                     <input type="checkbox" class="form-check-input" name="" id="SQL" value="checkedValue" checked>
                     SQL<br>
                     <input type="checkbox" class="form-check-input" name="" id="C#" value="checkedValue" checked>
@@ -201,7 +202,7 @@
                 </label>
             </div>
 
-            <!-- Text input-->
+            <!-- Text email-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="email">E-mail</label>
                 <div class="col-md-4">

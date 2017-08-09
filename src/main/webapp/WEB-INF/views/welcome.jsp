@@ -68,7 +68,7 @@
     <form class="form-signin" method="GET" action="/loginsuccess">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" name = "username" class="form-control" placeholder="Username" required autofocus>
+        <input type="text" id="inputUsername" name = "userName" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name = "password" class="form-control" placeholder="Password" required>
         <div class="checkbox">
@@ -78,9 +78,13 @@
         </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 
-        <a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email&client_id=4975543103.223648232195">slack</a>
     </form>
+    <br>
 
+    <div class="text-center center-block">
+    <a href="/registration"><button class="btn btn-lg btn-primary btn-block" type="submit">Register</button></a>
+    <a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email&client_id=4975543103.223648232195">slack</a>
+    </div>
 
 </div> <!-- /container -->
 <div class="container">
