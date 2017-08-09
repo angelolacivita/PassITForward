@@ -117,7 +117,8 @@
     <link href="<c:url value = "/resources/css/ie10-viewport-bug-workaround.css"/>" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
+   <!-- <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet"> -->
+    <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -152,30 +153,21 @@
 </nav>   <span class="icon-bar"></span>
 
 <div class="container">
-<form method="post" action="/create-profile">
-    <form class="form-horizontal">
+<form class="form-signin" method="post" action="/create-profile">
         <fieldset>
-
             <!-- Form Name -->
             <legend>Register</legend>
 
             <!-- First name-->
             <div class="form-group">
-                <div class="row">
-                <label class="col-md-4 control-label" for="textinput">First name</label>
-                <div class="col-md-4">
+                <label class="control-label" for="textinput">First name</label>
                     <input id="textinput" name="firstName" type="text" placeholder="John" class="form-control input-md" required="">
-
-                </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Last name</label>
-                <div class="col-md-4">
-                    <input id="textinput" name="lastName" type="text" placeholder="Smith" class="form-control input-md" required="">
-
-                </div>
+                <label class="control-label" for="textinput">Last name</label>
+                 <input id="textinput" name="lastName" type="text" placeholder="Smith" class="form-control input-md" required="">
             </div>
 
             <!-- Select languages -->
@@ -204,42 +196,31 @@
 
             <!-- Text email-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="email">E-mail</label>
-                <div class="col-md-4">
+                <label class="control-label" for="email">E-mail</label>
                     <input id="email" name="email" type="text" placeholder="john.smith@mail.com" class="form-control input-md" required="">
 
-                </div>
             </div>
 
             <!-- Password input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="passwordinput">Password</label>
-                <div class="col-md-4">
+                <label class="control-label" for="passwordinput">Password</label>
                     <input id="passwordinput" name="password" type="password" placeholder="Enter your password" class="form-control input-md" required="">
-
-                </div>
             </div>
 
             <!-- Password input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="passwordinput">Repeat password </label>
-                <div class="col-md-4">
+                <label class="control-label" for="passwordinput">Repeat password </label>
                     <input id="passwordinput" name="passwordinput" type="password" placeholder="Repeat your password" class="form-control input-md" required="">
-
-                </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-4 control-label" for="singlebutton"></label>
-                <div class="col-md-4">
                     <button id="singlebutton" name="register" class="btn btn-primary">Register</button>
-                </div>
             </div>
-
         </fieldset>
-    </form>
 </form>
 </div>
+
 <div class="container">
     <div class="text-center center-block">
         <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>

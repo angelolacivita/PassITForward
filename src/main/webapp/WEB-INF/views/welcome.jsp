@@ -60,7 +60,8 @@
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav>   <span class="icon-bar"></span>
+</nav>
+<span class="icon-bar"></span>
 
 
 <div class="container">
@@ -68,32 +69,33 @@
     <form class="form-signin" method="GET" action="/loginsuccess">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" name = "userName" class="form-control" placeholder="Username" required autofocus>
+        <input type="text" id="inputUsername" name="userName" class="form-control" placeholder="Username" required
+               autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name = "password" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
     <br>
-
-    <div class="text-center center-block">
-    <a href="/registration"><button class="btn btn-lg btn-primary btn-block" type="submit">Register</button></a>
+    <form class="form-signin" action="/registration">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
+    <br>
     <a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email&client_id=4975543103.223648232195">slack</a>
-    </div>
 
-</div> <!-- /container -->
-<div class="container">
-<div class="text-center center-block">
-    <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-    <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-    <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-    <a href="mailto:passITforward"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
 </div>
+<br><!-- /container -->
+<div class="container">
+    <div class="text-center center-block">
+        <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+        <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+        <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+        <a href="mailto:passITforward"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+    </div>
 </div>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
