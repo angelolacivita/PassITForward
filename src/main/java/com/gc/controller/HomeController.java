@@ -1,5 +1,6 @@
 package com.gc.controller;
 
+import com.gc.dao.CommentsDAO;
 import com.gc.dao.UserDAO;
 import com.gc.dao.WalletDAO;
 import com.gc.factory.DaoFactory;
@@ -146,10 +147,17 @@ public class HomeController {
         return "registrationsuccess";
     }
 
-    @RequestMapping("/newComment")
+    @RequestMapping("/create-comment")
+    public String newcomment(@ModelAttribute CommentsEntity newcomment, Model model){
+        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
+        commentsdao.save(newcomment);
 
-    public String newComment() {
-        return "newComment";
+        //model.addAttribute("userID", newcomment.getUserId());
+        model.addAttribute("commentDescription", newcomment.getCommentDescription());
+        //model.addAttribute("commentsId", newcomment.getCommentsId());
+        //model.addAttribute("postID", newcomment.getPostId());
+
+        return "showComments";
     }
 
     @RequestMapping("/showLanguages")
@@ -168,7 +176,6 @@ public class HomeController {
         ArrayList<LanguagesEntity> languageList = getAllLanguages();
         return new
                 ModelAndView("home", "lList", languageList);
-
     }
 
     private ArrayList<LanguagesEntity> getAllLanguages() {

@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: fhani
@@ -6,30 +7,24 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js" type="text/javascript" charset="utf-8"></script>
     <title>ACE test</title>
-    <style type="text/css" media="screen">
-        #editor {
-            position: absolute;
-            top: 40%;
-            right: 40%;
-            bottom: 40%;
-            left: 40%;
-        }
-    </style>
 </head>
 <body>
-
-<pre id="editor">function foo(items) {
-    var i;
-    for (i = 0; i &lt; items.length; i++) {
-        alert("Ace Rocks " + items[i]);
-    }
-}
-</pre>
+    <form:form class="form-signin" method="post" action="/create-comment">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Comment Description</legend>
+            <!-- First name-->
+            <div class="form-group">
+                <form:label path="commentDescription" class="control-label" for="textinput">Description</form:label>
+                <form:input path="commentDescription" id="textinput" name="commentDescription" type="text" placeholder="Description" class="form-control input-md" required=""/>
+            </div>
+        </fieldset>
+    </form:form>
 </body>
 </html>
 

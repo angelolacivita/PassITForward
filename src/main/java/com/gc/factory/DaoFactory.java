@@ -2,6 +2,7 @@ package com.gc.factory;
 
 
 import com.gc.dao.*;
+import com.gc.models.CommentsEntity;
 
 /**
  * Created by maurice on 7/20/17.
@@ -10,7 +11,7 @@ import com.gc.dao.*;
 public class DaoFactory {
     public static final int USERS_HIBERNATE_DAO = 0;
     public static final int WALLET_HIBERNATE_DAO = 1;
-
+    public static final int COMMENTS_HIBERNATE_DAO = 1;
 
     public static UserDAO getUserDaoInstance(int usersHibernateDao) {
         switch(usersHibernateDao){
@@ -27,6 +28,17 @@ public class DaoFactory {
         switch(walletHibernateDao){
             case WALLET_HIBERNATE_DAO:
                 return new WalletDAOImpl();
+
+            default:
+                break;
+        }
+        return null;
+    }
+
+    public static CommentsDAO getCommentsDaoInstance(int commentsHibernateDao){
+        switch(commentsHibernateDao){
+            case COMMENTS_HIBERNATE_DAO:
+                return new CommentsDAOImpl();
 
             default:
                 break;
