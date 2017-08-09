@@ -83,13 +83,6 @@ public class HomeController {
         return "contact";
     }
 
-    @RequestMapping("/newcomment")
-    //the String method returns the jsp page that we want to show
-    public String newcomment() {
-
-        return "newcomment";
-    }
-
     @RequestMapping("/loginsuccess")
     //the String method returns the jsp page that we want to show
     public String loginsuccess(@RequestParam("username") String username,
@@ -147,6 +140,12 @@ public class HomeController {
         return "registrationsuccess";
     }
 
+    @RequestMapping("/newcomment")
+    public ModelAndView newcomment(Model model){
+
+        return new ModelAndView("newcomment", "command", new CommentsEntity());
+    }
+
     @RequestMapping("/create-comment")
     public String newcomment(@ModelAttribute CommentsEntity newcomment, Model model){
         CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
@@ -157,7 +156,7 @@ public class HomeController {
         //model.addAttribute("commentsId", newcomment.getCommentsId());
         //model.addAttribute("postID", newcomment.getPostId());
 
-        return "showComments";
+        return "comments";
     }
 
     @RequestMapping("/showLanguages")
