@@ -169,7 +169,7 @@
             <!-- Text input-->
             <div class="form-group">
                 <form:label path="lastName" class="control-label" for="textinput">Last name</form:label>
-                 <input id="textinput" name="lastName" type="text" placeholder="Smith" class="form-control input-md" required=""/>
+                 <form:input path="lastName" id="textinput" name="lastName" type="text" placeholder="Smith" class="form-control input-md" required=""/>
             </div>
 
 

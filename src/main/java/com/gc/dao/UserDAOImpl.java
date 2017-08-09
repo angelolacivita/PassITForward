@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class UserDAOImpl implements UserDAO {
+
     public Integer save(UsersEntity newUser) {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFact = cfg.buildSessionFactory();
@@ -20,4 +21,5 @@ public class UserDAOImpl implements UserDAO {
 
         return id;
     }
+
 }
