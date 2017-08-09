@@ -189,7 +189,7 @@
                 <label class="control-label" for="passwordinput">Repeat password </label>
                 <input id="passwordinput" name="passwordinput" type="password" placeholder="Repeat your password" class="form-control input-md" required="">
             </div>
-            
+
             <!-- Select languages -->
             <div class="form-check">
                 <label class="form-check-label">

@@ -133,6 +133,8 @@ public class HomeController {
         newUser.setUserName(userName);
         newUser.setLanguages(languages);
 
+        model.addAttribute(firstName);
+
         s.save(newUser);
         tx.commit();
         s.close();
@@ -145,6 +147,12 @@ public class HomeController {
     public String registration() {
 
         return "registration";
+    }
+    @RequestMapping("/registrationsuccess")
+    //the String method returns the jsp page that we want to show
+    public String registrationsuccess() {
+
+        return "registrationsuccess";
     }
 
     @RequestMapping("/newComment")
