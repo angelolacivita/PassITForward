@@ -3,7 +3,7 @@ package com.gc.models;
 import javax.persistence.*;
 
 /**
- * Created by angelo on 8/9/17.
+ * Created by fhani on 8/9/2017.
  */
 @Entity
 @Table(name = "users", schema = "PassITForward", catalog = "")
@@ -15,6 +15,7 @@ public class UsersEntity {
     private String lastName;
     private String email;
     private String languages;
+    private String accessToken;
 
     @Id
     @Column(name = "userID", nullable = false)
@@ -86,6 +87,16 @@ public class UsersEntity {
         this.languages = languages;
     }
 
+    @Basic
+    @Column(name = "accessToken", nullable = true, length = 70)
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -100,6 +111,7 @@ public class UsersEntity {
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
         if (languages != null ? !languages.equals(that.languages) : that.languages != null) return false;
+        if (accessToken != null ? !accessToken.equals(that.accessToken) : that.accessToken != null) return false;
 
         return true;
     }
@@ -113,6 +125,7 @@ public class UsersEntity {
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (languages != null ? languages.hashCode() : 0);
+        result = 31 * result + (accessToken != null ? accessToken.hashCode() : 0);
         return result;
     }
 }
