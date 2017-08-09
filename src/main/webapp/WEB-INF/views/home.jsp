@@ -57,7 +57,7 @@
                 <li class="active"><a href="/displayLanguages">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/challenges">Challenges</a></li>
+                <%--<li><a href="/challenges">Challenges</a></li>--%>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="col-md-4">
                 <a href ="/displayPosts?languageId=${myvar.languageId}"><h2>${myvar.language}</h2></a>
-
+                    <h5>All ${myvar.language} related Challenges on passITforward</h5>
             </div>
     </div>
 

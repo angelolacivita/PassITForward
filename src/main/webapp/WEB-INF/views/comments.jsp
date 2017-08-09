@@ -66,50 +66,27 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>contact passITforward</h1>
-        <p>We created passITforward as an alternative to some of the more popular solution websites that don't reward well thought out responses.
-        Our goal is to create a site that encourages users to respond to others problems.</p>
-        <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
+        <h1>${postTitle}</h1>
+        <h3>${postDescription}</h3>
     </div>
 </div>
 
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
+        <!--JSTL CREATED Begin-->
         <div class="col-md-4">
-            <h2>Java</h2>
-            <p>Number of Projects : 10<br>
-            Number of answers: 20<br>
-            Popularity: High</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            <c:forEach var="myvar" items="${cList}">
+                <h4>Comment #${myvar.commentsId}</h4>
+                <h4>${myvar.commentDescription}</h4>
+               <br>
+               <br>
+
+            </c:forEach>
+
         </div>
-        <div class="col-md-4">
-            <h2>C#</h2>
-            <p>Number of Projects : 11<br>
-                Number of answers: 21<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>CSS</h2>
-            <p>Number of Projects : 12<br>
-                Number of answers: 22<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>JavaScript</h2>
-            <p>Number of Projects : 13<br>
-                Number of answers: 23<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <p>Number of Projects : 14<br>
-                Number of answers: 24<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
+        <!--JSTL CREATED End-->
+
     </div>
 
 </div>
@@ -121,13 +98,13 @@
         <a href="mailto:passITforward"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
     </div>
 </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
 </body>
 </html>

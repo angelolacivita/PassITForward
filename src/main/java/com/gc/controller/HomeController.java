@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 
 /**
- * (Alphabetica Order)
+ * (Alphabetical Order)
  *
  * Farha Hanif
  * https://github.com/fhanif
@@ -173,11 +173,14 @@ public class HomeController {
     }
 
     @RequestMapping("/displayPosts")
-    public ModelAndView listPosts(@RequestParam("languageId") int languageId) {
-
+    public ModelAndView listPosts(@RequestParam("languageId") int languageId,
+                                  Model model) {
+        Session s = getSession();
+        LanguagesEntity temp = (LanguagesEntity) s.get(LanguagesEntity.class, languageId);
+        model.addAttribute("language",temp.getLanguage());
         ArrayList<PostsEntity> postsList = getAllPosts(languageId);
         return new
-                ModelAndView("showPosts", "pList", postsList);
+                ModelAndView("challenges", "pList", postsList);
 
     }
     private ArrayList<PostsEntity> getAllPosts(int languageId) {
@@ -195,7 +198,7 @@ public class HomeController {
         model.addAttribute("postDescription",temp.getPostDescription());
         ArrayList<CommentsEntity> commentsList = getAllComments(postId);
         return new
-                ModelAndView("showComments", "cList", commentsList);
+                ModelAndView("comments", "cList", commentsList);
 
     }
     private ArrayList<CommentsEntity> getAllComments(int postId) {
