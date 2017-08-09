@@ -2,20 +2,31 @@ package com.gc.controller;
 
 import com.gc.dao.UserDAO;
 import com.gc.dao.WalletDAO;
+
 import com.gc.factory.DaoFactory;
 import com.gc.models.*;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
+
+import org.springframework.web.bind.annotation.CookieValue;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 import java.util.ArrayList;
 
@@ -89,15 +100,42 @@ public class HomeController {
         return "newcomment";
     }
 
-    @RequestMapping("/loginsuccess")
+    @RequestMapping(value = "/loginsuccess", method = RequestMethod.GET)
     //the String method returns the jsp page that we want to show
-    public String loginsuccess(@RequestParam("username") String username,
-                               @RequestParam("password") String password,
-                               Model model) {
-        model.addAttribute("username", username);
-        model.addAttribute("password", password);
+    public String loginsuccess(Model model, @RequestParam("tempCode") String code, HttpServletResponse response) {
+//            (@RequestParam("username") String username,
+//                        @RequestParam("password") String password,
+//                        Model model) {
+//        model.addAttribute("username", username);
+//        model.addAttribute("password", password);
+
+//
+        String accessToken = OAuthMethods.getOAuthToken(code);
+        response.addCookie(new Cookie("cookieToken", accessToken));
+//        @CookieValue("cookieToken") String cookieToken
+        model.addAttribute("token", accessToken);
 
         return "loginsucess";
+        //if else statement
+    }
+
+    @RequestMapping("cookieTest")
+    public String cookieTest(@CookieValue("cookieToken") String cookieToken, Model model) {
+        model.addAttribute("cookieTest", cookieToken);
+        return "cookietest";
+    }
+
+    @RequestMapping("/tempPage")
+    public String tempPage() {
+        return "tempPage";
+    }
+
+    @RequestMapping("/logintest")
+    //the String method returns the jsp page that we want to show
+    public String loginTest() {
+
+
+        return "tempPage";
     }
 
     @RequestMapping("/login")
@@ -112,7 +150,7 @@ public class HomeController {
     }
 
     @RequestMapping("/create-profile")
-    public String registration(@ModelAttribute UsersEntity newUser, Model model){
+    public String registration(@ModelAttribute UsersEntity newUser, Model model) {
         UserDAO userdao = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
 
         Integer userIDforWallet = userdao.save(newUser);
@@ -214,7 +252,7 @@ public class HomeController {
         Criteria c = s.createCriteria(CommentsEntity.class);
         c.add(Restrictions.like("postId", postId));
         return (ArrayList<CommentsEntity>) c.list();
-    }
+  }
 
 
 }

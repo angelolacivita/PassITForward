@@ -85,7 +85,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
     </form>
     <br>
-    <a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email&client_id=4975543103.223648232195">slack</a>
+    <a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email&client_id=223829578051.223904316370">slack</a>
 
 </div>
 <br><!-- /container -->
@@ -98,6 +98,21 @@
     </div>
 </div>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!-- Antonella added this -->
+<%--<form name="temp" action="https://slack.com/oauth/authorize?scope=identity.basic,identity.email&client_id=223829578051.223904316370">--%>
+
+    <%--<input type="hidden" id="tempCode" name="tempCode" value="">--%>
+    <%--<input type="submit" value="slack">--%>
+<%--</form>--%>
+<%--<script>--%>
+    <%--var url_string = window.location.href;--%>
+    <%--var url = new URL(url_string);--%>
+    <%--var code = url.searchParams.get("code");--%>
+    <%--document.getElementById('tempCode').value = code;--%>
+    <%--window.onload = function(){--%>
+        <%--document.forms['temp'].submit();--%>
+    <%--}--%>
+<%--</script>--%>
 <script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
 </body>
 </html>

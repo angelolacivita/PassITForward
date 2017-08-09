@@ -66,9 +66,10 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>passITforward</h1>
+        <h1>passITforward${token}</h1>
         <p>Thanks for siging in ${username}</p>
         <p><a class="btn btn-primary btn-lg" href="/challenges" role="button">Get Started &raquo;</a></p>
+
     </div>
 </div>
 <div class="container">

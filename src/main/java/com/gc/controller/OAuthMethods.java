@@ -1,3 +1,5 @@
+package com.gc.controller;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,8 +17,8 @@ public class OAuthMethods {
 
     public static String getOAuthToken(String code){
         //TODO always delete before a push
-        String clientId = "219461147683.223751169686";
-        String clientSecret = "c8c878fd247e9509eb946b700857a1c8";
+        String clientId = "223829578051.223904316370";
+        String clientSecret = "a9463fab81cf05d0b25722e2511a85c6";
         String accessToken = "";
         try {
             URL url = new URL("https://slack.com/api/oauth.access?client_id="+clientId+"&client_secret="+clientSecret+"&code="+code);
@@ -40,4 +42,4 @@ public class OAuthMethods {
         return accessToken;
     }
 
-}
+} //add temp page as redirect uri

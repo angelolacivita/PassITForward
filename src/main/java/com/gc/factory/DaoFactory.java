@@ -1,5 +1,6 @@
 package com.gc.factory;
-
+import com.gc.dao.UserDAO;
+import com.gc.dao.UserDAOImpl;
 
 import com.gc.dao.*;
 
@@ -34,3 +35,4 @@ public class DaoFactory {
         return null;
     }
 }
+
