@@ -1,5 +1,6 @@
 package com.gc.factory;
-
+import com.gc.dao.UserDAO;
+import com.gc.dao.UserDAOImpl;
 
 import com.gc.dao.*;
 import com.gc.models.CommentsEntity;
@@ -46,3 +47,4 @@ public class DaoFactory {
         return null;
     }
 }
+
