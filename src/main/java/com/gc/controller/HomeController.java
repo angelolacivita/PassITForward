@@ -1,5 +1,8 @@
 package com.gc.controller;
 
+import com.gc.dao.UserDAO;
+import com.gc.dao.WalletDAO;
+import com.gc.factory.DaoFactory;
 import com.gc.models.*;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -9,6 +12,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,13 +21,13 @@ import java.util.ArrayList;
 
 /**
  * (Alphabetical Order)
- *
+ * <p>
  * Farha Hanif
  * https://github.com/fhanif
- *
+ * <p>
  * Angelo LaCivita
  * https://github.com/angelolacivita
- *
+ * <p>
  * Matthew Menna
  * https://github.com/mattmenna
  * https://www.linkedin.com/in/matthew-menna/
@@ -42,6 +46,7 @@ public class HomeController {
         return session;
 
     }
+
     @RequestMapping("/")
     //the String method returns the jsp page that we want to show
     public String welcome() {
@@ -87,8 +92,8 @@ public class HomeController {
     @RequestMapping("/loginsuccess")
     //the String method returns the jsp page that we want to show
     public String loginsuccess(@RequestParam("username") String username,
-                        @RequestParam("password") String password,
-                        Model model) {
+                               @RequestParam("password") String password,
+                               Model model) {
         model.addAttribute("username", username);
         model.addAttribute("password", password);
 
@@ -108,53 +113,53 @@ public class HomeController {
 
     @RequestMapping("/create-profile")
     //the String method returns the jsp page that we want to show
-    public String registration(@RequestParam("firstName") String firstName,
-                               @RequestParam("lastName") String lastName,
-                               @RequestParam("password") String password,
-                               @RequestParam("email") String email,
-                               @RequestParam("userName") String userName,
-                               @RequestParam("languages") String languages,
-                               Model model) {
+//    public String registration(@RequestParam("firstName") String firstName,
+//                               @RequestParam("lastName") String lastName,
+//                               @RequestParam("password") String password,
+//                               @RequestParam("email") String email,
+//                               @RequestParam("userName") String userName,
+//                               @RequestParam("languages") String languages,
+//                               Model model) {
 
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        Session s = sessionFact.openSession();
-        Transaction tx = s.beginTransaction();
+            public String registration(@ModelAttribute UsersEntity newUser, Model model){
+        UserDAO userdao = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
 
-        UsersEntity newUser = new UsersEntity();
+       // UsersEntity newUser = new UsersEntity();
 
-        newUser.setFirstName(firstName);
-        newUser.setLastName(lastName);
-        newUser.setPassword(password);
-        newUser.setEmail(email);
-        newUser.setUserName(userName);
-        newUser.setLanguages(languages);
+        System.out.println(newUser);
 
-        Integer userIDforWallet = (Integer) s.save(newUser);
+//        newUser.setFirstName(firstName);
+//        newUser.setLastName(lastName);
+//        newUser.setPassword(password);
+//        newUser.setEmail(email);
+//        newUser.setUserName(userName);
+//        newUser.setLanguages(languages);
+
+        Integer userIDforWallet = userdao.save(newUser);
 
 
-      WalletEntity newWallet = new WalletEntity();
+        WalletEntity newWallet = new WalletEntity();
+
+        WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
 
         newWallet.setWalletValue(10);
         newWallet.setUserId(userIDforWallet);
+        walletDAO.save(newWallet);
 
-        s.save(newWallet);
-
-        model.addAttribute("firstName",firstName);
+        model.addAttribute("firstName", newUser.getFirstName());
         model.addAttribute("walletValue", newWallet.getWalletValue());
 
-        tx.commit();
-        s.close();
 
         return "registrationsuccess";
     }
 
     @RequestMapping("/registration")
     //the String method returns the jsp page that we want to show
-    public String registration() {
+    public ModelAndView registration(Model model) {
 
-        return "registration";
+        return new ModelAndView("registration", "command", new UsersEntity());
     }
+
     @RequestMapping("/registrationsuccess")
     //the String method returns the jsp page that we want to show
     public String registrationsuccess() {
@@ -173,6 +178,7 @@ public class HomeController {
     public String showLanguages() {
         return "showLanguages";
     }
+
     @RequestMapping("/showPosts")
     public String showPosts() {
         return "showPosts";
@@ -185,6 +191,7 @@ public class HomeController {
                 ModelAndView("home", "lList", languageList);
 
     }
+
     private ArrayList<LanguagesEntity> getAllLanguages() {
         Session s = getSession();
         Criteria l = s.createCriteria(LanguagesEntity.class);
@@ -196,30 +203,33 @@ public class HomeController {
                                   Model model) {
         Session s = getSession();
         LanguagesEntity temp = (LanguagesEntity) s.get(LanguagesEntity.class, languageId);
-        model.addAttribute("language",temp.getLanguage());
+        model.addAttribute("language", temp.getLanguage());
         ArrayList<PostsEntity> postsList = getAllPosts(languageId);
         return new
                 ModelAndView("challenges", "pList", postsList);
 
     }
+
     private ArrayList<PostsEntity> getAllPosts(int languageId) {
         Session s = getSession();
         Criteria p = s.createCriteria(PostsEntity.class);
         p.add(Restrictions.like("languageId", languageId));
         return (ArrayList<PostsEntity>) p.list();
     }
+
     @RequestMapping("/displayComments")
     public ModelAndView listComments(@RequestParam("postId") int postId,
                                      Model model) {
         Session s = getSession();
         PostsEntity temp = (PostsEntity) s.get(PostsEntity.class, postId);
-        model.addAttribute("postTitle",temp.getPostTitle());
-        model.addAttribute("postDescription",temp.getPostDescription());
+        model.addAttribute("postTitle", temp.getPostTitle());
+        model.addAttribute("postDescription", temp.getPostDescription());
         ArrayList<CommentsEntity> commentsList = getAllComments(postId);
         return new
                 ModelAndView("comments", "cList", commentsList);
 
     }
+
     private ArrayList<CommentsEntity> getAllComments(int postId) {
         Session s = getSession();
         Criteria c = s.createCriteria(CommentsEntity.class);
