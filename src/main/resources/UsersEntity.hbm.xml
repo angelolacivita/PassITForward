@@ -26,8 +26,5 @@
         <property name="languages">
             <column name="languages" sql-type="varchar(45)" length="45"/>
         </property>
-        <property name="walletId">
-            <column name="walletID" sql-type="int(10)" not-null="true"/>
-        </property>
     </class>
 </hibernate-mapping>

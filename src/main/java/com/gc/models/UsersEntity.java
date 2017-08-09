@@ -15,7 +15,6 @@ public class UsersEntity {
     private String lastName;
     private String email;
     private String languages;
-    private Integer walletId;
 
     @Id
     @Column(name = "userID", nullable = false)
@@ -87,16 +86,6 @@ public class UsersEntity {
         this.languages = languages;
     }
 
-    @Basic
-    @Column(name = "walletID", nullable = true)
-    public Integer getWalletId() {
-        return walletId;
-    }
-
-    public void setWalletId(Integer walletId) {
-        this.walletId = walletId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -111,7 +100,6 @@ public class UsersEntity {
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
         if (languages != null ? !languages.equals(that.languages) : that.languages != null) return false;
-        if (walletId != null ? !walletId.equals(that.walletId) : that.walletId != null) return false;
 
         return true;
     }
@@ -125,7 +113,6 @@ public class UsersEntity {
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (languages != null ? languages.hashCode() : 0);
-        result = 31 * result + (walletId != null ? walletId.hashCode() : 0);
         return result;
     }
 }
