@@ -130,12 +130,16 @@ public class HomeController {
         newUser.setUserName(userName);
         newUser.setLanguages(languages);
 
+        s.save(newUser);
+
         WalletEntity newWallet = new WalletEntity();
+
+        newUser.setWalletId(newUser.getUserId());
+        newWallet.setWalletId(newUser.getUserId());
         newWallet.setWalletValue(10);
 
         model.addAttribute(firstName);
 
-        s.save(newUser);
         s.save(newWallet);
         tx.commit();
         s.close();
