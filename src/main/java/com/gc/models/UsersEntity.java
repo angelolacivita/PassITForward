@@ -3,7 +3,7 @@ package com.gc.models;
 import javax.persistence.*;
 
 /**
- * Created by angelo on 8/8/17.
+ * Created by angelo on 8/9/17.
  */
 @Entity
 @Table(name = "users", schema = "PassITForward", catalog = "")

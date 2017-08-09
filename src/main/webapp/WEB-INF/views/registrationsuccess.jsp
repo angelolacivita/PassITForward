@@ -69,7 +69,7 @@
         <h1>passITforward</h1>
         <p>Thanks for registering ${firstName}
         <br>
-        You have 10 passITpoints in your wallet!
+        You have ${walletValue} passITpoints in your wallet!
         </p>
         <p><a class="btn btn-primary btn-lg" href="/displayLanguages" role="button">Start working &raquo;</a></p>
     </div>
