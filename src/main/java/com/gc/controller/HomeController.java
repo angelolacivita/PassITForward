@@ -1,9 +1,6 @@
 package com.gc.controller;
 
-import com.gc.models.CommentsEntity;
-import com.gc.models.LanguagesEntity;
-import com.gc.models.PostsEntity;
-import com.gc.models.UsersEntity;
+import com.gc.models.*;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -133,9 +130,13 @@ public class HomeController {
         newUser.setUserName(userName);
         newUser.setLanguages(languages);
 
+        WalletEntity newWallet = new WalletEntity();
+        newWallet.setWalletValue(10);
+
         model.addAttribute(firstName);
 
         s.save(newUser);
+        s.save(newWallet);
         tx.commit();
         s.close();
 
