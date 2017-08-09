@@ -170,52 +170,53 @@
                  <input id="textinput" name="lastName" type="text" placeholder="Smith" class="form-control input-md" required="">
             </div>
 
-            <!-- Select languages -->
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" name="" id="java" value="checkedValue" checked>
-                    Java<br>
-                    <input type="checkbox" class="form-check-input" name="" id="javascript" value="checkedValue" checked>
-                    JavaScript<br>
-                    <input type="checkbox" class="form-check-input" name="" id="C++" value="checkedValue" checked>
-                    C++<br>
-                    <input type="checkbox" class="form-check-input" name="" id="Python" value="checkedValue" checked>
-                    Python<br>
-                    <input type="checkbox" class="form-check-input" name="" id="Ruby" value="checkedValue" checked>
-                    Ruby<br>
-                    <input type="checkbox" class="form-check-input" name="" id="HTML" value="checkedValue" checked>
-                    HTML<br>
-                    <input type="checkbox" class="form-check-input" name="" id="PHP" value="checkedValue" checked>
-                    PHP<br>
-                    <input type="checkbox" class="form-check-input" name="" id="SQL" value="checkedValue" checked>
-                    SQL<br>
-                    <input type="checkbox" class="form-check-input" name="" id="C#" value="checkedValue" checked>
-                    C#<br>
-                </label>
-            </div>
 
             <!-- Text email-->
             <div class="form-group">
                 <label class="control-label" for="email">E-mail</label>
-                    <input id="email" name="email" type="text" placeholder="john.smith@mail.com" class="form-control input-md" required="">
+                <input id="email" name="email" type="text" placeholder="john.smith@mail.com" class="form-control input-md" required="">
 
             </div>
 
             <!-- Password input-->
             <div class="form-group">
                 <label class="control-label" for="passwordinput">Password</label>
-                    <input id="passwordinput" name="password" type="password" placeholder="Enter your password" class="form-control input-md" required="">
+                <input id="passwordinput" name="password" type="password" placeholder="Enter your password" class="form-control input-md" required="">
             </div>
 
             <!-- Password input-->
             <div class="form-group">
                 <label class="control-label" for="passwordinput">Repeat password </label>
-                    <input id="passwordinput" name="passwordinput" type="password" placeholder="Repeat your password" class="form-control input-md" required="">
+                <input id="passwordinput" name="passwordinput" type="password" placeholder="Repeat your password" class="form-control input-md" required="">
+            </div>
+            
+            <!-- Select languages -->
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="java" value="checkedValue" checked>
+                    Java<br>
+                    <input type="checkbox" class="form-check-input" name="" id="javascript" value="checkedValue">
+                    JavaScript<br>
+                    <input type="checkbox" class="form-check-input" name="" id="C++" value="checkedValue">
+                    C++<br>
+                    <input type="checkbox" class="form-check-input" name="" id="Python" value="checkedValue">
+                    Python<br>
+                    <input type="checkbox" class="form-check-input" name="" id="Ruby" value="checkedValue">
+                    Ruby<br>
+                    <input type="checkbox" class="form-check-input" name="" id="HTML" value="checkedValue">
+                    HTML<br>
+                    <input type="checkbox" class="form-check-input" name="" id="PHP" value="checkedValue">
+                    PHP<br>
+                    <input type="checkbox" class="form-check-input" name="" id="SQL" value="checkedValue">
+                    SQL<br>
+                    <input type="checkbox" class="form-check-input" name="" id="C#" value="checkedValue">
+                    C#<br>
+                </label>
             </div>
 
             <div class="form-group">
                 <label class="col-md-4 control-label" for="singlebutton"></label>
-                    <button id="singlebutton" name="register" class="btn btn-primary">Register</button>
+                <button id="singlebutton" name="register" class="btn btn-primary">Register</button>
             </div>
         </fieldset>
 </form>
