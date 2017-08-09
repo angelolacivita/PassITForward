@@ -67,8 +67,11 @@
 <div class="jumbotron">
     <div class="container">
         <h1>passITforward</h1>
-        <p>Thanks for registering ${firstName}</p>
-        <p><a class="btn btn-primary btn-lg" href="/about" role="button">Start working &raquo;</a></p>
+        <p>Thanks for registering, ${firstName}!
+        <br>
+        You have ${walletValue} passITpoints in your wallet!
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="/displayLanguages" role="button">Start working &raquo;</a></p>
     </div>
 </div>
 

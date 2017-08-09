@@ -95,6 +95,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,70 +155,70 @@
 </nav>   <span class="icon-bar"></span>
 
 <div class="container">
-<form class="form-signin" method="post" action="/create-profile">
+<form:form class="form-signin" method="post" action="/create-profile">
         <fieldset>
             <!-- Form Name -->
             <legend>Register</legend>
 
             <!-- First name-->
             <div class="form-group">
-                <label class="control-label" for="textinput">First name</label>
-                    <input id="textinput" name="firstName" type="text" placeholder="John" class="form-control input-md" required="">
+                <form:label path="firstName" class="control-label" for="textinput">First name</form:label>
+                    <form:input path="firstName" id="textinput" name="firstName" type="text" placeholder="John" class="form-control input-md" required=""/>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="control-label" for="textinput">Last name</label>
-                 <input id="textinput" name="lastName" type="text" placeholder="Smith" class="form-control input-md" required="">
+                <form:label path="lastName" class="control-label" for="textinput">Last name</form:label>
+                 <form:input path="lastName" id="textinput" name="lastName" type="text" placeholder="Smith" class="form-control input-md" required=""/>
             </div>
 
 
             <!-- Text email-->
             <div class="form-group">
-                <label class="control-label" for="email">E-mail</label>
-                <input id="email" name="email" type="text" placeholder="john.smith@mail.com" class="form-control input-md" required="">
+                <form:label path="email" class="control-label" for="email">E-mail</form:label>
+                <form:input path="email" id="email" name="email" type="text" placeholder="john.smith@mail.com" class="form-control input-md" required=""/>
 
             </div>
 
             <!-- Text userName-->
             <div class="form-group">
-                <label class="control-label" for="textinput">Username</label>
-                <input id="textinput" name="userName" type="text" placeholder="johnsmith1" class="form-control input-md" required="">
+                <form:label path="userName" class="control-label" for="textinput">Username</form:label>
+                <form:input path="userName" id="textinput" name="userName" type="text" placeholder="johnsmith1" class="form-control input-md" required=""/>
             </div>
             <!-- Password input-->
             <div class="form-group">
-                <label class="control-label" for="passwordinput">Password</label>
-                <input id="passwordinput" name="password" type="password" placeholder="Enter your password" class="form-control input-md" required="">
+                <form:label path="password" class="control-label" for="passwordinput">Password</form:label>
+                <form:input path="password" id="passwordinput" name="password" type="password" placeholder="Enter your password" class="form-control input-md" required=""/>
             </div>
 
             <!-- Password input-->
             <div class="form-group">
                 <label class="control-label" for="passwordinput">Repeat password </label>
-                <input id="passwordinput" name="passwordinput" type="password" placeholder="Repeat your password" class="form-control input-md" required="">
+                <input id="passwordinput" name="passwordinput" type="password" placeholder="Repeat your password" class="form-control input-md" required=""/>
             </div>
 
             <!-- Select languages -->
             <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" name="languages" id="java" value="checkedValue" checked>
+                <form:label path="" class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="languages" id="Java" value="Java" checked>
                     Java<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="javascript" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="JavaScript" value="JavaScript">
                     JavaScript<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="C++" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="C++" value="C++">
                     C++<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="Python" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="Python" value="Python">
                     Python<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="Ruby" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="Ruby" value="Ruby">
                     Ruby<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="HTML" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="HTML" value="HTML">
                     HTML<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="PHP" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="PHP" value="PHP">
                     PHP<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="SQL" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="SQL" value="SQL">
                     SQL<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="C#" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="C#" value="C#">
                     C#<br>
-                </label>
+                </form:label>
             </div>
 
             <div class="form-group">
@@ -224,7 +226,7 @@
                 <button id="singlebutton" name="register" class="btn btn-primary">Register</button>
             </div>
         </fieldset>
-</form>
+</form:form>
 </div>
 
 <div class="container">

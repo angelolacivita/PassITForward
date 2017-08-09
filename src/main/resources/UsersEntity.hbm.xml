@@ -5,8 +5,9 @@
 <hibernate-mapping>
 
     <class name="com.gc.models.UsersEntity" table="users" schema="PassITForward">
-        <id name="userId">
-            <column name="userID" sql-type="int(10) unsigned"/>
+        <id name="userId" type="int" column="userID">
+            <generator class="native"/>
+
         </id>
         <property name="userName">
             <column name="userName" sql-type="varchar(45)" length="45"/>
@@ -25,9 +26,6 @@
         </property>
         <property name="languages">
             <column name="languages" sql-type="varchar(45)" length="45"/>
-        </property>
-        <property name="walletId">
-            <column name="walletID" sql-type="int(10)" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

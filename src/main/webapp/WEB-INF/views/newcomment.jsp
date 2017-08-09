@@ -9,29 +9,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js" type="text/javascript" charset="utf-8"></script>
     <title>ACE test</title>
     <style type="text/css" media="screen">
         #editor {
             position: absolute;
-            top: 0;
+            top: 40%;
             right: 40%;
             bottom: 40%;
-            left: 0;
+            left: 40%;
         }
     </style>
 </head>
 <body>
 
-<div id="editor">
-    editor.getSession().setValue(${postDescription});</div>
-
-<script src="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/javascript");
-</script>
-hey button goes here
+<pre id="editor">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+        alert("Ace Rocks " + items[i]);
+    }
+}
+</pre>
 </body>
 </html>
 
