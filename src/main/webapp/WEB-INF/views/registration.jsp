@@ -198,23 +198,23 @@
             <!-- Select languages -->
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" name="languages" id="java" value="checkedValue" checked>
+                    <input type="checkbox" class="form-check-input" name="languages" id="Java" value="Java" checked>
                     Java<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="javascript" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="JavaScript" value="JavaScript">
                     JavaScript<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="C++" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="C++" value="C++">
                     C++<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="Python" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="Python" value="Python">
                     Python<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="Ruby" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="Ruby" value="Ruby">
                     Ruby<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="HTML" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="HTML" value="HTML">
                     HTML<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="PHP" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="PHP" value="PHP">
                     PHP<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="SQL" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="SQL" value="SQL">
                     SQL<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="C#" value="checkedValue">
+                    <input type="checkbox" class="form-check-input" name="languages" id="C#" value="C#">
                     C#<br>
                 </label>
             </div>
