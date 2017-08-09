@@ -132,17 +132,16 @@ public class HomeController {
 
         Integer userIDforWallet = (Integer) s.save(newUser);
 
-        System.out.println(userIDforWallet);
 
-//        WalletEntity newWallet = new WalletEntity();
-//
-//        newWallet.setWalletValue(10);
-//        newWallet.setUserId(userIDforWallet);
+      WalletEntity newWallet = new WalletEntity();
 
-//        s.save(newWallet);
+        newWallet.setWalletValue(10);
+        newWallet.setUserId(userIDforWallet);
+
+        s.save(newWallet);
 
         model.addAttribute("firstName",firstName);
-//        model.addAttribute("walletValue", newWallet.getWalletValue());
+        model.addAttribute("walletValue", newWallet.getWalletValue());
 
         tx.commit();
         s.close();
