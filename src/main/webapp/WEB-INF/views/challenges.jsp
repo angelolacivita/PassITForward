@@ -73,15 +73,14 @@
 
 <div class="container">
     <!-- Example row of columns -->
-    <div class="row">
         <!--JSTL CREATED Begin-->
+    <c:forEach var="myvar" items="${pList}">
         <div class="col-md-4">
-            <c:forEach var="myvar" items="${pList}">
                 <a href ="/displayComments?postId=${myvar.postId}"><h2>${myvar.postTitle}</h2></a></td>
-                <h5>${myvar.postDescription}</h5>
-            </c:forEach>
-
+                <p>${myvar.postDescription}</p>
         </div>
+    </c:forEach>
+
         <!--JSTL CREATED End-->
 
     </div>

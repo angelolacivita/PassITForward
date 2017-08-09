@@ -61,7 +61,8 @@
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav>   <span class="icon-bar"></span>
+</nav>
+<span class="icon-bar"></span>
 
 
 <div class="jumbotron">
@@ -75,53 +76,49 @@
 <div class="container">
     <!-- Example row of columns -->
 
-        <c:forEach var="myvar" items="${lList}">
-            <div class="row">
-                <div class="col-md-4">
-                <a href ="/displayPosts?languageId=${myvar.languageId}"><h2>${myvar.language}</h2></a>
-                    <h5>All ${myvar.language} related Challenges on passITforward</h5>
+    <c:forEach var="myvar" items="${lList}">
+            <div class="col-md-4">
+                <a href="/displayPosts?languageId=${myvar.languageId}"><h2>${myvar.language}</h2></a>
+                <p>All ${myvar.language} related Challenges on passITforward</p>
+                <p><a class="btn btn-default" href="/displayPosts?languageId=${myvar.languageId}" role="button">View details &raquo;</a></p>
             </div>
-    </div>
-
-
-        </c:forEach>
-        <%--<div class="col-md-4">--%>
-            <%--<h2>Java</h2>--%>
-            <%--<p>Number of Projects : 10<br>--%>
-            <%--Number of answers: 20<br>--%>
-            <%--Popularity: High</p>--%>
-            <%--<p><a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
-        <%--</div>--%>
-        <%--<div class="col-md-4">--%>
-            <%--<h2>C#</h2>--%>
-            <%--<p>Number of Projects : 11<br>--%>
-                <%--Number of answers: 21<br>--%>
-                <%--Popularity: High</p>--%>
-            <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
-        <%--</div>--%>
-        <%--<div class="col-md-4">--%>
-            <%--<h2>CSS</h2>--%>
-            <%--<p>Number of Projects : 12<br>--%>
-                <%--Number of answers: 22<br>--%>
-                <%--Popularity: High</p>--%>
-            <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
-        <%--</div>--%>
-        <%--<div class="col-md-4">--%>
-            <%--<h2>JavaScript</h2>--%>
-            <%--<p>Number of Projects : 13<br>--%>
-                <%--Number of answers: 23<br>--%>
-                <%--Popularity: High</p>--%>
-            <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
-        <%--</div>--%>
-        <%--<div class="col-md-4">--%>
-            <%--<p>Number of Projects : 14<br>--%>
-                <%--Number of answers: 24<br>--%>
-                <%--Popularity: High</p>--%>
-            <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
-        <%--</div>--%>
-    </div>
-
+    </c:forEach>
+    <%--<div class="col-md-4">--%>
+    <%--<h2>Java</h2>--%>
+    <%--<p>Number of Projects : 10<br>--%>
+    <%--Number of answers: 20<br>--%>
+    <%--Popularity: High</p>--%>
+    <%--<p><a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
+    <%--</div>--%>
+    <%--<div class="col-md-4">--%>
+    <%--<h2>C#</h2>--%>
+    <%--<p>Number of Projects : 11<br>--%>
+    <%--Number of answers: 21<br>--%>
+    <%--Popularity: High</p>--%>
+    <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
+    <%--</div>--%>
+    <%--<div class="col-md-4">--%>
+    <%--<h2>CSS</h2>--%>
+    <%--<p>Number of Projects : 12<br>--%>
+    <%--Number of answers: 22<br>--%>
+    <%--Popularity: High</p>--%>
+    <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
+    <%--</div>--%>
+    <%--<div class="col-md-4">--%>
+    <%--<h2>JavaScript</h2>--%>
+    <%--<p>Number of Projects : 13<br>--%>
+    <%--Number of answers: 23<br>--%>
+    <%--Popularity: High</p>--%>
+    <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
+    <%--</div>--%>
+    <%--<div class="col-md-4">--%>
+    <%--<p>Number of Projects : 14<br>--%>
+    <%--Number of answers: 24<br>--%>
+    <%--Popularity: High</p>--%>
+    <%--<a class="btn btn-default" href="/challenges" role="button">View details &raquo;</a></p>--%>
+    <%--</div>--%>
 </div>
+
 <div class="container">
     <div class="text-center center-block">
         <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
@@ -130,13 +127,13 @@
         <a href="mailto:passITforward"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
     </div>
 </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
 </body>
 </html>

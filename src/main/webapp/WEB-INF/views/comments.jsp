@@ -75,16 +75,14 @@
     <!-- Example row of columns -->
     <div class="row">
         <!--JSTL CREATED Begin-->
+        <c:forEach var="myvar" items="${cList}">
         <div class="col-md-4">
-            <c:forEach var="myvar" items="${cList}">
                 <h4>Comment #${myvar.commentsId}</h4>
                 <h4>${myvar.commentDescription}</h4>
                <br>
                <br>
-
-            </c:forEach>
-
         </div>
+        </c:forEach>
         <!--JSTL CREATED End-->
 
     </div>
