@@ -115,23 +115,27 @@ public class HomeController {
                                @RequestParam("lastName") String lastName,
                                @RequestParam("password") String password,
                                @RequestParam("email") String email,
+                               @RequestParam("userName") String userName,
+                               @RequestParam("languages") String languages,
                                Model model) {
 
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFact = cfg.buildSessionFactory();
-        Session session = sessionFact.openSession();
-        Transaction tx = session.beginTransaction();
+        Session s = sessionFact.openSession();
+        Transaction tx = s.beginTransaction();
+
         UsersEntity newUser = new UsersEntity();
 
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
         newUser.setPassword(password);
         newUser.setEmail(email);
+        newUser.setUserName(userName);
+        newUser.setLanguages(languages);
 
-        model.addAttribute("firstName", firstName);
-        model.addAttribute("lastName", lastName);
-        model.addAttribute("password", password);
-        model.addAttribute("email", email);
+        s.save(newUser);
+        tx.commit();
+        s.close();
 
         return "registrationsuccess";
     }
