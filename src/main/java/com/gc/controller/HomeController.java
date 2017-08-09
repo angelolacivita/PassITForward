@@ -112,31 +112,10 @@ public class HomeController {
     }
 
     @RequestMapping("/create-profile")
-    //the String method returns the jsp page that we want to show
-//    public String registration(@RequestParam("firstName") String firstName,
-//                               @RequestParam("lastName") String lastName,
-//                               @RequestParam("password") String password,
-//                               @RequestParam("email") String email,
-//                               @RequestParam("userName") String userName,
-//                               @RequestParam("languages") String languages,
-//                               Model model) {
-
-            public String registration(@ModelAttribute UsersEntity newUser, Model model){
+    public String registration(@ModelAttribute UsersEntity newUser, Model model){
         UserDAO userdao = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
 
-       // UsersEntity newUser = new UsersEntity();
-
-        System.out.println(newUser);
-
-//        newUser.setFirstName(firstName);
-//        newUser.setLastName(lastName);
-//        newUser.setPassword(password);
-//        newUser.setEmail(email);
-//        newUser.setUserName(userName);
-//        newUser.setLanguages(languages);
-
         Integer userIDforWallet = userdao.save(newUser);
-
 
         WalletEntity newWallet = new WalletEntity();
 

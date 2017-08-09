@@ -11,19 +11,6 @@ public class DaoFactory {
     public static final int USERS_HIBERNATE_DAO = 0;
     public static final int WALLET_HIBERNATE_DAO = 1;
 
-    public static passITforwardDAO getDaoInstance(int fileDao) {
-        switch(fileDao){
-            case passITforwardDAO.FILE_DAO:
-               // return new FileDao();
-
-            case passITforwardDAO.JDBC_DAO:
-                return null;
-
-            default:
-                break;
-        }
-        return null;
-    }
 
     public static UserDAO getUserDaoInstance(int usersHibernateDao) {
         switch(usersHibernateDao){
