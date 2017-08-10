@@ -204,6 +204,23 @@ public class HomeController {
         return "redirect:comments?postId="+postId;
     }
 
+@RequestMapping("/newchallenge")
+    public ModelAndView newchallenge(@RequestParam("languageId") int postId, Model model){
+        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
+        ArrayList<CommentsEntity> commentsList = commentsdao.getAllComments(model, postId);
+
+        return new ModelAndView("newcomment", "command", new CommentsEntity());
+    }
+
+    @RequestMapping("/create-comment")
+    public String createchallenge(@ModelAttribute CommentsEntity newComment, Model model,
+                             @RequestParam("postId") int postId){
+        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
+        commentsdao.save(newComment);
+
+        return "redirect:comments?postId="+postId;
+    }
+
 
 
 }

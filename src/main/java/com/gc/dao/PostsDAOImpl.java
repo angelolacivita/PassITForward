@@ -18,6 +18,14 @@ import java.util.ArrayList;
 
 public class PostsDAOImpl implements PostsDAO {
 
+    public void save(PostsEntity newPost) {
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
+        s.save(newPost);
+        tx.commit();
+        s.close();
+    }
+
     public ArrayList<PostsEntity> getAllPosts(Model model, int languageId) {
 
         Session s = getSession();
