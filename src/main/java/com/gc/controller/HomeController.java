@@ -260,4 +260,10 @@ public class HomeController {
         return new ModelAndView("displayall", "","");
     }
 
+    public Session getSession() {
+        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+        SessionFactory sessionFact = cfg.buildSessionFactory();
+        return sessionFact.openSession();
+    }
+
 }
