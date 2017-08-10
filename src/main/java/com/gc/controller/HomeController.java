@@ -104,22 +104,21 @@ public class HomeController {
         response.addCookie(new Cookie("cookieToken", accessToken));
         model.addAttribute("token", accessToken);
 
-        //use more cookies
-
         return "loginsucess";
         //if else statement
     }
 
-    @RequestMapping(value = "/privatemessage", method = RequestMethod.GET)
-    public String privatemessage(){
-
-        return "";
+    @RequestMapping("/submitslackmessage")
+    public String submitslackmessage() {
+        return "slackmessage";
     }
 
-    @RequestMapping ("/privatemessage")
-    public String privatemessage(@RequestParam ("slackmessage") String slackmessage) {
 
-        return "";
+
+    @RequestMapping(value = "/slackmessagesuccess", method = RequestMethod.GET)
+    public String privatemessage(@CookieValue("cookieToken") String cookieToken,@RequestParam("slackmessage") String message, @RequestParam("channel") String channel){
+        OAuthMethods.sendPrivateMessage(message, cookieToken, channel);
+        return "slackmessagesuccess";
     }
 
     @RequestMapping("cookieTest")
