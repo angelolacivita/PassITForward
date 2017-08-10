@@ -267,8 +267,6 @@ public class HomeController {
         //commentsdao.commentsList(userDAO.listAll(), 1);
 
 
-
-       // return new ModelAndView("displayall", "command", ArrayList<EntityList> e.list());
         return new ModelAndView("displayall", "","");
     }
 
