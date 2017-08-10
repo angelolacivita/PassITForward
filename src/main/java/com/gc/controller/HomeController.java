@@ -76,9 +76,10 @@ public class HomeController {
 
     @RequestMapping("/challenges")
     //the String method returns the jsp page that we want to show
-    public String challenges() {
+    public ModelAndView challenges() {
 
-        return "challenges";
+        return new
+                ModelAndView("challenges", "pList", postsList);
     }
 
     @RequestMapping("/contact")
@@ -215,24 +216,24 @@ public class HomeController {
 //        return (ArrayList<LanguagesEntity>) l.list();
 //    }
 
-    @RequestMapping("/displayPosts")
-    public ModelAndView listPosts(@RequestParam("languageId") int languageId,
-                                  Model model) {
-        Session s = getSession();
-        LanguagesEntity temp = (LanguagesEntity) s.get(LanguagesEntity.class, languageId);
-        model.addAttribute("language", temp.getLanguage());
-        ArrayList<PostsEntity> postsList = getAllPosts(languageId);
-        return new
-                ModelAndView("challenges", "pList", postsList);
-
-    }
-
-    private ArrayList<PostsEntity> getAllPosts(int languageId) {
-        Session s = getSession();
-        Criteria p = s.createCriteria(PostsEntity.class);
-        p.add(Restrictions.like("languageId", languageId));
-        return (ArrayList<PostsEntity>) p.list();
-    }
+//    @RequestMapping("/displayPosts")
+//    public ModelAndView listPosts(@RequestParam("languageId") int languageId,
+//                                  Model model) {
+//        Session s = getSession();
+//        LanguagesEntity temp = (LanguagesEntity) s.get(LanguagesEntity.class, languageId);
+//        model.addAttribute("language", temp.getLanguage());
+//        ArrayList<PostsEntity> postsList = getAllPosts(languageId);
+//        return new
+//                ModelAndView("challenges", "pList", postsList);
+//
+//    }
+//
+//    private ArrayList<PostsEntity> getAllPosts(int languageId) {
+//        Session s = getSession();
+//        Criteria p = s.createCriteria(PostsEntity.class);
+//        p.add(Restrictions.like("languageId", languageId));
+//        return (ArrayList<PostsEntity>) p.list();
+//    }
 
     @RequestMapping("/displayComments")
     public ModelAndView listComments(@RequestParam("postId") int postId,
