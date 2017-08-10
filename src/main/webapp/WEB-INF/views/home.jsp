@@ -80,7 +80,7 @@
             <div class="col-md-4">
                 <a href="/displayPosts?languageId=${myvar.languageId}"><h2>${myvar.language}</h2></a>
                 <p>All ${myvar.language} related Challenges on passITforward</p>
-                <p><a class="btn btn-default" href="/displayPosts?languageId=${myvar.languageId}" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-default" href="/challenges?languageId=${myvar.languageId}" role="button">View details &raquo;</a></p>
             </div>
     </c:forEach>
     <%--<div class="col-md-4">--%>

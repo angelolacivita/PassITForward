@@ -73,7 +73,9 @@ public class HomeController {
 
     @RequestMapping("/challenges")
     //the String method returns the jsp page that we want to show
-    public ModelAndView challenges() {
+    public ModelAndView challenges(Model model, @RequestParam("languageId") int languageId) {
+        PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
+        ArrayList<PostsEntity> postsList = postsDAO.getAllPosts(model, languageId);
 
         return new
                 ModelAndView("challenges", "pList", postsList);
