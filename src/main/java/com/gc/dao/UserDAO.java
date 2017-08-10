@@ -4,4 +4,5 @@ import com.gc.models.UsersEntity;
 
 public interface UserDAO {
     Integer save(UsersEntity newUser);
+    Integer getUserID(String firstName);
 }

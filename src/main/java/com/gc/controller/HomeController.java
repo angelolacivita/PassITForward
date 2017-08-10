@@ -1,9 +1,6 @@
 package com.gc.controller;
 
-import com.gc.dao.CommentsDAO;
-import com.gc.dao.LanguagesDAO;
-import com.gc.dao.UserDAO;
-import com.gc.dao.WalletDAO;
+import com.gc.dao.*;
 import com.gc.factory.DaoFactory;
 import com.gc.models.*;
 import org.hibernate.Criteria;
@@ -254,5 +251,25 @@ public class HomeController {
         return (ArrayList<CommentsEntity>) c.list();
     }
 
+    @RequestMapping("/displayall")
+    public ModelAndView displayall(Model model,
+                                   @ModelAttribute WalletEntity walletEntity,
+                                   @ModelAttribute UsersEntity usersEntity,
+                                   @ModelAttribute LanguagesEntity languagesEntity,
+                                   @ModelAttribute PostsEntity postsEntity,
+                                   @ModelAttribute CommentsEntity commentsEntity){
+
+        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
+        UserDAO userDAO = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
+        WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
+
+        Integer test = userDAO.getUserID("Matt");
+        //commentsdao.commentsList(userDAO.listAll(), 1);
+
+
+
+       // return new ModelAndView("displayall", "command", ArrayList<EntityList> e.list());
+        return new ModelAndView("displayall", "","");
+    }
 
 }
