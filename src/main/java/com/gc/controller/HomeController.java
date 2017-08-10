@@ -98,11 +98,24 @@ public class HomeController {
 //
         String accessToken = OAuthMethods.getOAuthToken(code);
         response.addCookie(new Cookie("cookieToken", accessToken));
-//        @CookieValue("cookieToken") String cookieToken
         model.addAttribute("token", accessToken);
+
+        //use more cookies
 
         return "loginsucess";
         //if else statement
+    }
+
+    @RequestMapping(value = "/privatemessage", method = RequestMethod.GET)
+    public String privatemessage(){
+
+        return "";
+    }
+
+    @RequestMapping ("/privatemessage")
+    public String privatemessage(@RequestParam ("slackmessage") String slackmessage) {
+
+        return "";
     }
 
     @RequestMapping("cookieTest")

@@ -42,4 +42,60 @@ public class OAuthMethods {
         return accessToken;
     }
 
+    public static String getUserID() {
+        String token = "cookieToken";
+        String userID = "";
+        try {
+            URL url = new URL("https://slack.com/api/users.identity?token=" + token);
+
+            BufferedReader reader;
+            String jsonStr = "";
+            reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
+            for (String line; (line = reader.readLine()) != null; ) {
+                jsonStr += line;
+            }
+
+            JSONObject json = new JSONObject(jsonStr);
+            userID = json.getString("userID");
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "userID";
+    }
+
+
+    public static String privateMessage() {
+        String channel = "@mattmenna";
+        String token = "cookieToken";
+        String slackmessage = "this is a test for private message";
+        String asUser = getUserID();
+
+        try {
+            URL url = new URL("https://slack.com/api/chat.postMessage?token=" + token+
+                    "channel=40%" + channel + "&text=" + slackmessage + "as_user=" + asUser);
+
+            BufferedReader reader;
+            String jsonStr = "";
+
+            reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+            for (String line; (line = reader.readLine()) != null; ) {
+                jsonStr += line;
+            }
+            JSONObject json = new JSONObject(jsonStr);
+            slackmessage = json.getString("slackmessage");
+
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        return "slackmessage";
+    }
+
 } //add temp page as redirect uri
