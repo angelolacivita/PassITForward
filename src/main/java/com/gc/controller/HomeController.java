@@ -36,24 +36,13 @@ import java.util.ArrayList;
 @Controller
 public class HomeController {
 
-    private Session getSession() {
-
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        Session session = sessionFact.openSession();
-        session.beginTransaction();
-        return session;
-
-    }
-
-    @RequestMapping("/")
+    @RequestMapping("/") // returns the login page
     //the String method returns the jsp page that we want to show
     public String welcome() {
-
         return "welcome";
     }
 
-    @RequestMapping("/home")
+    @RequestMapping("/home") // this page shows the challenges for each language
     //the String method returns the jsp page that we want to show
     public ModelAndView home() {
         LanguagesDAO languagesDAO = DaoFactory.getLanguagesDaoInstance(DaoFactory.LANGUAGES_HIBERNATE_DAO);
@@ -64,7 +53,7 @@ public class HomeController {
                 ModelAndView("home", "lList", languageList);
     }
 
-    @RequestMapping("/about")
+    @RequestMapping("/about") // needs copy
     //the String method returns the jsp page that we want to show
     public String about() {
 

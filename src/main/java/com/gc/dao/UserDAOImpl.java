@@ -16,19 +16,10 @@ public class UserDAOImpl implements UserDAO {
     public Integer save(UsersEntity newUser) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
-
         Integer id = (Integer) s.save(newUser);
-
         tx.commit();
         s.close();
-
         return id;
-    }
-
-    private Session getSession() {
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        return sessionFact.openSession();
     }
 
     public Integer getUserID(String firstName){
@@ -39,6 +30,22 @@ public class UserDAOImpl implements UserDAO {
         UsersEntity userInfo = (UsersEntity) c;
 
         return userInfo.getUserId();
+    }
+
+    public void deleteUser(int userID) {
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
+        s.delete(userID);
+
+        tx.commit();
+        s.close();
+    }
+
+
+    private Session getSession() {
+        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+        SessionFactory sessionFact = cfg.buildSessionFactory();
+        return sessionFact.openSession();
     }
 
 }

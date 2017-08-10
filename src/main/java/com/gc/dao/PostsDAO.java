@@ -11,5 +11,7 @@ import java.util.ArrayList;
 public interface PostsDAO {
 
     ArrayList<PostsEntity> getAllPosts(Model model, int languageId);
+    void deletePost(int postID);
+
 
 }

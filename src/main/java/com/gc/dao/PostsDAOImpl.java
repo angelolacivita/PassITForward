@@ -16,13 +16,11 @@ import java.util.ArrayList;
  * Created by angelo on 8/10/17.
  */
 
-public class PostsDAOImpl implements PostsDAO{
+public class PostsDAOImpl implements PostsDAO {
 
     public ArrayList<PostsEntity> getAllPosts(Model model, int languageId) {
 
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        Session s = sessionFact.openSession();
+        Session s = getSession();
         Transaction tx = s.beginTransaction();
 
         LanguagesEntity temp = (LanguagesEntity) s.get(LanguagesEntity.class, languageId);
@@ -33,5 +31,19 @@ public class PostsDAOImpl implements PostsDAO{
         return (ArrayList<PostsEntity>) p.list();
     }
 
+    public void deletePost(int postID) {
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
+        s.delete(postID);
+
+        tx.commit();
+        s.close();
+    }
+
+    private Session getSession() {
+        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+        SessionFactory sessionFact = cfg.buildSessionFactory();
+        return sessionFact.openSession();
+    }
 
 }

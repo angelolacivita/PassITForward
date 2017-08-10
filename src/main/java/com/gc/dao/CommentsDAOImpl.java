@@ -15,23 +15,41 @@ import java.util.ArrayList;
 public class CommentsDAOImpl implements CommentsDAO {
 
     public Integer save(CommentsEntity newComments) {
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        Session s = sessionFact.openSession();
+        Session s = getSession();
         Transaction tx = s.beginTransaction();
-
         Integer id = (Integer) s.save(newComments);
-
         tx.commit();
         s.close();
         return id;
     }
 
-    public ArrayList<CommentsEntity> commentsList(Model model, int postId) {
+    public void deleteCommentsByUser(int userID) {
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
+        s.delete(userID);
 
+        tx.commit();
+        s.close();
+    }
+
+    public void deleteComment(int commentID) {
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
+        s.delete(commentID);
+
+        tx.commit();
+        s.close();
+    }
+
+    private Session getSession() {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFact = cfg.buildSessionFactory();
-        Session s = sessionFact.openSession();
+        return sessionFact.openSession();
+    }
+
+    public ArrayList<CommentsEntity> commentsList(Model model, int postId) {
+
+        Session s = getSession();
         Transaction tx = s.beginTransaction();
 
         Criteria c = s.createCriteria(CommentsEntity.class);

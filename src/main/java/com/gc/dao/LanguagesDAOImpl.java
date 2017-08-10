@@ -17,15 +17,27 @@ public class LanguagesDAOImpl implements LanguagesDAO {
 
     public ArrayList<LanguagesEntity> getAllLanguages() {
 
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        Session s = sessionFact.openSession();
+        Session s = getSession();
         Transaction tx = s.beginTransaction();
         Criteria l = s.createCriteria(LanguagesEntity.class);
 
         return (ArrayList<LanguagesEntity>) l.list();
     }
 
+    public void deleteLanguage(int languageID) {
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
+        s.delete(languageID);
+
+        tx.commit();
+        s.close();
+    }
+
+    private Session getSession() {
+        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+        SessionFactory sessionFact = cfg.buildSessionFactory();
+        return sessionFact.openSession();
+    }
 
 
 }
