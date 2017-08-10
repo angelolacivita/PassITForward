@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import java.util.ArrayList;
 
 public interface CommentsDAO {
-    Integer save(CommentsEntity newComments);
+    void save(CommentsEntity newComments);
     ArrayList<CommentsEntity> getAllComments(Model model, int postId);
     void deleteCommentsByUser(int userID);
     void deleteComment(int commentID);

@@ -21,13 +21,24 @@ public class PostsDAOImpl implements PostsDAO {
     public ArrayList<PostsEntity> getAllPosts(Model model, int languageId) {
 
         Session s = getSession();
-        Transaction tx = s.beginTransaction();
+        //Transaction tx = s.beginTransaction();
 
         LanguagesEntity temp = (LanguagesEntity) s.get(LanguagesEntity.class, languageId);
+        model.addAttribute("languageId", temp.getLanguage());
         model.addAttribute("language", temp.getLanguage());
 
         Criteria p = s.createCriteria(PostsEntity.class);
         p.add(Restrictions.like("languageId", languageId));
+
+
+        return (ArrayList<PostsEntity>) p.list();
+
+    }
+    public ArrayList<PostsEntity> getAllPosts() {
+        Session s = getSession();
+        //Transaction tx = s.beginTransaction();
+        Criteria p = s.createCriteria(PostsEntity.class);
+
         return (ArrayList<PostsEntity>) p.list();
     }
 

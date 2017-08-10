@@ -69,6 +69,7 @@
     <div class="container">
         <h1>${postTitle}</h1>
         <h3>${postDescription}</h3>
+        <h3><a href="newcomment?postId=${postId}">Post new comment</a></h3>
     </div>
 </div>
 

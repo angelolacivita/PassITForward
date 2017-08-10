@@ -15,13 +15,12 @@ import java.util.ArrayList;
 
 public class CommentsDAOImpl implements CommentsDAO {
 
-    public Integer save(CommentsEntity newComments) {
+    public void save(CommentsEntity newComments) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
-        Integer id = (Integer) s.save(newComments);
+        s.save(newComments);
         tx.commit();
         s.close();
-        return id;
     }
 
     public void deleteCommentsByUser(int userID) {
@@ -53,12 +52,12 @@ public class CommentsDAOImpl implements CommentsDAO {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
 
-        PostsEntity temp = (PostsEntity) s.get(PostsEntity.class, postId);
-        model.addAttribute("postTitle", temp.getPostTitle());
-
         Criteria c = s.createCriteria(CommentsEntity.class);
         c.add(Restrictions.like("postId", postId));
 
+        PostsEntity temp = (PostsEntity) s.get(PostsEntity.class, postId);
+
+        model.addAttribute("postId", temp.getPostId());
         model.addAttribute("postTitle", temp.getPostTitle());
         model.addAttribute("postDescription", temp.getPostDescription());
 
