@@ -12,7 +12,7 @@ import com.gc.models.CommentsEntity;
 public class DaoFactory {
     public static final int USERS_HIBERNATE_DAO = 0;
     public static final int WALLET_HIBERNATE_DAO = 1;
-    public static final int COMMENTS_HIBERNATE_DAO = 1;
+    public static final int COMMENTS_HIBERNATE_DAO = 2;
 
     public static UserDAO getUserDaoInstance(int usersHibernateDao) {
         switch(usersHibernateDao){
