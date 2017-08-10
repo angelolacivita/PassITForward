@@ -1,6 +1,7 @@
 package com.gc.controller;
 
 import com.gc.dao.CommentsDAO;
+import com.gc.dao.LanguagesDAO;
 import com.gc.dao.UserDAO;
 import com.gc.dao.WalletDAO;
 import com.gc.factory.DaoFactory;
@@ -57,9 +58,13 @@ public class HomeController {
 
     @RequestMapping("/home")
     //the String method returns the jsp page that we want to show
-    public String home() {
+    public ModelAndView home() {
+        LanguagesDAO languagesDAO = DaoFactory.getLanguagesDaoInstance(DaoFactory.LANGUAGES_HIBERNATE_DAO);
 
-        return "home";
+        ArrayList<LanguagesEntity> languageList = languagesDAO.getAllLanguages();
+
+        return new
+                ModelAndView("home", "lList", languageList);
     }
 
     @RequestMapping("/about")
@@ -197,18 +202,18 @@ public class HomeController {
         return "showPosts";
     }
 
-    @RequestMapping("/displayLanguages")
-    public ModelAndView listLanguages() {
-        ArrayList<LanguagesEntity> languageList = getAllLanguages();
-        return new
-                ModelAndView("home", "lList", languageList);
-    }
-
-    private ArrayList<LanguagesEntity> getAllLanguages() {
-        Session s = getSession();
-        Criteria l = s.createCriteria(LanguagesEntity.class);
-        return (ArrayList<LanguagesEntity>) l.list();
-    }
+//    @RequestMapping("/displayLanguages")
+//    public ModelAndView listLanguages() {
+//        ArrayList<LanguagesEntity> languageList = getAllLanguages();
+//        return new
+//                ModelAndView("home", "lList", languageList);
+//    }
+//
+//    private ArrayList<LanguagesEntity> getAllLanguages() {
+//        Session s = getSession();
+//        Criteria l = s.createCriteria(LanguagesEntity.class);
+//        return (ArrayList<LanguagesEntity>) l.list();
+//    }
 
     @RequestMapping("/displayPosts")
     public ModelAndView listPosts(@RequestParam("languageId") int languageId,
