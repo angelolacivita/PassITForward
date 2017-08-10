@@ -106,18 +106,18 @@
     <!-- Example row of columns -->
     <div class="row">
         <!--JSTL CREATED Begin-->
-        <form:form class="form-signin" method="post" action="/create-comment">
+        <form:form class="form-signin" method="post" action="/create-comment?postId=${postId}">
             <fieldset>
                 <!-- Form Name -->
-                <legend>Type your proposed solution</legend>
+                <legend>Type your proposed solution below!</legend>
                 <!-- First name-->
                 <div class="form-group">
-                    <form:label path="commentDescription" class="control-label" for="textinput">Type </form:label>
+                    <form:label path="commentDescription" class="control-label" for="textinput">Comment</form:label>
                     <form:input path="commentDescription" id="textinput" name="commentDescription" type="text" placeholder="Description" class="form-control input-lg" required=""/>
                 </div>
                 <div class="form-group">
-                    <form:label path="postId" class="control-label" for="textinput">Type </form:label>
-                    <form:input path="postId" id="textinput" name="postId" type="text" placeholder="${postId}" class="form-control input-lg" required=""/>
+                    <form:label path="postId" class="control-label" for="textinput"></form:label>
+                    <form:input path="postId" id="textinput" name="postId" type="hidden" placeholder="${postId}" class="form-control input-lg" required=""/>
                 </div>
                 <button id="singlebutton" name="post" class="btn btn-primary">Post</button>
             </fieldset>

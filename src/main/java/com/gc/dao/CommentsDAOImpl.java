@@ -51,11 +51,11 @@ public class CommentsDAOImpl implements CommentsDAO {
 
         Session s = getSession();
         Transaction tx = s.beginTransaction();
+        PostsEntity temp = (PostsEntity) s.get(PostsEntity.class, postId);
 
         Criteria c = s.createCriteria(CommentsEntity.class);
         c.add(Restrictions.like("postId", postId));
 
-        PostsEntity temp = (PostsEntity) s.get(PostsEntity.class, postId);
 
         model.addAttribute("postId", temp.getPostId());
         model.addAttribute("postTitle", temp.getPostTitle());

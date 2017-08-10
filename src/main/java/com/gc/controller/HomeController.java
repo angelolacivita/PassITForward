@@ -188,24 +188,20 @@ public class HomeController {
     }
 
     @RequestMapping("/newcomment")
-    public ModelAndView newcomment(@RequestParam("postId") int postId,Model model){
-        CommentsDAO commentsDAO = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
-        ArrayList<CommentsEntity> commentsList = commentsDAO.getAllComments(model, postId);
+    public ModelAndView newcomment(@RequestParam("postId") int postId, Model model){
+        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
+        ArrayList<CommentsEntity> commentsList = commentsdao.getAllComments(model, postId);
 
         return new ModelAndView("newcomment", "command", new CommentsEntity());
     }
 
     @RequestMapping("/create-comment")
-    public String newcomment(@ModelAttribute CommentsEntity newComment, Model model){
+    public String createcomment(@ModelAttribute CommentsEntity newComment, Model model,
+                             @RequestParam("postId") int postId){
         CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
         commentsdao.save(newComment);
 
-        //model.addAttribute("userID", newcomment.getUserId());
-        model.addAttribute("commentDescription", newComment.getCommentDescription());
-        //model.addAttribute("commentsId", newcomment.getCommentsId());
-        //model.addAttribute("postID", newcomment.getPostId());
-
-        return "comments";
+        return "redirect:comments?postId="+postId;
     }
 
 }
