@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.ui.Model;
+import sun.security.tools.policytool.PolicyTool;
 
 import java.util.ArrayList;
 
@@ -47,21 +48,21 @@ public class CommentsDAOImpl implements CommentsDAO {
         return sessionFact.openSession();
     }
 
-    public ArrayList<CommentsEntity> commentsList(Model model, int postId) {
+    public ArrayList<CommentsEntity> getAllComments (Model model, int postId) {
 
         Session s = getSession();
         Transaction tx = s.beginTransaction();
 
+        PostsEntity temp = (PostsEntity) s.get(PostsEntity.class, postId);
+        model.addAttribute("postTitle", temp.getPostTitle());
+
         Criteria c = s.createCriteria(CommentsEntity.class);
         c.add(Restrictions.like("postId", postId));
-
-        PostsEntity temp = (PostsEntity) s.get(PostsEntity.class, postId);
 
         model.addAttribute("postTitle", temp.getPostTitle());
         model.addAttribute("postDescription", temp.getPostDescription());
 
         return (ArrayList<CommentsEntity>) c.list();
     }
-
 
 }

@@ -76,7 +76,7 @@
         <!--JSTL CREATED Begin-->
     <c:forEach var="myvar" items="${pList}">
         <div class="col-md-4">
-                <a href ="/displayComments?postId=${myvar.postId}"><h2>${myvar.postTitle}</h2></a></td>
+                <a href ="/comments?postId=${myvar.postId}"><h2>${myvar.postTitle}</h2></a></td>
                 <p>${myvar.postDescription}</p>
         </div>
     </c:forEach>

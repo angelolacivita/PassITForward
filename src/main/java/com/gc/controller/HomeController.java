@@ -53,21 +53,30 @@ public class HomeController {
                 ModelAndView("home", "lList", languageList);
     }
 
+    @RequestMapping("/challenges")
+    //the String method returns the jsp page that we want to show
+    public ModelAndView challenges(Model model, @RequestParam("languageId") int languageId) {
+        PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
+        ArrayList<PostsEntity> postsList = postsDAO.getAllPosts(model, languageId);
+
+        return new
+                ModelAndView("challenges", "pList", postsList);
+    }
+
+    @RequestMapping("/comments")
+    public ModelAndView comments(Model model, @RequestParam("postId") int postId){
+        CommentsDAO commentsDAO = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
+        ArrayList<CommentsEntity> commentsList = commentsDAO.getAllComments(model, postId);
+        
+        return new
+                ModelAndView("comments","cList", commentsList);
+    }
+
     @RequestMapping("/about") // needs copy
     //the String method returns the jsp page that we want to show
     public String about() {
 
         return "about";
-    }
-
-    @RequestMapping("/challenges")
-    //the String method returns the jsp page that we want to show
-    public ModelAndView challenges(Model model, @RequestParam("languageId") int languageId) {
-        PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
-        ArrayList<PostsEntity> postsList = postsDAO.getAllPosts(model, languageId);
-
-        return new
-                ModelAndView("challenges", "pList", postsList);
     }
 
     @RequestMapping("/contact")
@@ -222,26 +231,26 @@ public class HomeController {
 //        p.add(Restrictions.like("languageId", languageId));
 //        return (ArrayList<PostsEntity>) p.list();
 //    }
-
-    @RequestMapping("/displayComments")
-    public ModelAndView listComments(@RequestParam("postId") int postId,
-                                     Model model) {
-        Session s = getSession();
-        PostsEntity temp = (PostsEntity) s.get(PostsEntity.class, postId);
-        model.addAttribute("postTitle", temp.getPostTitle());
-        model.addAttribute("postDescription", temp.getPostDescription());
-        ArrayList<CommentsEntity> commentsList = getAllComments(postId);
-        return new
-                ModelAndView("comments", "cList", commentsList);
-
-    }
-
-    private ArrayList<CommentsEntity> getAllComments(int postId) {
-        Session s = getSession();
-        Criteria c = s.createCriteria(CommentsEntity.class);
-        c.add(Restrictions.like("postId", postId));
-        return (ArrayList<CommentsEntity>) c.list();
-    }
+//
+//    @RequestMapping("/displayComments")
+//    public ModelAndView listComments(@RequestParam("postId") int postId,
+//                                     Model model) {
+//        Session s = getSession();
+//        PostsEntity temp = (PostsEntity) s.get(PostsEntity.class, postId);
+//        model.addAttribute("postTitle", temp.getPostTitle());
+//        model.addAttribute("postDescription", temp.getPostDescription());
+//        ArrayList<CommentsEntity> commentsList = getAllComments(postId);
+//        return new
+//                ModelAndView("comments", "cList", commentsList);
+//
+//    }
+//
+//    private ArrayList<CommentsEntity> getAllComments(int postId) {
+//        Session s = getSession();
+//        Criteria c = s.createCriteria(CommentsEntity.class);
+//        c.add(Restrictions.like("postId", postId));
+//        return (ArrayList<CommentsEntity>) c.list();
+//    }
 
     @RequestMapping("/displayall")
     public ModelAndView displayall(Model model,
