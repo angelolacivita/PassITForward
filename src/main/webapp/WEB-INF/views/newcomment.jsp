@@ -31,6 +31,15 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -92,6 +101,11 @@
 </div>
 
 
+        <div id="editor">function foo(items) {
+        var x = "All this is syntax highlighted";
+        return x;
+        </div>
+
 
 <div class="container">
     <div class="text-center center-block">
@@ -109,5 +123,14 @@
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
+
+
+<script src="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+</script>
+
 </body>
 </html>

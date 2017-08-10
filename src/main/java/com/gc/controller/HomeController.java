@@ -211,7 +211,7 @@ public class HomeController {
         return new ModelAndView("newcomment", "command", new CommentsEntity());
     }
 
-    @RequestMapping("/create-comment")
+    @RequestMapping("/create-challenge")
     public String createchallenge(@ModelAttribute CommentsEntity newComment, Model model,
                              @RequestParam("postId") int postId){
         CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
