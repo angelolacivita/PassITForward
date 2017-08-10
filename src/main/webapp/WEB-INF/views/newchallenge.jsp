@@ -60,8 +60,8 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>${postTitle}</h1>
-        <h3>${postDescription}</h3>
+        <h1>${language}</h1>
+        <h3>Create a new ${language} challenge!</h3>
     </div>
 </div>
 
@@ -69,18 +69,22 @@
     <!-- Example row of columns -->
     <div class="row">
         <!--JSTL CREATED Begin-->
-        <form:form class="form-signin" method="post" action="/create-comment?postId=${postId}">
+        <form:form class="form-signin" method="post" action="/create-challenge?languageId=${languageId}">
             <fieldset>
                 <!-- Form Name -->
                 <legend>Type your proposed solution below!</legend>
                 <!-- First name-->
                 <div class="form-group">
-                    <form:label path="commentDescription" class="control-label" for="textinput">Comment</form:label>
-                    <form:input path="commentDescription" id="textinput" name="commentDescription" type="text" placeholder="Description" class="form-control input-lg" required=""/>
+                    <form:label path="postTitle" class="control-label" for="textinput">Title for your Challenge</form:label>
+                    <form:input path="postTitle" id="textinput" name="postTitle" type="text" placeholder="Challenge Title" class="form-control input-lg" required=""/>
                 </div>
                 <div class="form-group">
-                    <form:label path="postId" class="control-label" for="textinput"></form:label>
-                    <form:input path="postId" id="textinput" name="postId" type="hidden" placeholder="${postId}" class="form-control input-lg" required=""/>
+                    <form:label path="postDescription" class="control-label" for="textinput">Description of your Challenge</form:label>
+                    <form:input path="postDescription" id="textinput" name="postDescription" type="text" placeholder="Challenge Title" class="form-control input-lg" required=""/>
+                </div>
+                <div class="form-group">
+                    <form:label path="languageId" class="control-label" for="textinput"></form:label>
+                    <form:input path="languageId" id="textinput" name="postId" type="hidden" placeholder="${languageId}" class="form-control input-lg" required=""/>
                 </div>
                 <button id="singlebutton" name="post" class="btn btn-primary">Post</button>
             </fieldset>

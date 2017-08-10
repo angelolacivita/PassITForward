@@ -152,6 +152,13 @@ public class HomeController {
         return "login";
     }
 
+    @RequestMapping("/registration")
+    //the String method returns the jsp page that we want to show
+    public ModelAndView registration(Model model) {
+
+        return new ModelAndView("registration", "command", new UsersEntity());
+    }
+
     @RequestMapping("/create-profile")
     public String registration(@ModelAttribute UsersEntity newUser, Model model){
         UserDAO userdao = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
@@ -171,13 +178,6 @@ public class HomeController {
 
 
         return "registrationsuccess";
-    }
-
-    @RequestMapping("/registration")
-    //the String method returns the jsp page that we want to show
-    public ModelAndView registration(Model model) {
-
-        return new ModelAndView("registration", "command", new UsersEntity());
     }
 
     @RequestMapping("/registrationsuccess")
@@ -203,5 +203,7 @@ public class HomeController {
 
         return "redirect:comments?postId="+postId;
     }
+
+
 
 }
