@@ -32,7 +32,7 @@ public class PostsDAOImpl implements PostsDAO {
         //Transaction tx = s.beginTransaction();
 
         LanguagesEntity temp = (LanguagesEntity) s.get(LanguagesEntity.class, languageId);
-        model.addAttribute("languageId", temp.getLanguage());
+        model.addAttribute("languageId", temp.getLanguageId());
         model.addAttribute("language", temp.getLanguage());
 
         Criteria p = s.createCriteria(PostsEntity.class);

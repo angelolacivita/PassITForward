@@ -204,20 +204,20 @@ public class HomeController {
     }
 
 @RequestMapping("/newchallenge")
-    public ModelAndView newchallenge(@RequestParam("languageId") int postId, Model model){
-        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
-        ArrayList<CommentsEntity> commentsList = commentsdao.getAllComments(model, postId);
+    public ModelAndView newchallenge(@RequestParam("languageId") int languageId, Model model){
+        PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
+        ArrayList<PostsEntity> postsList = postsDAO.getAllPosts(model, languageId);
 
-        return new ModelAndView("newcomment", "command", new CommentsEntity());
+        return new ModelAndView("newchallenge", "command", new PostsEntity());
     }
 
-    @RequestMapping("/create-comment")
-    public String createchallenge(@ModelAttribute CommentsEntity newComment, Model model,
-                             @RequestParam("postId") int postId){
-        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
-        commentsdao.save(newComment);
+    @RequestMapping("/create-challenge")
+    public String createchallenge(@ModelAttribute PostsEntity newPosts, Model model,
+                             @RequestParam("languageId") int languageId){
+        PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
+        postsDAO.save(newPosts);
 
-        return "redirect:comments?postId="+postId;
+        return "redirect:challenges?languageId="+languageId;
     }
 
 
