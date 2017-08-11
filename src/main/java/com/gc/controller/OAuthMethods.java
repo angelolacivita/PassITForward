@@ -81,17 +81,17 @@ public class OAuthMethods {
             URL url = new URL("https://slack.com/api/chat.postMessage?token=" + token+
                     "channel=40%" + channel + "&text=" + slackmessage + "as_user=" + asUser);
 
-            System.out.println(url);
-            BufferedReader reader;
-            String jsonStr = "";
-
-            reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
-            for (String line; (line = reader.readLine()) != null; ) {
-                jsonStr += line;
-            }
-            JSONObject json = new JSONObject(jsonStr);
-            slackmessage = json.getJSONObject("message").getString("text");
-            System.out.println(slackmessage);
+//            System.out.println(url);
+//            BufferedReader reader;
+//            String jsonStr = "";
+//
+//            reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+//            for (String line; (line = reader.readLine()) != null; ) {
+//                jsonStr += line;
+//            }
+//            JSONObject json = new JSONObject(jsonStr);
+//            slackmessage = json.getJSONObject("message").getString("text");
+//            System.out.println(slackmessage);
 
 
         } catch (MalformedURLException e) {
