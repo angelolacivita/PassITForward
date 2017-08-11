@@ -1,17 +1,17 @@
 # PassITForward
-Full stack gamified Stack Overflow
+Full stack gamified Stack Overflow  
 
-(Alphabetica/ Order)
+(Alphabetica/ Order)  
 
-Farha Hanif
-https://github.com/fhanif
+Farha Hanif   
+https://github.com/fhanif  
 
-Angelo LaCivita
-https://github.com/angelolacivita
+Angelo LaCivita  
+https://github.com/angelolacivita  
 
-Matthew Menna
-https://github.com/mattmenna
-https://www.linkedin.com/in/matthew-menna/
+Matthew Menna  
+https://github.com/mattmenna  
+https://www.linkedin.com/in/matthew-menna/  
 
 Final Project Parameters
 * Wireframe
@@ -20,3 +20,5 @@ Final Project Parameters
 * Public Github repo with collaborators
 * Trello Board
 * Use Agile Methodology with daily standups, basic and stretch goals
+* Live on AWS with AWS Database
+* Spring Framework  
