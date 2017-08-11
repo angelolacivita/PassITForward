@@ -80,6 +80,7 @@ public class OAuthMethods {
         try {
             URL url = new URL("https://slack.com/api/chat.postMessage?token=" + token+
                     "channel=40%" + channel + "&text=" + slackmessage + "as_user=" + asUser);
+            url.openStream();
 
 //            System.out.println(url);
 //            BufferedReader reader;

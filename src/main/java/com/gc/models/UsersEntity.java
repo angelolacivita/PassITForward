@@ -78,7 +78,7 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "languages", nullable = false, length = 255)
+    @Column(name = "languages", nullable = false, length = 45)
     public String getLanguages() {
         return languages;
     }

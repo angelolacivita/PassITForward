@@ -9,7 +9,7 @@ public interface UserDAO {
     Integer getUserID(String firstName);
     void deleteUser(int userID);
 
-    boolean checkUser(String userName, String password);
+    //boolean checkUser(String userName, String password);
 
 
 }
