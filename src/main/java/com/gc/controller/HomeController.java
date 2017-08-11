@@ -157,7 +157,7 @@ public class HomeController {
         UserDAO userdao = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
 
         Integer userIDforWallet = userdao.save(newUser);
-
+        System.out.println(userIDforWallet);
         WalletEntity newWallet = new WalletEntity();
 
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
