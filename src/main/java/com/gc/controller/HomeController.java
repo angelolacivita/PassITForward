@@ -3,7 +3,12 @@ package com.gc.controller;
 import com.gc.dao.*;
 import com.gc.factory.DaoFactory;
 import com.gc.models.*;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +39,7 @@ public class HomeController {
     @RequestMapping("/") // returns the login page
     //the String method returns the jsp page that we want to show
     public String welcome() {
-        return "/login";
+        return "welcome";
     }
 
     @RequestMapping("/home") // this page shows the challenges for each language
@@ -85,25 +90,10 @@ public class HomeController {
         return "contact";
     }
 
-
-    @RequestMapping(value = "/loginsuccess", method = RequestMethod.GET)
-    public String loginsuccess(Model model,
-                               @RequestParam("userName") String username,
-                               @RequestParam("password") String password){
-        UserDAO userdao = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
-
-        if(userdao.checkUser(username, password)){
-            return "loginsuccess";
-        }
-        return "loginfailed";
-    }
-
-
-/*
     @RequestMapping(value = "/loginsuccess", method = RequestMethod.GET)
     //the String method returns the jsp page that we want to show
     public String loginsuccess(Model model, @RequestParam("tempCode") String code, HttpServletResponse response) {
-HttpServletResponse//            (@RequestParam("username") String username,
+//            (@RequestParam("username") String username,
 //                        @RequestParam("password") String password,
 //                        Model model) {
 //        model.addAttribute("username", username);
@@ -114,23 +104,21 @@ HttpServletResponse//            (@RequestParam("username") String username,
         response.addCookie(new Cookie("cookieToken", accessToken));
         model.addAttribute("token", accessToken);
 
-        //use more cookies
-
-        return "/loginsuccess.jsp";
+        return "loginsucess";
         //if else statement
     }
-*/
 
-    @RequestMapping(value = "/privatemessage", method = RequestMethod.GET)
-    public String privatemessage(){
-
-        return "";
+    @RequestMapping("/submitslackmessage")
+    public String submitslackmessage() {
+        return "slackmessage";
     }
 
-    @RequestMapping ("/privatemessage")
-    public String privatemessage(@RequestParam ("slackmessage") String slackmessage) {
 
-        return "";
+
+    @RequestMapping(value = "/slackmessagesuccess", method = RequestMethod.GET)
+    public String privatemessage(@CookieValue("cookieToken") String cookieToken,@RequestParam("slackmessage") String message, @RequestParam("channel") String channel){
+        OAuthMethods.sendPrivateMessage(message, cookieToken, channel);
+        return "slackmessagesuccess";
     }
 
     @RequestMapping("cookieTest")
@@ -154,10 +142,10 @@ HttpServletResponse//            (@RequestParam("username") String username,
 
     @RequestMapping("/login")
     //the String method returns the jsp page that we want to show
-    public String login(@RequestParam("userName") String username,
+    public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
                         Model model) {
-        model.addAttribute("userName", username);
+        model.addAttribute("username", username);
         model.addAttribute("password", password);
 
         return "login";
@@ -216,21 +204,22 @@ HttpServletResponse//            (@RequestParam("username") String username,
     }
 
 @RequestMapping("/newchallenge")
-    public ModelAndView newchallenge(@RequestParam("languageId") int postId, Model model){
-        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
-        ArrayList<CommentsEntity> commentsList = commentsdao.getAllComments(model, postId);
+    public ModelAndView newchallenge(@RequestParam("languageId") int languageId, Model model){
+        PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
+        ArrayList<PostsEntity> postsList = postsDAO.getAllPosts(model, languageId);
 
-        return new ModelAndView("newcomment", "command", new CommentsEntity());
+        return new ModelAndView("newchallenge", "command", new PostsEntity());
     }
 
-//    @RequestMapping("/create-challenge")
-//    public String createchallenge(@ModelAttribute CommentsEntity newComment, Model model,
-//                             @RequestParam("postId") int postId){
-//        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
-//        commentsdao.save(newComment);
-//
-//        return "redirect:comments?postId="+postId;
-//    }
+    @RequestMapping("/create-challenge")
+
+    public String createchallenge(@ModelAttribute PostsEntity newPosts, Model model,
+                             @RequestParam("languageId") int languageId){
+        PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
+        postsDAO.save(newPosts);
+
+        return "redirect:challenges?languageId="+languageId;
+    }
 
 
 

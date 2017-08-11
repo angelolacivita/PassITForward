@@ -44,7 +44,7 @@
 
 <body>
 
-<form name=temp method="post" action="privatemessage">
+<form name=temp method="get" action="slackmessagesuccess">
     <input type="text" id="messageText" name="slackmessage">
     Enter the username of the user you want to direct message on the PassITForward slack team:
     <input type="text" id="recieverChannel" name="channel">

@@ -70,6 +70,7 @@
     <div class="container">
         <h1>Challenges</h1>
         <p>Viewing all ${language} Challenges </p>
+        <h3><a href="newchallenge?languageId=${languageId}">Post new Challenge</a></h3>
     </div>
 </div>
 
@@ -78,7 +79,7 @@
         <!--JSTL CREATED Begin-->
     <c:forEach var="myvar" items="${pList}">
         <div class="col-md-4">
-                <a href ="/comments?postId=${myvar.postId}"><h2>${myvar.postTitle}</h2></a></td>
+                <a href ="/comments?postId=${myvar.postId}"><h2>${myvar.postTitle}</h2></a>
                 <p>${myvar.postDescription}</p>
         </div>
     </c:forEach>

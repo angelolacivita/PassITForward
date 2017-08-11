@@ -93,7 +93,7 @@
                 </div>
                 <div class="form-group">
                     <form:label path="languageId" class="control-label" for="textinput"></form:label>
-                    <form:input path="languageId" id="textinput" name="postId" type="hidden" placeholder="${languageId}" class="form-control input-lg" required=""/>
+                    <form:input path="languageId" id="textinput" name="languageId" type="hidden" placeholder="${languageId}" class="form-control input-lg" required=""/>
                 </div>
                 <button id="singlebutton" name="post" class="btn btn-primary">Post</button>
             </fieldset>
