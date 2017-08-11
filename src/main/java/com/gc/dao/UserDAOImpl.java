@@ -43,16 +43,16 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public boolean checkUser(String userName, String password) {
-        Session s = getSession();
-
-        Criteria c = s.createCriteria(UsersEntity.class);
-        ;
-
-        ArrayList<UsersEntity> checkuserarray = (ArrayList<UsersEntity>) c.list();
-
-        if(c.add(Restrictions.like("userName", userName))){
-            return true;
-        }
+//        Session s = getSession();
+//
+//        Criteria c = s.createCriteria(UsersEntity.class);
+//        ;
+//
+//        ArrayList<UsersEntity> checkuserarray = (ArrayList<UsersEntity>) c.list();
+//
+//        if(c.add(Restrictions.like("userName", userName))){
+//            return true;
+//        }
         return false;
 
         //return (ArrayList<UsersEntity>) c.list();
