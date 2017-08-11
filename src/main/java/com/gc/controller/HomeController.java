@@ -38,8 +38,8 @@ public class HomeController {
 
     @RequestMapping("/") // returns the login page
     //the String method returns the jsp page that we want to show
-    public String welcome() {
-        return "welcome";
+    public String login() {
+        return "login";
     }
 
     @RequestMapping("/home") // this page shows the challenges for each language
