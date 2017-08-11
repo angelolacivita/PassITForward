@@ -34,14 +34,10 @@ public class HomeController {
     @RequestMapping("/home") // this page shows the challenges for each language
     //the String method returns the jsp page that we want to show
     //also redirects to the home page after loggin in with slack
-    public ModelAndView home(Model model, @RequestParam("tempCode") String code, HttpServletResponse response) {
+    public ModelAndView home(Model model, HttpServletResponse response) {
         LanguagesDAO languagesDAO = DaoFactory.getLanguagesDaoInstance(DaoFactory.LANGUAGES_HIBERNATE_DAO);
 
         ArrayList<LanguagesEntity> languageList = languagesDAO.getAllLanguages();
-
-        String accessToken = OAuthMethods.getOAuthToken(code);
-        response.addCookie(new Cookie("cookieToken", accessToken));
-        model.addAttribute("token", accessToken);
 
         return new
                 ModelAndView("home", "lList", languageList);
