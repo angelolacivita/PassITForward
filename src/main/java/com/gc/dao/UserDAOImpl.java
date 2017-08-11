@@ -18,10 +18,6 @@ public class UserDAOImpl implements UserDAO {
     private static SessionFactory factory;
     private static String msg;
 
-    public UserDAOImpl (SessionFactory factory) {
-        this.factory = factory;
-    }
-
     public Integer save(UsersEntity newUser) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
