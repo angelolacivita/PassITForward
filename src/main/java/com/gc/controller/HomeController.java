@@ -57,7 +57,7 @@ public class HomeController {
         model.addAttribute("username", username);
         model.addAttribute("password", password);
 
-        return "loginsucess";
+        return "loginsuccess";
         //if else statement
     }
 
@@ -73,7 +73,7 @@ public class HomeController {
         //System.out.println(user);
         user.setPassword(user.getPassword());
         loggedInUser = UserDAOImpl.getUser(user.getUserName(), user.getPassword());
-        return new ModelAndView("loginsucess", "command", loggedInUser);
+        return new ModelAndView("loginsuccess", "command", loggedInUser);
     }
 
     @RequestMapping("/registration")
