@@ -10,6 +10,7 @@ import org.hibernate.criterion.Restrictions;
 
 import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
 
@@ -39,6 +40,29 @@ public class UserDAOImpl implements UserDAO {
 
         tx.commit();
         s.close();
+    }
+
+    public boolean checkUser(String userName, String password) {
+        Session s = getSession();
+
+        Criteria c = s.createCriteria(UsersEntity.class);
+        ;
+
+        ArrayList<UsersEntity> checkuserarray = (ArrayList<UsersEntity>) c.list();
+
+        if(c.add(Restrictions.like("userName", userName))){
+            return true;
+        }
+        return false;
+
+        //return (ArrayList<UsersEntity>) c.list();
+//        UsersEntity checkUserInfo = (UsersEntity) c;
+
+//        if(checkUserInfo.getUserName().equals(userName) && checkUserInfo.getPassword().equals(password)){
+//         return true;
+//        }
+//
+//        return false;
     }
 
 

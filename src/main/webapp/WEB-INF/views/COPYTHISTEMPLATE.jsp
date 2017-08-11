@@ -25,7 +25,7 @@
     <meta name="description" content="passItforward is the site to get your answers answered!">
     <meta name="author" content="">
 
-    <title>passITforward - Registration</title>
+    <title>passITforward - REPLACE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</title>
 
     <link rel="icon" href="<c:url value="/resources/favicon.ico"/>"/>
     <link href="<c:url value="/resources/css/Footer-with-logo.css"/>" rel="stylesheet">
@@ -41,7 +41,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
 
 <body>
 
@@ -61,89 +60,25 @@
                 <li class="active"><a href="/home">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <%--<li><a href="/challenges">Challenges</a></li>--%>
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav>   <span class="icon-bar"></span>
-
-<div class="container">
-    <br>
-    <br>
-<form:form class="form-signin" method="post" action="/create-profile">
-        <fieldset>
-            <!-- Form Name -->
-            <legend>Register</legend>
-
-            <!-- First name-->
-            <div class="form-group">
-                <form:label path="firstName" class="control-label" for="textinput">First name</form:label>
-                    <form:input path="firstName" id="textinput" name="firstName" type="text" placeholder="John" class="form-control input-md" required=""/>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <form:label path="lastName" class="control-label" for="textinput">Last name</form:label>
-                 <form:input path="lastName" id="textinput" name="lastName" type="text" placeholder="Smith" class="form-control input-md" required=""/>
-            </div>
+</nav>
+<!--
+Place Code for body of page below-->
 
 
-            <!-- Text email-->
-            <div class="form-group">
-                <form:label path="email" class="control-label" for="email">E-mail</form:label>
-                <form:input path="email" id="email" name="email" type="text" placeholder="john.smith@mail.com" class="form-control input-md" required=""/>
 
-            </div>
 
-            <!-- Text userName-->
-            <div class="form-group">
-                <form:label path="userName" class="control-label" for="textinput">Username</form:label>
-                <form:input path="userName" id="textinput" name="userName" type="text" placeholder="johnsmith1" class="form-control input-md" required=""/>
-            </div>
-            <!-- Password input-->
-            <div class="form-group">
-                <form:label path="password" class="control-label" for="passwordinput">Password</form:label>
-                <form:input path="password" id="passwordinput" name="password" type="password" placeholder="Enter your password" class="form-control input-md" required=""/>
-            </div>
 
-            <!-- Password input-->
-            <div class="form-group">
-                <label class="control-label" for="passwordinput">Repeat password </label>
-                <input id="passwordinput" name="passwordinput" type="password" placeholder="Repeat your password" class="form-control input-md" required=""/>
-            </div>
 
-            <!-- Select languages -->
-            <div class="form-check">
-                <form:label path="" class="form-check-label">
-                    <input type="checkbox" class="form-check-input" name="languages" id="Java" value="Java" checked>
-                    Java<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="JavaScript" value="JavaScript">
-                    JavaScript<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="C++" value="C++">
-                    C++<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="Python" value="Python">
-                    Python<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="Ruby" value="Ruby">
-                    Ruby<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="HTML" value="HTML">
-                    HTML<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="PHP" value="PHP">
-                    PHP<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="SQL" value="SQL">
-                    SQL<br>
-                    <input type="checkbox" class="form-check-input" name="languages" id="C#" value="C#">
-                    C#<br>
-                </form:label>
-            </div>
 
-            <div class="form-group">
-                <label class="col-md-12 control-label" for="singlebutton"></label>
-                <button id="singlebutton" name="register" class="btn btn-primary">Register</button>
-            </div>
-        </fieldset>
-</form:form>
-</div>
-<br><br>
+
+
+
+<!--Place Code for body of page above-->
+
 <footer id="myFooter">
     <div class="container">
         <div class="row">
@@ -157,7 +92,7 @@
             <div class="col-sm-3">
                 <h5>About us</h5>
                 <ul>
-                    <li><a href="/contact">Contact us</a></li>
+                    <li><a href="#">Contact us</a></li>
                 </ul>
             </div>
             <div class="col-sm-3 info">
@@ -184,4 +119,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </body>
-</html></html>
+</html>

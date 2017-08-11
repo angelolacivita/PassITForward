@@ -3,12 +3,7 @@ package com.gc.controller;
 import com.gc.dao.*;
 import com.gc.factory.DaoFactory;
 import com.gc.models.*;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +34,7 @@ public class HomeController {
     @RequestMapping("/") // returns the login page
     //the String method returns the jsp page that we want to show
     public String welcome() {
-        return "welcome";
+        return "/login";
     }
 
     @RequestMapping("/home") // this page shows the challenges for each language
@@ -90,10 +85,25 @@ public class HomeController {
         return "contact";
     }
 
+
+    @RequestMapping(value = "/loginsuccess", method = RequestMethod.GET)
+    public String loginsuccess(Model model,
+                               @RequestParam("userName") String username,
+                               @RequestParam("password") String password){
+        UserDAO userdao = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
+
+        if(userdao.checkUser(username, password)){
+            return "loginsuccess";
+        }
+        return "loginfailed";
+    }
+
+
+/*
     @RequestMapping(value = "/loginsuccess", method = RequestMethod.GET)
     //the String method returns the jsp page that we want to show
     public String loginsuccess(Model model, @RequestParam("tempCode") String code, HttpServletResponse response) {
-//            (@RequestParam("username") String username,
+HttpServletResponse//            (@RequestParam("username") String username,
 //                        @RequestParam("password") String password,
 //                        Model model) {
 //        model.addAttribute("username", username);
@@ -106,9 +116,10 @@ public class HomeController {
 
         //use more cookies
 
-        return "loginsucess";
+        return "/loginsuccess.jsp";
         //if else statement
     }
+*/
 
     @RequestMapping(value = "/privatemessage", method = RequestMethod.GET)
     public String privatemessage(){
@@ -143,10 +154,10 @@ public class HomeController {
 
     @RequestMapping("/login")
     //the String method returns the jsp page that we want to show
-    public String login(@RequestParam("username") String username,
+    public String login(@RequestParam("userName") String username,
                         @RequestParam("password") String password,
                         Model model) {
-        model.addAttribute("username", username);
+        model.addAttribute("userName", username);
         model.addAttribute("password", password);
 
         return "login";
@@ -212,14 +223,14 @@ public class HomeController {
         return new ModelAndView("newcomment", "command", new CommentsEntity());
     }
 
-    @RequestMapping("/create-comment")
-    public String createchallenge(@ModelAttribute CommentsEntity newComment, Model model,
-                             @RequestParam("postId") int postId){
-        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
-        commentsdao.save(newComment);
-
-        return "redirect:comments?postId="+postId;
-    }
+//    @RequestMapping("/create-challenge")
+//    public String createchallenge(@ModelAttribute CommentsEntity newComment, Model model,
+//                             @RequestParam("postId") int postId){
+//        CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
+//        commentsdao.save(newComment);
+//
+//        return "redirect:comments?postId="+postId;
+//    }
 
 
 
