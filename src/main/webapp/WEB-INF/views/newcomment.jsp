@@ -34,10 +34,10 @@
     <style type="text/css" media="screen">
         #editor {
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            top: 30%;
+            right: 20%;
+            bottom: 40%;
+            left: 40%;
         }
     </style>
 </head>
@@ -130,6 +130,7 @@
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/javascript");
+    editor.resize();
 </script>
 
 </body>
