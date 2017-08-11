@@ -34,10 +34,10 @@
     <style type="text/css" media="screen">
         #editor {
             position: absolute;
-            top: 30%;
+            top: 60%;
             right: 20%;
-            bottom: 40%;
-            left: 40%;
+            bottom: 0%;
+            left: 20%;
         }
     </style>
 </head>
@@ -102,7 +102,8 @@
 
 
         <div id="editor">function foo(items) {
-        var x = "All this is syntax highlighted";
+        String x = "Write all of your code here!";
+        String y = "Paste all of your code in the Description box above!"
         return x;
         </div>
 
