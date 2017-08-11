@@ -142,7 +142,8 @@ public class HomeController {
         //System.out.println(user);
         user.setPassword(user.getPassword());
         loggedInUser = UserDAOImpl.getUser(user.getUserName(), user.getPassword());
-        //return new ModelAndView("loginsucess",)
+        return new ModelAndView("loginsucess", "command", loggedInUser);
+
 
     }
 
@@ -172,17 +173,17 @@ public class HomeController {
     }
 
 
-    @RequestMapping("/login")
-    //the String method returns the jsp page that we want to show
-    public String login(){
-//            @RequestParam("username") String username,
-//                        @RequestParam("password") String password,
-//                        Model model) {
-//        model.addAttribute("username", username);
-//        model.addAttribute("password", password);
-
-        return "login";
-    }
+//    @RequestMapping("/login")
+//    //the String method returns the jsp page that we want to show
+//    public String login(){
+////            @RequestParam("username") String username,
+////                        @RequestParam("password") String password,
+////                        Model model) {
+////        model.addAttribute("username", username);
+////        model.addAttribute("password", password);
+//
+//        return "login";
+//    }
 
     @RequestMapping("/registration")
     //the String method returns the jsp page that we want to show

@@ -1,6 +1,5 @@
 package com.gc.dao;
 
-import com.gc.controller.UserClass2;
 import com.gc.models.CommentsEntity;
 import com.gc.models.LanguagesEntity;
 import com.gc.models.PostsEntity;
