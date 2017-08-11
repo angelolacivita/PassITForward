@@ -22,3 +22,4 @@ Final Project Parameters
 * Use Agile Methodology with daily standups, basic and stretch goals
 * Live on AWS with AWS Database
 * Spring Framework  
+* Bootstrap 3
