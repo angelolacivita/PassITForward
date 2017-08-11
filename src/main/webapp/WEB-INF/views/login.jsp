@@ -69,7 +69,7 @@
 
 <div class="container">
 
-    <form class="form-signin" method="GET" action="/loginsuccess">
+    <form class="form-signin" method="post" action="/loginUser">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputUsername" class="sr-only">Username</label>
         <input type="text" id="inputUsername" name="userName" class="form-control" placeholder="Username" required
