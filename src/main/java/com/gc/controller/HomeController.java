@@ -57,20 +57,34 @@ public class HomeController {
         //if else statement
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login() {
-        return new ModelAndView("login", "command", new UsersEntity());
+    @RequestMapping(value = "/login")
+    public String login(Model model) {
+        model.addAttribute("button", "Sign in with Slack");
+        model.addAttribute("isLogin", false);
+        model.addAttribute("msg", message);
+        return "login";
     }
 
+    private UsersEntity loginUser;
+    private String message;
 
-    @RequestMapping(value = "/loginUser", method = RequestMethod.POST)
-    public ModelAndView loginUser(UsersEntity user, Model model) {
-
-        //System.out.println(user);
-        user.setPassword(user.getPassword());
-        loggedInUser = UserDAOImpl.getUser(user.getUserName(), user.getPassword());
-        return new ModelAndView("loginsuccess", "command", loggedInUser);
+    @RequestMapping(value = "/loginUser")
+    public String loginUser(@RequestParam("userName") String userName, @RequestParam("password") String password) {
+        if (validUserAndPass(userName, password) != null) {
+            loginUser = validUserAndPass(userName, password);
+    
+            return "loginsuccess";
+        } else {
+            message = "WRONG EMAIL OR PASSWORD";
+            return "redirect:login";
+        }
     }
+    private UsersEntity validUserAndPass(String userName, String password) {
+        UserDAO userDAO = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
+
+        return userDAO.getUser(userName, password);
+    }
+
 
     @RequestMapping("/registration")
     //the String method returns the jsp page that we want to show

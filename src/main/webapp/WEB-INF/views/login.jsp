@@ -68,14 +68,15 @@
 
 
 <div class="container">
-
-    <form class="form-signin" method="post" action="/loginUser">
+    <form class="form-signin" method="post" action="loginUser">
+        <br>
+        <h3 class="text-danger">${msg}</h3>
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" name="userName" class="form-control" placeholder="Username" required
+        <input type="text" id="inputUsername" name="userName" class="form-control" placeholder="Enter your Username" required
                autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Enter your Password" required>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
