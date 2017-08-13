@@ -70,8 +70,8 @@
 <div class="jumbotron">
     <div class="container">
         <h1>passITforward${token}</h1>
-        <p>Thanks for siging in ${username}</p>
-        <p><a class="btn btn-primary btn-lg" href="/challenges" role="button">Get Started &raquo;</a></p>
+        <p>Thanks for siging in!</p>
+        <p><a class="btn btn-primary btn-lg" href="/home" role="button">Get Started &raquo;</a></p>
 
     </div>
 </div>
@@ -82,7 +82,7 @@
                 <h5>Get started</h5>
                 <ul>
                     <li><a href="/home">Home</a></li>
-                    <li><a href="/welcome">Sign in/up</a></li>
+                    <li><a href="/">Sign in/up</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
