@@ -2,6 +2,7 @@ package com.gc.controller;
 
 import com.gc.dao.CommentsDAO;
 import com.gc.dao.PostsDAO;
+import com.gc.dao.WalletDAO;
 import com.gc.factory.DaoFactory;
 import com.gc.models.CommentsEntity;
 import com.gc.models.PostsEntity;
@@ -74,7 +75,8 @@ public class CommentLanguagePostsController {
         PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
         newPosts.setUserId(Integer.parseInt(userIdCookie));
         postsDAO.save(newPosts);
-
+        WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
+        walletDAO.debitFromWallet(5, Integer.parseInt(userIdCookie));
         return "redirect:challenges?languageId=" + languageId;
     }
 
@@ -92,6 +94,8 @@ public class CommentLanguagePostsController {
         CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
         newComment.setUserId(Integer.parseInt(userIdCookie));
         commentsdao.save(newComment);
+        WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
+        walletDAO.creditToWallet(2, Integer.parseInt(userIdCookie));
 
         return "redirect:comments?postId=" + postId;
     }
