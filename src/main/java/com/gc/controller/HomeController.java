@@ -118,4 +118,20 @@ public class HomeController {
         return "registrationsuccess";
     }
 
+
+
+    @RequestMapping("/loginUserTEST")
+    //the String method returns the jsp page that we want to show
+    public String loginUserTEST(@RequestParam("username") String username,
+                               @RequestParam("password") String password,
+                               Model model) {
+
+
+        model.addAttribute("username", username);
+        model.addAttribute("password", password);
+
+        return "loginsuccess";
+        //if else statement
+    }
+
 }

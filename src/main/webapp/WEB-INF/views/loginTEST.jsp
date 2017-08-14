@@ -25,12 +25,12 @@
     <meta name="description" content="passItforward is the site to get your answers answered!">
     <meta name="author" content="">
 
-    <title>passITforward - Comments</title>
+    <title>passITforward - Home</title>
 
     <link rel="icon" href="<c:url value="/resources/favicon.ico"/>"/>
     <link href="<c:url value="/resources/css/Footer-with-logo.css"/>" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -43,7 +43,6 @@
 </head>
 
 <body>
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -64,36 +63,34 @@
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav>   <span class="icon-bar"></span>
+</nav>
+<span class="icon-bar"></span>
 
-
-<div class="jumbotron">
-    <div class="container">
-        <h1>${postTitle}</h1>
-        <h3>${postDescription}</h3>
-        <h3><a href="newcomment?postId=${postId}">Post new comment</a></h3>
-    </div>
-</div>
 
 <div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-        <!--JSTL CREATED Begin-->
-        <c:forEach var="myvar" items="${cList}">
-        <div class="">
-                <h3>Comment #${myvar.commentsId} <i class="fa fa-arrow-up" style="color:green" aria-hidden="true"></i><i class="fa fa-arrow-down" style="color:red" aria-hidden="true"></i></h3>
-                <h4>${myvar.commentDescription}</h4>
-               <br>
-               <br>
-        </div>
-        </c:forEach>
-        <!--JSTL CREATED End-->
 
-    </div>
+    <form class="form-signin" method="post" action="/loginUserTEST">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" id="inputUsername" name="userName" class="form-control" placeholder="Username" required
+               autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+    <br>
+    <form class="form-signin" action="/registration">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
+    <br>
+    <a href="https://slack.com/oauth/authorize?&client_id=223829578051.223904316370&scope=chat:write:user,users.profile:read,incoming-webhook">slack</a>
 
 </div>
-
-
 
 <footer id="myFooter">
     <div class="container">
