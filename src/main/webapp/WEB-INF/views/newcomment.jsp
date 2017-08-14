@@ -101,10 +101,7 @@
 </div>
 
 
-<div id="editor">function foo(items); {
-    String x = "Write all of your code here!";
-    String y = "Paste all of your code in the Description box above!";
-    return x;
+<div id="editor">${postDescription}
 </div>
 
 
