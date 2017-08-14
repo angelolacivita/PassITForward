@@ -1,5 +1,6 @@
 package com.gc.controller;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -70,16 +71,102 @@ public class OAuthMethods {
         return userID;
     }
 
+    public static String getChannelId (String token) {
+        String channelId = "";
 
-    public static void sendPrivateMessage(String slackmessage, String token,String channel) {
+        try {
+            URL url = new URL("https://slack.com/api/im.list?token=" + token);
+
+            BufferedReader reader;
+            String jsonStr = "";
+            reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
+            for (String line; (line = reader.readLine()) != null; ) {
+                jsonStr += line;
+            }
+            //System.out.println("We made it this far at least");
+            JSONObject json = new JSONObject(jsonStr);
+            channelId = json.getJSONObject("ims").get("id").toString();
+
+            System.out.println(channelId);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return channelId;
+    }
+
+    public static String getChannelId2 (String token, String userNameChannel) {
+        String channelId = "";
+
+
+        try {
+            URL url = new URL("https://slack.com/api/users.list?token=" + token);
+
+            BufferedReader reader;
+            String jsonStr = "";
+            reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
+            for (String line; (line = reader.readLine()) != null; ) {
+                jsonStr += line;
+            }
+            //System.out.println("We made it this far at least");
+            JSONObject json = new JSONObject(jsonStr);
+
+
+            //how can i make this continue to loop through the json????
+
+            JSONArray jsonArray = json.getJSONArray("members");
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                if (jsonArray.getJSONObject(i).get("name").toString().equals(userNameChannel)) {
+                    channelId = jsonArray.getJSONObject(i).get("id").toString();
+                    break;
+                }
+            }
+
+
+            //jsonArray.getJSONObject(i);
+            //for (int i = 0 ; i < c.length(); i++) {
+            //JSONObject obj = c.getJSONObject(i)
+
+//            if (json.getJSONObject("members").get("name").toString().equals(userNameChannel)) {
+//                channelId = json.getJSONObject("members").get("id").toString();
+//            } else model.addAttribute("error", "Choose someone on the PassITForward Slack team.")
+
+            System.out.println(channelId);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return channelId;
+    }
+
+
+    public static void sendPrivateMessage(String token,String slackmessage, String channel, String userId) {
         //String channel = "mattmenna";
 //        String token = "cookieToken";
         //String slackmessage = "this is a test for private message";
-        String asUser = getUserID(token);
+        //String asUser = getUserID(token);
+        //String channel = getChannelId(token);
 
         try {
             URL url = new URL("https://slack.com/api/chat.postMessage?token=" + token+
-                    "channel=40%" + channel + "&text=" + slackmessage + "as_user=" + asUser);
+                    "channel=40%" + channel + "&text=" + slackmessage + "as_user=" + userId);
             url.openStream();
 
 //            System.out.println(url);
