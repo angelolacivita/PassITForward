@@ -89,7 +89,6 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
     </form>
     <br>
-    <a href="https://slack.com/oauth/authorize?&client_id=223829578051.223904316370&scope=chat:write:user,users.profile:read,incoming-webhook">slack</a>
 
 </div>
 
