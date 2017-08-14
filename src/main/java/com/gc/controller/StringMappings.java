@@ -84,5 +84,9 @@ public class StringMappings {
 
         return "loginTEST";
     }
+    @RequestMapping("/dashboard")
+    public String dashboard(){
+        return "dashboard";
+    }
 
 }
