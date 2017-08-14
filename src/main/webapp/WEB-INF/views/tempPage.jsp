@@ -43,7 +43,7 @@
 </head>
 
 <body>
-<form name="temp" action="loginsuccess">
+<form name="temp" action="/loginSlack">
     <input type="hidden" id="tempCode" name="tempCode" value="">
 </form>
 

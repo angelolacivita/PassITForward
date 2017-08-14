@@ -69,8 +69,10 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>passITforward${token}</h1>
+        <h1>passITforward</h1>
         <p>Thanks for siging in!</p>
+        <a href="https://slack.com/oauth/authorize?&client_id=223829578051.223904316370&scope=chat:write:user,users.profile:read">Log in with Slack!</a>
+        <br>
         <p><a class="btn btn-primary btn-lg" href="/home" role="button">Get Started &raquo;</a></p>
 
     </div>
