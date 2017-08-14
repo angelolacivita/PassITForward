@@ -1,12 +1,21 @@
 package com.gc.controller;
 
+import com.gc.dao.CommentsDAO;
 import com.gc.dao.LanguagesDAO;
+import com.gc.dao.PostsDAO;
+import com.gc.dao.WalletDAO;
 import com.gc.factory.DaoFactory;
+import com.gc.models.CommentsEntity;
 import com.gc.models.LanguagesEntity;
+import com.gc.models.PostsEntity;
+import com.gc.models.WalletEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.persistence.MapKeyColumn;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -85,8 +94,22 @@ public class StringMappings {
         return "loginTEST";
     }
     @RequestMapping("/dashboard")
-    public String dashboard(){
-        return "dashboard";
+    public ModelAndView dashboard(Model model, @CookieValue("userIdCookie")String userIdCookie, @CookieValue("userNameCookie") String userNameCookie){
+        CommentsDAO commentsDAO = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
+        ArrayList<CommentsEntity> commentsList = commentsDAO.getUserComments(Integer.parseInt(userIdCookie));
+        model.addAttribute("cList",commentsList);
+
+        PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
+        ArrayList<PostsEntity> postsList = postsDAO.getUserPosts(Integer.parseInt(userIdCookie));
+        model.addAttribute("pList",postsList);
+
+        WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
+        int walletValue = walletDAO.getWallet(Integer.parseInt(userIdCookie));
+        model.addAttribute("walletValue", walletValue);
+
+        model.addAttribute("userName",userNameCookie);
+
+        return new ModelAndView("dashboard","command","");
     }
 
 }

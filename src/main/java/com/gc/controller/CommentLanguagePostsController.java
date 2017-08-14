@@ -34,7 +34,6 @@ import java.util.ArrayList;
  * https://www.linkedin.com/in/matthew-menna/
  */
 
-
     @Controller
 public class CommentLanguagePostsController {
 

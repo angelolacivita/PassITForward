@@ -63,5 +63,15 @@ public class CommentsDAOImpl implements CommentsDAO {
 
         return (ArrayList<CommentsEntity>) c.list();
     }
+    public ArrayList<CommentsEntity> getUserComments(int userId) {
+
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
+
+        Criteria c = s.createCriteria(CommentsEntity.class);
+        c.add(Restrictions.like("userId", userId));
+
+        return (ArrayList<CommentsEntity>) c.list();
+    }
 
 }

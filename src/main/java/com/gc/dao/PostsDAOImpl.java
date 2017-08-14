@@ -50,6 +50,15 @@ public class PostsDAOImpl implements PostsDAO {
         return (ArrayList<PostsEntity>) p.list();
     }
 
+    public ArrayList<PostsEntity> getUserPosts(int userId) {
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
+        Criteria p = s.createCriteria(PostsEntity.class);
+        p.add(Restrictions.like("userId", userId));
+
+        return (ArrayList<PostsEntity>) p.list();
+    }
+
     public void deletePost(int postID) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();

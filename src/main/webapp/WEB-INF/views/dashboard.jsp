@@ -92,26 +92,32 @@ Place Code for body of page below-->
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
+            <h1 class="page-header">${userName}'s Dashboard</h1>
+            <br>
+            <h1>Wallet Balance - ${walletValue}</h1>
 
             <div class="row placeholders">
                 <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
                     <h4>Label</h4>
                     <span class="text-muted">Something else</span>
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
                     <h4>Label</h4>
                     <span class="text-muted">Something else</span>
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
                     <h4>Label</h4>
                     <span class="text-muted">Something else</span>
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
                     <h4>Label</h4>
                     <span class="text-muted">Something else</span>
                 </div>
@@ -130,20 +136,21 @@ Place Code for body of page below-->
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>Lorem</td>
-                        <td>ipsum</td>
-                        <td>dolor</td>
-                        <td>sit</td>
-                    </tr>
-                    <tr>
-                        <td>1,002</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                    </tr>
+                    <c:forEach var="myvar" items="${cList}">
+                        <tr>
+                            <td><a href="comments?postId=${myvar.postId}">${myvar.commentsId}</a></td>
+                            <td>${myvar.commentDescription}</td>
+                        </tr>
+                    </c:forEach>
+
+                    <c:forEach var="myvar" items="${pList}">
+                        <tr>
+                            <td><a href="challenges?languageId=${myvar.languageId}">${myvar.postId}</a></td>
+                            <td>${myvar.postTitle}</td>
+                            <td>${myvar.postDescription}</td>
+                        </tr>
+                    </c:forEach>
+
                     <tr>
                         <td>1,003</td>
                         <td>Integer</td>
@@ -250,13 +257,6 @@ Place Code for body of page below-->
 </div>
 
 
-
-
-
-
-
-
-
 <!--Place Code for body of page above-->
 
 <footer id="myFooter">
@@ -277,7 +277,8 @@ Place Code for body of page below-->
             </div>
             <div class="col-sm-3 info">
                 <h5>Information</h5>
-                <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+                <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et
+                    malesuada fames ac ante ipsum primis in faucibus. </p>
             </div>
         </div>
     </div>
@@ -285,7 +286,8 @@ Place Code for body of page below-->
         <div class="container">
             <h2 class="logo"><a href="/home"> passITforward </a></h2>
             <div class="social-icons">
-                <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                <a href="https://www.facebook.com/"><i id="social-fb"
+                                                       class="fa fa-facebook-square fa-3x social"></i></a>
                 <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
                 <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
                 <a href="mailto:passITforward"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>

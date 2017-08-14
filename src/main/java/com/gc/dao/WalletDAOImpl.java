@@ -23,15 +23,14 @@ public class WalletDAOImpl implements WalletDAO {
         return id;
     }
 
-    public Integer getWalletID(int walletID) {
+    public int getWallet(int userId) {
         Session s = getSession();
+        Criteria w = s.createCriteria(WalletEntity.class);
+        w.add(Restrictions.like("userId", userId));
+        ArrayList<WalletEntity> wallet = (ArrayList<WalletEntity>) w.list();
+        int currentBalance = wallet.get(0).getWalletValue();
 
-        Criteria c = s.createCriteria(WalletEntity.class);
-        c.add(Restrictions.like("walletValue", "Matt")); // modify
-
-        WalletEntity walletInfo = (WalletEntity) c;
-
-        return walletInfo.getWalletId();
+        return currentBalance;
     }
 
     public void deleteWalletID(int walletID) {
@@ -71,20 +70,6 @@ public class WalletDAOImpl implements WalletDAO {
         tx.commit();
         s.close();
     }
-
-//    public void upvote(int credit, int userId){
-//        Session s = getSession();
-//        Transaction tx = s.beginTransaction();
-//
-//        Criteria w = s.createCriteria(WalletEntity.class);
-//        w.add(Restrictions.eq("userId", userId));
-//        ArrayList<WalletEntity> wallet = (ArrayList<WalletEntity>) w.list();
-//        int currentBalance = wallet.get(0).getWalletValue();
-//        wallet.get(0).setWalletValue(currentBalance + credit);
-//
-//        tx.commit();
-//        s.close();
-//    }
 
     private Session getSession() {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");

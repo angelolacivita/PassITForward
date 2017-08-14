@@ -89,7 +89,7 @@
                 </div>
                 <div class="form-group">
                     <form:label path="postDescription" class="control-label" for="textinput">Description of your Challenge</form:label>
-                    <form:input path="postDescription" id="textinput" name="postDescription" type="text" placeholder="Challenge Title" class="form-control input-lg" required=""/>
+                    <form:input path="postDescription" id="textinput" name="postDescription" type="text" placeholder="Challenge Description" class="form-control input-lg" required=""/>
                 </div>
                 <div class="form-group">
                     <form:label path="languageId" class="control-label" for="textinput"></form:label>
