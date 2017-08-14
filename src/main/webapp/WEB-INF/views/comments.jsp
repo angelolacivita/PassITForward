@@ -80,8 +80,8 @@
     <div class="row">
         <!--JSTL CREATED Begin-->
         <c:forEach var="myvar" items="${cList}">
-        <div class="col-md-12">
-                <h3>Comment #${myvar.commentsId}</h3>
+        <div class="">
+                <h3>Comment #${myvar.commentsId} <i class="fa fa-arrow-up" style="color:green" aria-hidden="true"></i><i class="fa fa-arrow-down" style="color:red" aria-hidden="true"></i></h3>
                 <h4>${myvar.commentDescription}</h4>
                <br>
                <br>
