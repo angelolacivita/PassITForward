@@ -39,17 +39,27 @@ public class HomeController {
     @RequestMapping("/home") // this page shows the challenges for each language
     //the String method returns the jsp page that we want to show
     //also redirects to the home page after loggin in with slack
-    public ModelAndView home(Model model, HttpServletResponse response) {
-        LanguagesDAO languagesDAO = DaoFactory.getLanguagesDaoInstance(DaoFactory.LANGUAGES_HIBERNATE_DAO);
+    public ModelAndView home(Model model, HttpServletRequest request) {
+        Cookie[] cookie = request.getCookies();
+        String cookienamestring="";
+        for (int i = 0; i < cookie.length; i++) {
+            Cookie cookiename = cookie[i];
+            cookienamestring = cookiename.getName();
+            if (cookienamestring.equals("userIdCookie")) {
+                LanguagesDAO languagesDAO = DaoFactory.getLanguagesDaoInstance(DaoFactory.LANGUAGES_HIBERNATE_DAO);
+                ArrayList<LanguagesEntity> languageList = languagesDAO.getAllLanguages();
+                return new
+                        ModelAndView("home", "lList", languageList);
+            }
 
-        ArrayList<LanguagesEntity> languageList = languagesDAO.getAllLanguages();
-
-        return new
-                ModelAndView("home", "lList", languageList);
+        }
+        return new ModelAndView("login", "", "");
     }
+
 
     @RequestMapping(value = "/login")
     public String login(Model model) {
+
         model.addAttribute("button", "Sign in with Slack");
         model.addAttribute("isLogin", false);
         model.addAttribute("msg", message);
@@ -67,7 +77,7 @@ public class HomeController {
             loginUser = validUserAndPass(userName, password);
             int userId = loginUser.getUserId();
             Cookie userCookie = new Cookie("userIdCookie", (Integer.toString(userId)));
-            userCookie.setMaxAge(60*60*24);
+            userCookie.setMaxAge(60 * 60 * 24);
             response.addCookie(userCookie);
             return "loginsuccess";
         } else {
@@ -99,7 +109,7 @@ public class HomeController {
     }
 
     @RequestMapping("/create-profile")
-    public String registration(@ModelAttribute UsersEntity newUser, Model model){
+    public String registration(@ModelAttribute UsersEntity newUser, Model model) {
         UserDAO userdao = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
 
         Integer userIDforWallet = userdao.save(newUser);
@@ -119,12 +129,11 @@ public class HomeController {
     }
 
 
-
     @RequestMapping("/loginUserTEST")
     //the String method returns the jsp page that we want to show
     public String loginUserTEST(@RequestParam("username") String username,
-                               @RequestParam("password") String password,
-                               Model model) {
+                                @RequestParam("password") String password,
+                                Model model) {
 
 
         model.addAttribute("username", username);
@@ -132,6 +141,19 @@ public class HomeController {
 
         return "loginsuccess";
         //if else statement
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpServletResponse response) {
+        Cookie userCookie = new Cookie("userIdCookie", "");
+        userCookie.setMaxAge(0);
+        response.addCookie(userCookie);
+        return "logout";
+    }
+
+    @RequestMapping("/pleaselogin")
+    public String pleaselogin() {
+        return "pleaselogin";
     }
 
 }
