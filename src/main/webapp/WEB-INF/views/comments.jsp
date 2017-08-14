@@ -81,7 +81,7 @@
         <!--JSTL CREATED Begin-->
         <c:forEach var="myvar" items="${cList}">
         <div class="">
-                <h3>Comment #${myvar.commentsId} <i class="fa fa-arrow-up" style="color:green" aria-hidden="true"></i><i class="fa fa-arrow-down" style="color:red" aria-hidden="true"></i></h3>
+            <h3>Comment #${myvar.commentsId}<a href="upvote?userId=${myvar.userId}&postId=${myvar.postId}"><i class="fa fa-arrow-up" style="color:green" aria-hidden="true"></i></a><a href="downvote?userId=${myvar.userId}&postId=${myvar.postId}"><i class="fa fa-arrow-down" style="color:red" aria-hidden="true"></i></a></h3>
                 <h4>${myvar.commentDescription}</h4>
                <br>
                <br>

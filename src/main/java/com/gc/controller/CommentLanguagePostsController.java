@@ -99,4 +99,18 @@ public class CommentLanguagePostsController {
 
         return "redirect:comments?postId=" + postId;
     }
+
+    @RequestMapping("/upvote")
+    public String upvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId){
+        WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
+        walletDAO.creditToWallet(1, userId);
+    return "redirect:comments?postId=" + postId;
+
+    }@RequestMapping("/downvote")
+    public String downvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId){
+        WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
+        walletDAO.debitFromWallet(1, userId);
+    return "redirect:comments?postId=" + postId;
+
+    }
 }
