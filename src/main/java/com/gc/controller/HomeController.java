@@ -77,8 +77,11 @@ public class HomeController {
             loginUser = validUserAndPass(userName, password);
             int userId = loginUser.getUserId();
             Cookie userCookie = new Cookie("userIdCookie", (Integer.toString(userId)));
+            Cookie userNameCookie = new Cookie("userNameCookie", userName);
             userCookie.setMaxAge(60 * 60 * 24);
+            userNameCookie.setMaxAge(60 * 60 * 24);
             response.addCookie(userCookie);
+            response.addCookie(userNameCookie);
             return "loginsuccess";
         } else {
             message = "Incorrect username or password";
@@ -151,6 +154,9 @@ public class HomeController {
         Cookie userCookie2 = new Cookie("cookieToken", "");
         userCookie2.setMaxAge(0);
         response.addCookie(userCookie2);
+        Cookie userCookie3 = new Cookie("userNameCookie", "");
+        userCookie3.setMaxAge(0);
+        response.addCookie(userCookie3);
         return "logout";
     }
 
