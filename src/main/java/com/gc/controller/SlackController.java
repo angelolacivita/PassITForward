@@ -28,13 +28,13 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class SlackController {
     @RequestMapping(value = "/slackmessagesuccess", method = RequestMethod.GET)
-    public String privatemessage(@CookieValue("cookieToken") String cookieToken, @RequestParam("slackmessage") String message, HttpServletResponse response) {
+    public String privatemessage(@CookieValue("cookieToken") String cookieToken, @RequestParam("slackmessage") String message, @RequestParam("channel") String privateChannel, HttpServletResponse response) {
 
         String userId = OAuthMethods.getUserID(cookieToken);
-        String channel = OAuthMethods.getChannelId(cookieToken);
-        response.addCookie(new Cookie("cookieChannelId", channel));
+        privateChannel = OAuthMethods.getChannelId2(cookieToken, privateChannel);
+        response.addCookie(new Cookie("cookieChannelId", privateChannel));
         response.addCookie(new Cookie("cookieUserId", userId));
-        OAuthMethods.sendPrivateMessage(cookieToken, message,userId, channel);
+        OAuthMethods.sendPrivateMessage(cookieToken, message,privateChannel,userId);
         return "slackmsgsuccess";
     }
 

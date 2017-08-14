@@ -3,7 +3,6 @@ package com.gc.controller;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.ui.Model;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -104,7 +103,7 @@ public class OAuthMethods {
         return channelId;
     }
 
-    public static String getAllSlackUsers (String token, String userNameChannel, Model model) {
+    public static String getChannelId2 (String token, String userNameChannel) {
         String channelId = "";
 
 
