@@ -117,9 +117,9 @@ public class OAuthMethods {
             for (String line; (line = reader.readLine()) != null; ) {
                 jsonStr += line;
             }
-            //System.out.println("We made it this far at least 2");
+            System.out.println("We made it this far at least 2");
             JSONObject json = new JSONObject(jsonStr);
-            //System.out.println(json);
+            System.out.println(json);
 
 
 
