@@ -148,6 +148,9 @@ public class HomeController {
         Cookie userCookie = new Cookie("userIdCookie", "");
         userCookie.setMaxAge(0);
         response.addCookie(userCookie);
+        Cookie userCookie2 = new Cookie("cookieToken", "");
+        userCookie2.setMaxAge(0);
+        response.addCookie(userCookie2);
         return "logout";
     }
 
