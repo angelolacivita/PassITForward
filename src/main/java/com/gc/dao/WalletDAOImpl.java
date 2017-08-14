@@ -9,6 +9,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 
+import java.util.ArrayList;
+
 public class WalletDAOImpl implements WalletDAO {
     public Integer save(WalletEntity newWallet) {
         Session s = getSession();
@@ -41,12 +43,33 @@ public class WalletDAOImpl implements WalletDAO {
         s.close();
     }
 
-    public void creditToWallet(int credit, int walletID) {
+    public void creditToWallet(int credit, int userId) {
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
+
+        Criteria w = s.createCriteria(WalletEntity.class);
+        w.add(Restrictions.eq("userId", userId));
+        ArrayList<WalletEntity> wallet = (ArrayList<WalletEntity>) w.list();
+        int currentBalance = wallet.get(0).getWalletValue();
+        wallet.get(0).setWalletValue(currentBalance + credit);
+
+        tx.commit();
+        s.close();
 
     }
 
-    public void debitFromWallet(int debit, int walletID) {
+    public void debitFromWallet(int debit, int userId) {
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
 
+        Criteria w = s.createCriteria(WalletEntity.class);
+        w.add(Restrictions.eq("userId", userId));
+        ArrayList<WalletEntity> wallet = (ArrayList<WalletEntity>) w.list();
+        int currentBalance = wallet.get(0).getWalletValue();
+        wallet.get(0).setWalletValue(currentBalance - debit);
+
+        tx.commit();
+        s.close();
     }
 
     private Session getSession() {
