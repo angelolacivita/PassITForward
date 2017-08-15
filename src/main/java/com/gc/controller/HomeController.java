@@ -147,7 +147,7 @@ public class HomeController {
     @RequestMapping("/create-profile")
     public String registration(@ModelAttribute UsersEntity newUser, Model model) {
         UserDAO userdao = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
-
+        ArrayList<UsersEntity> allUsers = userdao.getAllUsers();
         Integer userIDforWallet = userdao.save(newUser);
 
         WalletEntity newWallet = new WalletEntity();

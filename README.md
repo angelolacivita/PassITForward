@@ -8,6 +8,7 @@ https://github.com/fhanif
 
 Angelo LaCivita  
 https://github.com/angelolacivita  
+https://www.linkedin.com/in/angelo-lacivita-cpa/
 
 Matthew Menna  
 https://github.com/mattmenna  
