@@ -35,7 +35,7 @@ public class CommentLanguagePostsController {
     public ModelAndView challenges(Model model, @RequestParam("languageId") int languageId) {
         PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
         ArrayList<PostsEntity> postsList = postsDAO.getAllPosts(model, languageId);
-
+        model.addAttribute("msg", message);
         return new
                 ModelAndView("challenges", "pList", postsList);
     }
@@ -78,15 +78,25 @@ public class CommentLanguagePostsController {
      * @param userIdCookie
      * @return
      */
+    private String message;
     @RequestMapping("/create-challenge")
     public String createchallenge(@ModelAttribute PostsEntity newPosts, Model model,
                                   @RequestParam("languageId") int languageId, @CookieValue("userIdCookie") String userIdCookie) {
         PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
-        newPosts.setUserId(Integer.parseInt(userIdCookie));
-        postsDAO.save(newPosts);
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
-        walletDAO.debitFromWallet(5, Integer.parseInt(userIdCookie));
-        return "redirect:challenges?languageId=" + languageId;
+        int currentBalance = walletDAO.getWallet(Integer.parseInt(userIdCookie));
+        int postBalance = currentBalance - 5;
+        if (postBalance < 0) {
+            message = "You do not have a high enough wallet balance to make a new post.";
+            return "redirect:challenges?languageId=" + languageId;
+
+        } else {
+            message = "";
+            newPosts.setUserId(Integer.parseInt(userIdCookie));
+            postsDAO.save(newPosts);
+            walletDAO.debitFromWallet(5, Integer.parseInt(userIdCookie));
+            return "redirect:challenges?languageId=" + languageId;
+        }
     }
 
     /**

@@ -83,6 +83,7 @@ Place Code for body of page below-->
 <div class="jumbotron">
     <div class="container">
         <h1>Challenges</h1>
+        <h2 class="text-danger">${msg}</h2>
         <p>Viewing all ${language} Challenges </p>
         <h3><a href="newchallenge?languageId=${languageId}">Post new Challenge</a></h3>
     </div>
