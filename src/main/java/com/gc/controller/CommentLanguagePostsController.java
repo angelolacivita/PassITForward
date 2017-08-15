@@ -138,10 +138,10 @@ public class CommentLanguagePostsController {
      * @return
      */
     @RequestMapping("/upvote")
-    public String upvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId") int commentsId) {
+    public String upvote(@CookieValue("userIdCookie") String userIdCookie, @RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId") int commentsId) {
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
         VotesDAO votesDAO = DaoFactory.getVotesDaoInstance(DaoFactory.VOTES_HIBERNATE_DAO);
-        votesDAO.vote(userId, commentsId,1);
+        votesDAO.vote(Integer.parseInt(userIdCookie), commentsId,1);
 
 
 
@@ -161,10 +161,10 @@ public class CommentLanguagePostsController {
      * @return
      */
     @RequestMapping("/downvote")
-    public String downvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId")int commentsId) {
+    public String downvote(@CookieValue("userIdCookie")String userIdCookie,@RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId")int commentsId) {
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
         VotesDAO votesDAO = DaoFactory.getVotesDaoInstance(DaoFactory.VOTES_HIBERNATE_DAO);
-        votesDAO.vote(userId, commentsId,-1);
+        votesDAO.vote(Integer.parseInt(userIdCookie), commentsId,-1);
 
 
 
