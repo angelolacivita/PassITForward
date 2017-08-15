@@ -8,6 +8,6 @@ import java.util.ArrayList;
 public interface LanguagesDAO {
     ArrayList<LanguagesEntity> getAllLanguages();
 
-    void deleteLanguage(int languageID);
+
 
 }

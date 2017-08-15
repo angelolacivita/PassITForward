@@ -23,17 +23,6 @@ public class LanguagesDAOImpl implements LanguagesDAO {
         return (ArrayList<LanguagesEntity>) l.list();
     }
 
-    /**
-     * @param languageID
-     */
-    public void deleteLanguage(int languageID) {
-        Session s = getSession();
-        Transaction tx = s.beginTransaction();
-        s.delete(languageID);
-
-        tx.commit();
-        s.close();
-    }
 
     /**
      * @return

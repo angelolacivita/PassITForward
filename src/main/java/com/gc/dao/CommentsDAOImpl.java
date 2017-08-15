@@ -26,29 +26,20 @@ public class CommentsDAOImpl implements CommentsDAO {
         s.close();
     }
 
-    /**
-     * @param userID
-     */
-    public void deleteCommentsByUser(int userID) {
-        Session s = getSession();
-        Transaction tx = s.beginTransaction();
-        s.delete(userID);
 
-        tx.commit();
-        s.close();
-    }
 
-    /**
-     * @param commentID
-     */
-    public void deleteComment(int commentID) {
-        Session s = getSession();
-        Transaction tx = s.beginTransaction();
-        s.delete(commentID);
 
-        tx.commit();
-        s.close();
-    }
+//    /**
+//     * @param commentID
+//     */
+//    public void deleteComment(int commentID) {
+//        Session s = getSession();
+//        Transaction tx = s.beginTransaction();
+//        s.delete(commentID);
+//
+//        tx.commit();
+//        s.close();
+//    }
 
     /**
      * @return

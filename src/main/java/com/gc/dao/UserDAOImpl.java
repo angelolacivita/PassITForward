@@ -61,25 +61,7 @@ public class UserDAOImpl implements UserDAO {
 
         return (ArrayList<UsersEntity>) u.list();
     }
-//
-//    public static UsersEntity getUser(String username, String password) {
-//        ArrayList<UsersEntity> users = getAllUsers();
-//        boolean isUser = false;
-//        for( UsersEntity user : users){
-//            if (isUserNameEquals(username, user)) {
-//                isUser = true;
-//                if (isPasswordEquals(password, user)) {
-//                    return user;
-//                } else {
-//                    msg = "Wrong Password!";
-//                }
-//            }
-//        }
-//        if (!isUser) {
-//            msg = "User does not exist, please register";
-//        }
-//        return null;
-//    }
+
 
     /**
      * @param userName
@@ -95,15 +77,7 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
-//    private static boolean isPasswordEquals(String password, UsersEntity user) {
-//        return user.getPassword().equals(password);
-//    }
-//
-//    private static boolean isUserNameEquals(String userName, UsersEntity user) {
-//        return user.getUserName().equals(userName);
-//    }
-//
-//
+
 
     /**
      * @return
@@ -118,45 +92,3 @@ public class UserDAOImpl implements UserDAO {
 }
 
 
-//    public ArrayList<UsersEntity> getAllUsers(String username, String password) {
-//
-//        Session s = getSession();
-//        Transaction tx = s.beginTransaction();
-//        Criteria l = s.createCriteria(LanguagesEntity.class);
-//
-//
-//        tx.commit();
-//        s.close();
-//        return (ArrayList<UsersEntity>) l.list();
-//    }
-
-
-//    public boolean checkUserLogin (Model model, String username, String password) {
-//
-//        Session s = getSession();
-//        Transaction tx = s.beginTransaction();
-//        UsersEntity temp = (UsersEntity) s.get(UsersEntity.class, username);
-//
-//        Criteria c = s.createCriteria(UsersEntity.class);
-//
-//        ArrayList<UsersEntity> checkuserarray = (ArrayList<UsersEntity>) c.list();
-////
-////        if(c.add(Restrictions.like("userName", userName))){
-////            return true;
-////        }
-//        //return false;
-//
-//        model.addAttribute("username", temp.getUserName());
-//
-////        while (rs.next()) {
-////            databaseUsername = rs.getString("users_name");
-////            databasePassword = rs.getString("users_password");
-////        }
-////
-////        if (name.equals(databaseUsername) && password.equals(databasePassword)) {
-////            System.out.println("Successful Login!\n----");
-////        } else {
-////            System.out.println("Incorrect Password\n----");
-////        }
-//
-//        return false;
