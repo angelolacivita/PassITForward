@@ -68,17 +68,19 @@
 
         </div><!--/.nav-collapse -->
     </div>
-</nav><span class="icon-bar"></span>
+</nav>
+<span class="icon-bar"></span>
 <!--
 Place Code for body of page below-->
 
 
-
-<h1>You are now logged out!</h1>
-
-
-
-
+<div class="container">
+    <br> <br><br><br><br><br>
+    <h1>You are now logged out!</h1>
+    <p>Thanks for visiting!</p>
+    <p><a href="/login">Sign back in</a></p>
+    <br><br><br><br><br>
+</div>
 
 
 <!--Place Code for body of page above-->
@@ -109,7 +111,7 @@ Place Code for body of page below-->
     </div>
     <div class="second-bar">
         <div class="container">
-            <h2 class="logo"><a href="/home">  </a></h2>
+            <h2 class="logo"><a href="/home"> </a></h2>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><i id="social-fb"
                                                        class="fa fa-facebook-square fa-3x social"></i></a>
