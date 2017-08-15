@@ -75,7 +75,8 @@
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav><span class="icon-bar"></span>
+</nav>
+<span class="icon-bar"></span>
 <!--
 Place Code for body of page below-->
 
@@ -90,23 +91,29 @@ Place Code for body of page below-->
 
 <div class="container">
     <!-- Example row of columns -->
-    <div class="row">
-        <!--JSTL CREATED Begin-->
-        <c:forEach var="myvar" items="${cList}">
-        <div class="">
-            <h3>Comment #${myvar.commentsId}<a href="upvote?userId=${myvar.userId}&postId=${myvar.postId}"><i class="fa fa-arrow-up" style="color:green" aria-hidden="true"></i></a><a href="downvote?userId=${myvar.userId}&postId=${myvar.postId}"><i class="fa fa-arrow-down" style="color:red" aria-hidden="true"></i></a></h3>
-                <h4>${myvar.commentDescription}</h4>
-               <br>
-               <br>
-        </div>
-        </c:forEach>
-        <!--JSTL CREATED End-->
 
-    </div>
+    <!--JSTL CREATED Begin-->
+    <c:forEach var="myvar" items="${cList}">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Comment #${myvar.commentsId}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="upvote?userId=${myvar.userId}&postId=${myvar.postId}">
+                    <i class="fa fa-arrow-up" style="color:green" aria-hidden="true"></i>
+                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="downvote?userId=${myvar.userId}&postId=${myvar.postId}">
+                    <i class="fa fa-arrow-down" style="color:red" aria-hidden="true"></i></a></div>
+            <div class="panel-body"> ${myvar.commentDescription}</div>
+            <br>
+            <br>
+        </div>
+    </c:forEach>
+
+
+    <!--JSTL CREATED End-->
 
 </div>
 
-
+</div>
 
 
 <footer id="myFooter">
@@ -134,7 +141,7 @@ Place Code for body of page below-->
     </div>
     <div class="second-bar">
         <div class="container">
-            <h2 class="logo"><a href="/home">  </a></h2>
+            <h2 class="logo"><a href="/home"> </a></h2>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><i id="social-fb"
                                                        class="fa fa-facebook-square fa-3x social"></i></a>

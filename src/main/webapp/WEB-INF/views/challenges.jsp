@@ -75,7 +75,8 @@
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav><span class="icon-bar"></span><span class="icon-bar"></span>
+</nav>
+<span class="icon-bar"></span><span class="icon-bar"></span>
 <!--
 Place Code for body of page below-->
 
@@ -91,17 +92,24 @@ Place Code for body of page below-->
 
 <div class="container">
     <!-- Example row of columns -->
-        <!--JSTL CREATED Begin-->
+
+    <!--JSTL CREATED Begin-->
+
     <c:forEach var="myvar" items="${pList}">
-        <div class="col-md-4">
-                <a href ="/comments?postId=${myvar.postId}"><h2>${myvar.postTitle}</h2></a>
-                <p>${myvar.postDescription}</p>
+        <div class="panel panel-default">
+            <div class="panel-heading">Post Title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/comments?postId=${myvar.postId}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+
+                <a href="/comments?postId=${myvar.postId}">${myvar.postTitle}</a></div>
+
+            <div class="panel-body">Description<p>${myvar.postDescription}</p></div>
+
+            <hr>
         </div>
     </c:forEach>
+</div>
+<!--JSTL CREATED End-->
 
-        <!--JSTL CREATED End-->
-
-    </div>
 
 <footer id="myFooter">
     <div class="container">
@@ -121,19 +129,21 @@ Place Code for body of page below-->
             </div>
             <div class="col-sm-3 info">
                 <h5>Information</h5>
-                <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et
+                <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum
+                    et
                     malesuada fames ac ante ipsum primis in faucibus. </p>
             </div>
         </div>
     </div>
     <div class="second-bar">
         <div class="container">
-            <h2 class="logo"><a href="/home">  </a></h2>
+            <h2 class="logo"><a href="/home"> </a></h2>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><i id="social-fb"
                                                        class="fa fa-facebook-square fa-3x social"></i></a>
                 <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                <a href="https://plus.google.com/"><i id="social-gp"
+                                                      class="fa fa-google-plus-square fa-3x social"></i></a>
                 <a href="mailto:passITforward"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
             </div>
         </div>
