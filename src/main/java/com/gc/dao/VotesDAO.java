@@ -5,6 +5,7 @@ package com.gc.dao;
  */
 public interface VotesDAO {
 
+    void vote (int userId, int commentId, int votevalue);
 
 
 }

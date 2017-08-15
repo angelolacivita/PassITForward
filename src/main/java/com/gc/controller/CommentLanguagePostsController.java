@@ -2,6 +2,7 @@ package com.gc.controller;
 
 import com.gc.dao.CommentsDAO;
 import com.gc.dao.PostsDAO;
+import com.gc.dao.VotesDAO;
 import com.gc.dao.WalletDAO;
 import com.gc.factory.DaoFactory;
 import com.gc.models.CommentsEntity;
@@ -137,9 +138,19 @@ public class CommentLanguagePostsController {
      * @return
      */
     @RequestMapping("/upvote")
-    public String upvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId) {
+    public String upvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId") int commentsId) {
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
+        VotesDAO votesDAO = DaoFactory.getVotesDaoInstance(DaoFactory.VOTES_HIBERNATE_DAO);
+        votesDAO.vote(userId, commentsId,1);
+
+
+
+
+
+
         walletDAO.creditToWallet(1, userId);
+
+
         return "redirect:comments?postId=" + postId;
 
     }
@@ -150,10 +161,17 @@ public class CommentLanguagePostsController {
      * @return
      */
     @RequestMapping("/downvote")
-    public String downvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId) {
+    public String downvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId")int commentsId) {
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
+        VotesDAO votesDAO = DaoFactory.getVotesDaoInstance(DaoFactory.VOTES_HIBERNATE_DAO);
+        votesDAO.vote(userId, commentsId,-1);
+
+
+
         walletDAO.debitFromWallet(1, userId);
         return "redirect:comments?postId=" + postId;
 
     }
+
+
 }

@@ -97,10 +97,10 @@ Place Code for body of page below-->
         <div class="panel panel-default">
             <div class="panel-heading">
                 Comment #${myvar.commentsId}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="upvote?userId=${myvar.userId}&postId=${myvar.postId}">
+                <a href="upvote?userId=${myvar.userId}&postId=${myvar.postId}&commentsId=${myvar.commentsId}">
                     <i class="fa fa-arrow-up" style="color:green" aria-hidden="true"></i>
                 </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="downvote?userId=${myvar.userId}&postId=${myvar.postId}">
+                <a href="downvote?userId=${myvar.userId}&postId=${myvar.postId}&commentsId=${myvar.commentsId}">
                     <i class="fa fa-arrow-down" style="color:red" aria-hidden="true"></i></a></div>
             <div class="panel-body"> ${myvar.commentDescription}</div>
             <br>
