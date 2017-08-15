@@ -31,11 +31,11 @@
     <link href="<c:url value="/resources/css/Footer-with-logo.css"/>" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!----Keep one of the following
-    <link href="<c:url value="/resources/css/dashboard.css"/>" rel="stylesheet">
+
+
     <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
-    <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
-    ------------------------------->
+
+
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -46,6 +46,14 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script src="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js" type="text/javascript" charset="utf-8"></script>
+
+    <style type="text/css" media="screen">
+        #editor {
+            height: 300px;
+        }
+    </style>
 </head>
 
 <body>
@@ -111,10 +119,31 @@ Place Code for body of page below-->
             </fieldset>
         </form:form>
         <!--JSTL CREATED End-->
-
+<br><br><br>
     </div>
 
 </div>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Editor</h3>
+        </div>
+        <div class="panel-body">
+            <div id="editor">function foo(items) {
+                var x = "All this is syntax highlighted";
+                return x;
+                }</div>
+        </div>
+    </div>
+</div>
+
+<script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/java");
+</script>
 
 
 
