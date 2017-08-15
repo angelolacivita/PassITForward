@@ -63,102 +63,95 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/logout">Logout&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-                <li><a href="/dashboard">Dashboard&nbsp;&nbsp;&nbsp;<i class="fa fa-tachometer" aria-hidden="true"></i></a></li>
+                <li><a href="/logout">Logout&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out"
+                                                                       aria-hidden="true"></i></a></li>
+                <li><a href="/dashboard">Dashboard&nbsp;&nbsp;&nbsp;<i class="fa fa-tachometer" aria-hidden="true"></i></a>
+                </li>
             </ul>
 
         </div><!--/.nav-collapse -->
     </div>
-</nav><span class="icon-bar"></span>
+</nav>
+<span class="icon-bar"></span>
 <!--
 Place Code for body of page below-->
 
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="#">Analytics</a></li>
-                <li><a href="#">Export</a></li>
-            </ul>
 
+        <h1 class="page-header">${userName}'s Dashboard</h1>
+        <br>
+        <h1>Wallet Balance - ${walletValue}</h1>
+
+        <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>Label</h4>
+                <span class="text-muted">Something else</span>
+            </div>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">${userName}'s Dashboard</h1>
-            <br>
-            <h1>Wallet Balance - ${walletValue}</h1>
 
-            <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-            </div>
-
-            <h2 class="sub-header">Section title</h2>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
+        <h2 class="sub-header">Section title</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Comments ID</th>
+                    <th>Comments Description</th>
+                </tr>
+                /
+                </thead>
+                <tbody>
+                <c:forEach var="myvar" items="${cList}">
                     <tr>
-                        <th>#</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
+                        <td><a href="comments?postId=${myvar.postId}">${myvar.commentsId}</a></td>
+                        <td>${myvar.commentDescription}</td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="myvar" items="${cList}">
-                        <tr>
-                            <td><a href="comments?postId=${myvar.postId}">${myvar.commentsId}</a></td>
-                            <td>${myvar.commentDescription}</td>
-                        </tr>
-                    </c:forEach>
-
-                    <c:forEach var="myvar" items="${pList}">
-                        <tr>
-                            <td><a href="challenges?languageId=${myvar.languageId}">${myvar.postId}</a></td>
-                            <td>${myvar.postTitle}</td>
-                            <td>${myvar.postDescription}</td>
-                        </tr>
-                    </c:forEach>
-
+                </c:forEach>
+                </tbody>
+            </table>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>PostID</th>
+                    <th>PostTitle</th>
+                    <th>Post Description</th>
+                </tr>
+                </thead>
+                <c:forEach var="myvar" items="${pList}">
                     <tr>
-                        <td>1,003</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
+                        <td><a href="challenges?languageId=${myvar.languageId}">${myvar.postId}</a></td>
+                        <td>${myvar.postTitle}</td>
+                        <td>${myvar.postDescription}</td>
                     </tr>
+                </c:forEach>
 
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
+
 
 
 <!--Place Code for body of page above-->
@@ -188,7 +181,7 @@ Place Code for body of page below-->
     </div>
     <div class="second-bar">
         <div class="container">
-            <h2 class="logo"><a href="/home">  </a></h2>
+            <h2 class="logo"><a href="/home"> </a></h2>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><i id="social-fb"
                                                        class="fa fa-facebook-square fa-3x social"></i></a>

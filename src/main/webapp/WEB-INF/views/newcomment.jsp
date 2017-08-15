@@ -118,29 +118,53 @@ Place Code for body of page below-->
 </div>
 
 
-<div class="container">
-    <div class="text-center center-block">
-        <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-        <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-        <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-        <a href="mailto:passITforward"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+<footer id="myFooter">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h5>Get started</h5>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/login">Sign in/up</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>About us</h5>
+                <ul>
+                    <li><a href="/contact">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 info">
+                <h5>Information</h5>
+                <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et
+                    malesuada fames ac ante ipsum primis in faucibus. </p>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="second-bar">
+        <div class="container">
+            <h2 class="logo"><a href="/home">  </a></h2>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/"><i id="social-fb"
+                                                       class="fa fa-facebook-square fa-3x social"></i></a>
+                <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                <a href="mailto:passITforward"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>"></script>
-
 
 <script src="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/javascript");
+    editor.getSession().setMode("ace/mode/java");
     editor.resize();
 </script>
 

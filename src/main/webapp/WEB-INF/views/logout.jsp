@@ -31,11 +31,9 @@
     <link href="<c:url value="/resources/css/Footer-with-logo.css"/>" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!----Keep one of the following
     <link href="<c:url value="/resources/css/dashboard.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
-    ------------------------------->
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
