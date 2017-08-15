@@ -7,6 +7,7 @@ import com.gc.dao.WalletDAO;
 import com.gc.factory.DaoFactory;
 import com.gc.models.CommentsEntity;
 import com.gc.models.PostsEntity;
+import com.gc.models.VotesEntity;
 import org.apache.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -141,17 +142,18 @@ public class CommentLanguagePostsController {
     public String upvote(@CookieValue("userIdCookie") String userIdCookie, @RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId") int commentsId) {
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
         VotesDAO votesDAO = DaoFactory.getVotesDaoInstance(DaoFactory.VOTES_HIBERNATE_DAO);
-        votesDAO.vote(Integer.parseInt(userIdCookie), commentsId,1);
+
+        if (voterFraud(Integer.parseInt(userIdCookie), commentsId) == null){
+
+            votesDAO.vote(Integer.parseInt(userIdCookie), commentsId,1);
+            walletDAO.creditToWallet(1, userId);
+            return "redirect:comments?postId=" + postId;
+
+        } 
 
 
 
 
-
-
-        walletDAO.creditToWallet(1, userId);
-
-
-        return "redirect:comments?postId=" + postId;
 
     }
 
@@ -171,6 +173,12 @@ public class CommentLanguagePostsController {
         walletDAO.debitFromWallet(1, userId);
         return "redirect:comments?postId=" + postId;
 
+    }
+
+    private VotesEntity voterFraud (int userId, int commentId){
+
+        VotesDAO votesDAO = DaoFactory.getVotesDaoInstance(DaoFactory.VOTES_HIBERNATE_DAO);
+        return votesDAO.voteCheck(userId, commentId);
     }
 
 

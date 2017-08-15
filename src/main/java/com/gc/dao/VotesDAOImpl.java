@@ -1,5 +1,6 @@
 package com.gc.dao;
 
+import com.gc.models.UsersEntity;
 import com.gc.models.VotesEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -26,6 +27,15 @@ public class VotesDAOImpl implements VotesDAO {
 
     }
 
+    public VotesEntity voteCheck (int userId, int commentsId) {
+        VotesEntity voter;
+        Session s = getSession();
+        voter = (VotesEntity) s.createQuery("from VotesEntity where userId = '" + userId + "' and commentId= '" + commentsId + "'").setMaxResults(1).uniqueResult();
+        s.close();
+
+        return voter;
+
+    }
 
 
 
