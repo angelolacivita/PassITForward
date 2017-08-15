@@ -55,7 +55,7 @@ public class CommentLanguagePostsController {
         PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
         ArrayList<PostsEntity> postsList = postsDAO.getAllPosts();
         model.addAttribute("pList", postsList);
-
+        model.addAttribute("msg2", msg2);
         return new
                 ModelAndView("comments", "cList", commentsList);
     }
@@ -138,24 +138,26 @@ public class CommentLanguagePostsController {
      * @param postId
      * @return
      */
+    private String msg2;
+
     @RequestMapping("/upvote")
-    public String upvote(@CookieValue("userIdCookie") String userIdCookie, @RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId") int commentsId) {
+    public String upvote(Model model, @CookieValue("userIdCookie") String userIdCookie, @RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId") int commentsId) {
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
         VotesDAO votesDAO = DaoFactory.getVotesDaoInstance(DaoFactory.VOTES_HIBERNATE_DAO);
 
-        if (voterFraud(Integer.parseInt(userIdCookie), commentsId) == null){
+        if (voterFraud(Integer.parseInt(userIdCookie), commentsId) == null) {
 
-            votesDAO.vote(Integer.parseInt(userIdCookie), commentsId,1);
+            votesDAO.vote(Integer.parseInt(userIdCookie), commentsId, 1);
             walletDAO.creditToWallet(1, userId);
+            msg2 = "";
             return "redirect:comments?postId=" + postId;
 
-        } 
-
-
-
-
+        }
+            msg2 = "Your vote has already been registered";
+            return "redirect:comments?postId=" + postId;
 
     }
+
 
     /**
      * @param userId
@@ -166,14 +168,20 @@ public class CommentLanguagePostsController {
     public String downvote(@CookieValue("userIdCookie")String userIdCookie,@RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId")int commentsId) {
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
         VotesDAO votesDAO = DaoFactory.getVotesDaoInstance(DaoFactory.VOTES_HIBERNATE_DAO);
-        votesDAO.vote(Integer.parseInt(userIdCookie), commentsId,-1);
 
+        if (voterFraud(Integer.parseInt(userIdCookie), commentsId) == null) {
 
+            votesDAO.vote(Integer.parseInt(userIdCookie), commentsId, -1);
+            walletDAO.debitFromWallet(1, userId);
+            msg2 = "";
+            return "redirect:comments?postId=" + postId;
 
-        walletDAO.debitFromWallet(1, userId);
+        }
+        msg2 = "Your vote has already been registered";
         return "redirect:comments?postId=" + postId;
 
     }
+    
 
     private VotesEntity voterFraud (int userId, int commentId){
 
