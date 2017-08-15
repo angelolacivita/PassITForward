@@ -31,11 +31,8 @@
     <link href="<c:url value="/resources/css/Footer-with-logo.css"/>" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!----Keep one of the following
-    <link href="<c:url value="/resources/css/dashboard.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
-    <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
-    ------------------------------->
+
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -84,46 +81,38 @@ Place Code for body of page below-->
         <h1>about passITforward</h1>
         <p>We created passITforward as an alternative to some of the more popular solution websites that don't reward well thought out responses.
         Our goal is to create a site that encourages users to respond to others problems.</p>
-        <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="https://angelolacivita.github.io/PassITForward/" role="button">Java Documentation&raquo;</a></p>
     </div>
 </div>
 
 <div class="container">
-    <!-- Example row of columns -->
+    <!-- Team Members Row -->
     <div class="row">
-        <div class="col-md-4">
-            <h2>Java</h2>
-            <p>Number of Projects : 10<br>
-            Number of answers: 20<br>
-            Popularity: High</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-12">
+            <h2 class="my-4">Our Team</h2>
         </div>
-        <div class="col-md-4">
-            <h2>C#</h2>
-            <p>Number of Projects : 11<br>
-                Number of answers: 21<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/angelo_lacivita.jpg" height="200" width="200"alt="">
+            <h3>Angelo Lacivita
+                <small>Software Developer</small>
+            </h3>
+            <p><a href="http://github.com/angelolacivita">Github</a></p>
+            <p><a href="https://www.linkedin.com/in/angelo-lacivita-cpa/">LinkedIn</a></p>
         </div>
-        <div class="col-md-4">
-            <h2>CSS</h2>
-            <p>Number of Projects : 12<br>
-                Number of answers: 22<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/matt_menna.jpg" height="200" width="200" alt="">
+            <h3>Matthew Menna
+                <small>Software Developer</small>
+            </h3>
+            <p><a href="https://github.com/mattmenna">Github</a></p>
+            <P><a href="https://www.linkedin.com/in/matthew-menna/">LinkedIn</a></P>
         </div>
-        <div class="col-md-4">
-            <h2>JavaScript</h2>
-            <p>Number of Projects : 13<br>
-                Number of answers: 23<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <p>Number of Projects : 14<br>
-                Number of answers: 24<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+            <h3>John Smith
+                <small>Job Title</small>
+            </h3>
+            <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
         </div>
     </div>
 

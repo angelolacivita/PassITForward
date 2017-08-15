@@ -48,6 +48,11 @@
     <![endif]-->
     <script src="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js" type="text/javascript" charset="utf-8"></script>
 
+    <style type="text/css" media="screen">
+        #editor {
+            height: 300px;
+        }
+    </style>
 </head>
 
 <body>
@@ -110,19 +115,34 @@ Place Code for body of page below-->
             </fieldset>
         </form:form>
         <!--JSTL CREATED End-->
-
+<br><br><br>
     </div>
 
 </div>
 
 
-<div id="editor">${postDescription}
+<%--<div id="editor">${postDescription}--%>
+<%--</div>--%>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Editor</h3>
+        </div>
+        <div class="panel-body">
+            <div id="editor">function foo(items) {
+                var x = "All this is syntax highlighted";
+                return x;
+                }</div>
+        </div>
+    </div>
 </div>
+
+<script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/javascript");
-    editor.resize();
+    editor.getSession().setMode("ace/mode/java");
 </script>
 
 
@@ -168,7 +188,6 @@ Place Code for body of page below-->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js" type="text/javascript" charset="utf-8"></script>
 
 
 </body>

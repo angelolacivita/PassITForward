@@ -2,6 +2,8 @@ package com.gc.dao;
 
 import com.gc.models.UsersEntity;
 
+import java.util.ArrayList;
+
 
 public interface UserDAO {
     Integer save(UsersEntity newUser);
@@ -11,6 +13,8 @@ public interface UserDAO {
     void deleteUser(int userID);
 
     UsersEntity getUser(String userName, String password);
+
+    ArrayList<UsersEntity> getAllUsers();
 
     //boolean checkUser(String userName, String password);
 
