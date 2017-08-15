@@ -33,16 +33,16 @@ public class StringMappings {
     public ModelAndView login2(HttpServletRequest request) {
         Cookie[] cookie = request.getCookies();
         String cookienamestring = "";
-//        for (int i = 0; i < cookie.length; i++) {
-//            Cookie cookiename = cookie[i];
-//            cookienamestring = cookiename.getName();
-//            if (cookienamestring.equals("userIdCookie")) {
-//                LanguagesDAO languagesDAO = DaoFactory.getLanguagesDaoInstance(DaoFactory.LANGUAGES_HIBERNATE_DAO);
-//                ArrayList<LanguagesEntity> languageList = languagesDAO.getAllLanguages();
-//                return new
-//                        ModelAndView("home", "lList", languageList);
-//            }
-//        }
+        for (int i = 0; i < cookie.length; i++) {
+            Cookie cookiename = cookie[i];
+            cookienamestring = cookiename.getName();
+            if (cookienamestring.equals("userIdCookie")) {
+                LanguagesDAO languagesDAO = DaoFactory.getLanguagesDaoInstance(DaoFactory.LANGUAGES_HIBERNATE_DAO);
+                ArrayList<LanguagesEntity> languageList = languagesDAO.getAllLanguages();
+                return new
+                        ModelAndView("home", "lList", languageList);
+            }
+        }
 
         return new ModelAndView("login", "", "");
     }
