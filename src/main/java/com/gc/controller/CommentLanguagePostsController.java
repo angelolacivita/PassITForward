@@ -112,6 +112,7 @@ public class CommentLanguagePostsController {
         ArrayList<CommentsEntity> commentsList = commentsdao.getAllComments(model, postId);
 
         return new ModelAndView("newcomment", "command", new CommentsEntity());
+
     }
 
     /**

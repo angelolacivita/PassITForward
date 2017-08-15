@@ -54,21 +54,12 @@ public class UserDAOImpl implements UserDAO {
     /**
      * @return
      */
-    public static ArrayList<UsersEntity> getAllUsers() {
-        Session session = factory.openSession();
-        Transaction tx = null;
-        ArrayList<UsersEntity> users = new ArrayList<UsersEntity>();
-        try {
-            tx = session.beginTransaction();
-            users = (ArrayList<UsersEntity>) session.createQuery("FROM UsersEntity ").list();
-            tx.commit();  //COMMIT MUST COME AFTER THE ACTION
-        } catch (HibernateException e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-        return users;
+    public ArrayList<UsersEntity> getAllUsers() {
+        Session s = getSession();
+        Transaction tx = s.beginTransaction();
+        Criteria u = s.createCriteria(UsersEntity.class);
+
+        return (ArrayList<UsersEntity>) u.list();
     }
 //
 //    public static UsersEntity getUser(String username, String password) {
