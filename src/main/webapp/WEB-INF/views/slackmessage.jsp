@@ -31,11 +31,11 @@
     <link href="<c:url value="/resources/css/Footer-with-logo.css"/>" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!----Keep one of the following
+
     <link href="<c:url value="/resources/css/dashboard.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
-    ------------------------------->
+
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -75,24 +75,39 @@
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav><span class="icon-bar"></span>
+</nav>
+<span class="icon-bar"></span>
 <!--
 Place Code for body of page below-->
+<div class="container">
 
-<form name=temp method="get" action="slackmessagesuccess">
-    <input type="text" id="messageText" name="slackmessage">
-    Enter the username of the user you want to direct message on the PassITForward slack team:
-    <input type="text" id="recieverChannel" name="channel">
-    <button name="submit">Submit</button>
-</form>
+    <form class="form-signin" name=temp method="get" action="slackmessagesuccess">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Send a Slack Message</legend>
+            <div class="form-group">
+                <label class="control-label" for="messageText">Message Text:<br></label>
+                <input type="text" class="form-control input-lg" id="messageText" name="slackmessage">
 
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="recieverChannel">Enter the username of the user you want to direct message on the PassITForward slack team:</label><br>
+                <input type="text" class="form-control input-lg" id="recieverChannel" name="channel">
+            </div>
+            <div class="form-group">
+                <label class="col-md-12 control-label" for="singlebutton"></label>
+                <button id="singlebutton" name="submit" class="btn btn-primary">Send Message</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
 <script>
-//    var url_string = window.location.href;
-//    var url = new URL(url_string);
-//    var code = url.searchParams.get("code");
+    //    var url_string = window.location.href;
+    //    var url = new URL(url_string);
+    //    var code = url.searchParams.get("code");
     document.getElementById('messsageText').value = slackmessage;
     document.getElementsById('recieverChannel').value = channel;
-    window.onload = function(){
+    window.onload = function () {
         document.forms['temp'].submit();
     }
 </script>
@@ -122,7 +137,7 @@ Place Code for body of page below-->
     </div>
     <div class="second-bar">
         <div class="container">
-            <h2 class="logo"><a href="/home">  </a></h2>
+            <h2 class="logo"><a href="/home"> </a></h2>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><i id="social-fb"
                                                        class="fa fa-facebook-square fa-3x social"></i></a>

@@ -79,9 +79,12 @@
 <!--
 Place Code for body of page below-->
 
-<p>
-    You have successfully direct messaged ${""}
-</p>
+<div class="jumbotron">
+    <div class="container">
+        <h3>You have successfully direct messaged ${""}</h3>
+    </div>
+</div>
+
 
 <footer id="myFooter">
     <div class="container">
