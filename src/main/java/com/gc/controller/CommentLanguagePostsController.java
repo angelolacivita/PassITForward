@@ -21,6 +21,7 @@ import org.springframework.web.util.WebUtils;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -51,11 +52,17 @@ public class CommentLanguagePostsController {
     public ModelAndView comments(Model model, @RequestParam("postId") int postId) {
         CommentsDAO commentsDAO = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
         ArrayList<CommentsEntity> commentsList = commentsDAO.getAllComments(model, postId);
+        VotesDAO votesDAO = DaoFactory.getVotesDaoInstance(DaoFactory.VOTES_HIBERNATE_DAO);
+
+        Map votesmap = votesDAO.totalVotes();
+        model.addAttribute("votesmap", votesmap);
+        System.out.println(votesmap.get("8"));
 
         PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
         ArrayList<PostsEntity> postsList = postsDAO.getAllPosts();
         model.addAttribute("pList", postsList);
         model.addAttribute("msg2", msg2);
+
         return new
                 ModelAndView("comments", "cList", commentsList);
     }
@@ -112,6 +119,7 @@ public class CommentLanguagePostsController {
         ArrayList<CommentsEntity> commentsList = commentsdao.getAllComments(model, postId);
 
         return new ModelAndView("newcomment", "command", new CommentsEntity());
+
     }
 
     /**
@@ -144,6 +152,8 @@ public class CommentLanguagePostsController {
     public String upvote(Model model, @CookieValue("userIdCookie") String userIdCookie, @RequestParam("userId") int userId, @RequestParam("postId") int postId, @RequestParam("commentsId") int commentsId) {
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
         VotesDAO votesDAO = DaoFactory.getVotesDaoInstance(DaoFactory.VOTES_HIBERNATE_DAO);
+
+//        votesDAO.totalVotes(commentsId);
 
         if (voterFraud(Integer.parseInt(userIdCookie), commentsId) == null) {
 
@@ -181,7 +191,7 @@ public class CommentLanguagePostsController {
         return "redirect:comments?postId=" + postId;
 
     }
-    
+
 
     private VotesEntity voterFraud (int userId, int commentId){
 
