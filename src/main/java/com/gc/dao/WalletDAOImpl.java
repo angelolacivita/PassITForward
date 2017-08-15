@@ -1,6 +1,5 @@
 package com.gc.dao;
 
-import com.gc.models.UsersEntity;
 import com.gc.models.WalletEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -8,9 +7,21 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
-
 import java.util.ArrayList;
 
+/**
+ * (Alphabetical Order)
+ * <p>
+ * Farha Hanif
+ * https://github.com/fhanif
+ * <p>
+ * Angelo LaCivita
+ * https://github.com/angelolacivita
+ * <p>
+ * Matthew Menna
+ * https://github.com/mattmenna
+ * https://www.linkedin.com/in/matthew-menna/
+ */
 public class WalletDAOImpl implements WalletDAO {
     public Integer save(WalletEntity newWallet) {
         Session s = getSession();

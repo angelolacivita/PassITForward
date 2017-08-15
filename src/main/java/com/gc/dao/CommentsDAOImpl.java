@@ -13,6 +13,19 @@ import sun.security.tools.policytool.PolicyTool;
 
 import java.util.ArrayList;
 
+/**
+ * (Alphabetical Order)
+ * <p>
+ * Farha Hanif
+ * https://github.com/fhanif
+ * <p>
+ * Angelo LaCivita
+ * https://github.com/angelolacivita
+ * <p>
+ * Matthew Menna
+ * https://github.com/mattmenna
+ * https://www.linkedin.com/in/matthew-menna/
+ */
 public class CommentsDAOImpl implements CommentsDAO {
 
     public void save(CommentsEntity newComments) {
@@ -47,7 +60,7 @@ public class CommentsDAOImpl implements CommentsDAO {
         return sessionFact.openSession();
     }
 
-    public ArrayList<CommentsEntity> getAllComments (Model model, int postId) {
+    public ArrayList<CommentsEntity> getAllComments(Model model, int postId) {
 
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -63,6 +76,7 @@ public class CommentsDAOImpl implements CommentsDAO {
 
         return (ArrayList<CommentsEntity>) c.list();
     }
+
     public ArrayList<CommentsEntity> getUserComments(int userId) {
 
         Session s = getSession();

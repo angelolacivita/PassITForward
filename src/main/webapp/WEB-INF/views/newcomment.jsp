@@ -1,3 +1,17 @@
+<!--
+(Alphabetical Order)
+
+* Farha Hanif
+* https://github.com/fhanif
+
+* Angelo LaCivita
+* https://github.com/angelolacivita
+
+* Matthew Menna
+* https://github.com/mattmenna
+* https://www.linkedin.com/in/matthew-menna/
+-->
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -8,38 +22,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
+    <meta name="description" content="passItforward is the site to get your answers answered!">
     <meta name="author" content="">
-    <link rel="icon" href="/resources/favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>passITforward - REPLACE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</title>
 
-    <!-- Bootstrap core CSS -->
-    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="icon" href="<c:url value="/resources/favicon.ico"/>"/>
+    <link href="<c:url value="/resources/css/Footer-with-logo.css"/>" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!----Keep one of the following
+    <link href="<c:url value="/resources/css/dashboard.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
+    ------------------------------->
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="<c:url value = "/resources/css/ie10-viewport-bug-workaround.css"/>" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
-
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css" media="screen">
-        #editor {
-            position: absolute;
-            top: 60%;
-            right: 20%;
-            bottom: 0%;
-            left: 20%;
-        }
-    </style>
 </head>
 
 <body>
@@ -60,11 +66,18 @@
                 <li class="active"><a href="/home">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <%--<li><a href="/challenges">Challenges</a></li>--%>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout">Logout&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out"
+                                                                       aria-hidden="true"></i></a></li>
+                <li><a href="/dashboard">Dashboard&nbsp;&nbsp;&nbsp;<i class="fa fa-tachometer" aria-hidden="true"></i></a>
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav>   <span class="icon-bar"></span>
+</nav><span class="icon-bar"></span>
+<!--
+Place Code for body of page below-->
 
 
 <div class="jumbotron">

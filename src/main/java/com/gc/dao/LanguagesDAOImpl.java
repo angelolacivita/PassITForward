@@ -6,12 +6,21 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 
 /**
- * Created by angelo on 8/10/17.
+ * (Alphabetical Order)
+ * <p>
+ * Farha Hanif
+ * https://github.com/fhanif
+ * <p>
+ * Angelo LaCivita
+ * https://github.com/angelolacivita
+ * <p>
+ * Matthew Menna
+ * https://github.com/mattmenna
+ * https://www.linkedin.com/in/matthew-menna/
  */
 public class LanguagesDAOImpl implements LanguagesDAO {
 

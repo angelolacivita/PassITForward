@@ -1,15 +1,15 @@
 <!--
 (Alphabetical Order)
 
-    * Farha Hanif
-    * https://github.com/fhanif
+* Farha Hanif
+* https://github.com/fhanif
 
-    * Angelo LaCivita
-    * https://github.com/angelolacivita
+* Angelo LaCivita
+* https://github.com/angelolacivita
 
-    * Matthew Menna
-    * https://github.com/mattmenna
-    * https://www.linkedin.com/in/matthew-menna/
+* Matthew Menna
+* https://github.com/mattmenna
+* https://www.linkedin.com/in/matthew-menna/
 -->
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -25,12 +25,18 @@
     <meta name="description" content="passItforward is the site to get your answers answered!">
     <meta name="author" content="">
 
-    <title>passITforward - Home</title>
+    <title>passITforward - REPLACE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</title>
 
     <link rel="icon" href="<c:url value="/resources/favicon.ico"/>"/>
     <link href="<c:url value="/resources/css/Footer-with-logo.css"/>" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!----Keep one of the following
+    <link href="<c:url value="/resources/css/dashboard.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
+    ------------------------------->
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -60,12 +66,18 @@
                 <li class="active"><a href="/home">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/logout">Logout</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout">Logout&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out"
+                                                                       aria-hidden="true"></i></a></li>
+                <li><a href="/dashboard">Dashboard&nbsp;&nbsp;&nbsp;<i class="fa fa-tachometer" aria-hidden="true"></i></a>
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav>
-<span class="icon-bar"></span>
+</nav><span class="icon-bar"></span>
+<!--
+Place Code for body of page below-->
 
 
 <div class="jumbotron">
@@ -89,6 +101,7 @@
 </div>
 
 
+
 <footer id="myFooter">
     <div class="container">
         <div class="row">
@@ -96,7 +109,7 @@
                 <h5>Get started</h5>
                 <ul>
                     <li><a href="/home">Home</a></li>
-                    <li><a href="/welcome">Sign in/up</a></li>
+                    <li><a href="/login">Sign in/up</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -107,15 +120,17 @@
             </div>
             <div class="col-sm-3 info">
                 <h5>Information</h5>
-                <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+                <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et
+                    malesuada fames ac ante ipsum primis in faucibus. </p>
             </div>
         </div>
     </div>
     <div class="second-bar">
         <div class="container">
-            <h2 class="logo"><a href="/home"> passITforward </a></h2>
+            <h2 class="logo"><a href="/home">  </a></h2>
             <div class="social-icons">
-                <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                <a href="https://www.facebook.com/"><i id="social-fb"
+                                                       class="fa fa-facebook-square fa-3x social"></i></a>
                 <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
                 <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
                 <a href="mailto:passITforward"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>

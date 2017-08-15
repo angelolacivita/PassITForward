@@ -1,19 +1,24 @@
 package com.gc.dao;
 
-import com.gc.models.CommentsEntity;
-import com.gc.models.LanguagesEntity;
-import com.gc.models.PostsEntity;
 import com.gc.models.UsersEntity;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.ui.Model;
-
-import javax.jws.soap.SOAPBinding;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * (Alphabetical Order)
+ * <p>
+ * Farha Hanif
+ * https://github.com/fhanif
+ * <p>
+ * Angelo LaCivita
+ * https://github.com/angelolacivita
+ * <p>
+ * Matthew Menna
+ * https://github.com/mattmenna
+ * https://www.linkedin.com/in/matthew-menna/
+ */
 public class UserDAOImpl implements UserDAO {
 
     private static SessionFactory factory;
@@ -28,7 +33,7 @@ public class UserDAOImpl implements UserDAO {
         return id;
     }
 
-    public Integer getUserID(String firstName){
+    public Integer getUserID(String firstName) {
         Session s = getSession();
         Criteria c = s.createCriteria(UsersEntity.class);
         c.add(Restrictions.like("firstName", "Matt"));
@@ -46,7 +51,6 @@ public class UserDAOImpl implements UserDAO {
         tx.commit();
         s.close();
     }
-
 
 
     public static ArrayList<UsersEntity> getAllUsers() {
@@ -89,7 +93,7 @@ public class UserDAOImpl implements UserDAO {
     public UsersEntity getUser(String userName, String password) {
         UsersEntity user;
         Session s = getSession();
-        user = (UsersEntity) s.createQuery("from UsersEntity where userName = '" + userName+"' and password= '" +password + "'").setMaxResults(1).uniqueResult();
+        user = (UsersEntity) s.createQuery("from UsersEntity where userName = '" + userName + "' and password= '" + password + "'").setMaxResults(1).uniqueResult();
         s.close();
 
         return user;
@@ -104,7 +108,6 @@ public class UserDAOImpl implements UserDAO {
 //    }
 //
 //
-
 
 
     private Session getSession() {
@@ -127,11 +130,6 @@ public class UserDAOImpl implements UserDAO {
 //        s.close();
 //        return (ArrayList<UsersEntity>) l.list();
 //    }
-
-
-
-
-
 
 
 //    public boolean checkUserLogin (Model model, String username, String password) {
