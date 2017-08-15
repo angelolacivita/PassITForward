@@ -27,6 +27,7 @@ public class DaoFactory {
     public static final int COMMENTS_HIBERNATE_DAO = 2;
     public static final int POSTS_HIBERNATE_DAO = 3;
     public static final int LANGUAGES_HIBERNATE_DAO = 4;
+    private static final int VOTES_HIBERNATE_DAO = 5;
 
     public static UserDAO getUserDaoInstance(int usersHibernateDao) {
         switch (usersHibernateDao) {
@@ -77,6 +78,17 @@ public class DaoFactory {
         switch (languagesHibernateDao) {
             case LANGUAGES_HIBERNATE_DAO:
                 return new LanguagesDAOImpl();
+
+            default:
+                break;
+        }
+        return null;
+    }
+
+    public static VotesDAO getVotesDaoInstance(int votesHibernateDao) {
+        switch (votesHibernateDao) {
+            case VOTES_HIBERNATE_DAO:
+                return new VotesDAOImpl();
 
             default:
                 break;
