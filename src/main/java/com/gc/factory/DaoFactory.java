@@ -20,6 +20,7 @@ import org.apache.commons.codec.language.bm.Languages;
  * https://github.com/mattmenna
  * https://www.linkedin.com/in/matthew-menna/
  */
+
 public class DaoFactory {
     public static final int USERS_HIBERNATE_DAO = 0;
     public static final int WALLET_HIBERNATE_DAO = 1;

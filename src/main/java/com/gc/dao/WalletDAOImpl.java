@@ -7,22 +7,15 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
+
 import java.util.ArrayList;
 
-/**
- * (Alphabetical Order)
- * <p>
- * Farha Hanif
- * https://github.com/fhanif
- * <p>
- * Angelo LaCivita
- * https://github.com/angelolacivita
- * <p>
- * Matthew Menna
- * https://github.com/mattmenna
- * https://www.linkedin.com/in/matthew-menna/
- */
+
 public class WalletDAOImpl implements WalletDAO {
+    /**
+     * @param newWallet
+     * @return
+     */
     public Integer save(WalletEntity newWallet) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -34,6 +27,10 @@ public class WalletDAOImpl implements WalletDAO {
         return id;
     }
 
+    /**
+     * @param userId
+     * @return
+     */
     public int getWallet(int userId) {
         Session s = getSession();
         Criteria w = s.createCriteria(WalletEntity.class);
@@ -44,6 +41,9 @@ public class WalletDAOImpl implements WalletDAO {
         return currentBalance;
     }
 
+    /**
+     * @param walletID
+     */
     public void deleteWalletID(int walletID) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -53,6 +53,10 @@ public class WalletDAOImpl implements WalletDAO {
         s.close();
     }
 
+    /**
+     * @param credit
+     * @param userId
+     */
     public void creditToWallet(int credit, int userId) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -68,6 +72,10 @@ public class WalletDAOImpl implements WalletDAO {
 
     }
 
+    /**
+     * @param debit
+     * @param userId
+     */
     public void debitFromWallet(int debit, int userId) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -82,6 +90,9 @@ public class WalletDAOImpl implements WalletDAO {
         s.close();
     }
 
+    /**
+     * @return
+     */
     private Session getSession() {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFact = cfg.buildSessionFactory();

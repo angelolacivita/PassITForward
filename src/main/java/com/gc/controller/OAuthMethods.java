@@ -15,7 +15,10 @@ import java.net.URL;
  * Created by fhani on 8/8/2017.
  */
 public class OAuthMethods {
-
+    /**
+     * @param code
+     * @return
+     */
     public static String getOAuthToken(String code) {
         //TODO always delete before a push
         String clientId = "223829578051.223904316370";
@@ -44,6 +47,10 @@ public class OAuthMethods {
         return accessToken;
     }
 
+    /**
+     * @param token
+     * @return
+     */
     public static String getUserID(String token) {
         //String token = "cookieToken";
         String userID = "";
@@ -103,7 +110,12 @@ public class OAuthMethods {
 //        return channelId;
 //    }
 
-    public static String getChannelId2 (String token, String userNameChannel) {
+    /**
+     * @param token
+     * @param userNameChannel
+     * @return
+     */
+    public static String getChannelId2(String token, String userNameChannel) {
         String channelId = "";
 
 
@@ -122,8 +134,6 @@ public class OAuthMethods {
             System.out.println(json);
 
 
-
-
             JSONArray jsonArray = json.getJSONArray("members");
             String name = jsonArray.getJSONObject(0).get("name").toString();
             System.out.println(name);
@@ -131,7 +141,7 @@ public class OAuthMethods {
             for (int i = 0; i < jsonArray.length(); i++) {
                 if (jsonArray.getJSONObject(i).get("name").toString().equalsIgnoreCase(userNameChannel)) {
                     channelId = jsonArray.getJSONObject(i).get("id").toString();
-                   // break;
+                    // break;
                 }
             }
 
@@ -151,16 +161,19 @@ public class OAuthMethods {
         return channelId;
     }
 
-
-    public static void sendPrivateMessage(String token,String slackmessage, String channel, String userId) {
+    /**
+     * @param token
+     * @param slackmessage
+     * @param channel
+     * @param userId
+     */
+    public static void sendPrivateMessage(String token, String slackmessage, String channel, String userId) {
 
 
         try {
-            URL url = new URL("https://slack.com/api/chat.postMessage?token=" + token+
+            URL url = new URL("https://slack.com/api/chat.postMessage?token=" + token +
                     "&channel=" + channel + "&text=" + slackmessage + "&as_user=" + userId);
             url.openStream();
-
-
 
 
         } catch (MalformedURLException e) {

@@ -13,21 +13,11 @@ import sun.security.tools.policytool.PolicyTool;
 
 import java.util.ArrayList;
 
-/**
- * (Alphabetical Order)
- * <p>
- * Farha Hanif
- * https://github.com/fhanif
- * <p>
- * Angelo LaCivita
- * https://github.com/angelolacivita
- * <p>
- * Matthew Menna
- * https://github.com/mattmenna
- * https://www.linkedin.com/in/matthew-menna/
- */
-public class CommentsDAOImpl implements CommentsDAO {
 
+public class CommentsDAOImpl implements CommentsDAO {
+    /**
+     * @param newComments
+     */
     public void save(CommentsEntity newComments) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -36,6 +26,9 @@ public class CommentsDAOImpl implements CommentsDAO {
         s.close();
     }
 
+    /**
+     * @param userID
+     */
     public void deleteCommentsByUser(int userID) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -45,6 +38,9 @@ public class CommentsDAOImpl implements CommentsDAO {
         s.close();
     }
 
+    /**
+     * @param commentID
+     */
     public void deleteComment(int commentID) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -54,12 +50,20 @@ public class CommentsDAOImpl implements CommentsDAO {
         s.close();
     }
 
+    /**
+     * @return
+     */
     private Session getSession() {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFact = cfg.buildSessionFactory();
         return sessionFact.openSession();
     }
 
+    /**
+     * @param model
+     * @param postId
+     * @return
+     */
     public ArrayList<CommentsEntity> getAllComments(Model model, int postId) {
 
         Session s = getSession();
@@ -77,6 +81,10 @@ public class CommentsDAOImpl implements CommentsDAO {
         return (ArrayList<CommentsEntity>) c.list();
     }
 
+    /**
+     * @param userId
+     * @return
+     */
     public ArrayList<CommentsEntity> getUserComments(int userId) {
 
         Session s = getSession();

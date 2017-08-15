@@ -4,26 +4,18 @@ import com.gc.models.UsersEntity;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
+
 import java.util.ArrayList;
 
-/**
- * (Alphabetical Order)
- * <p>
- * Farha Hanif
- * https://github.com/fhanif
- * <p>
- * Angelo LaCivita
- * https://github.com/angelolacivita
- * <p>
- * Matthew Menna
- * https://github.com/mattmenna
- * https://www.linkedin.com/in/matthew-menna/
- */
 public class UserDAOImpl implements UserDAO {
 
     private static SessionFactory factory;
     private static String msg;
 
+    /**
+     * @param newUser
+     * @return
+     */
     public Integer save(UsersEntity newUser) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -33,6 +25,10 @@ public class UserDAOImpl implements UserDAO {
         return id;
     }
 
+    /**
+     * @param firstName
+     * @return
+     */
     public Integer getUserID(String firstName) {
         Session s = getSession();
         Criteria c = s.createCriteria(UsersEntity.class);
@@ -43,6 +39,9 @@ public class UserDAOImpl implements UserDAO {
         return userInfo.getUserId();
     }
 
+    /**
+     * @param userID
+     */
     public void deleteUser(int userID) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -52,7 +51,9 @@ public class UserDAOImpl implements UserDAO {
         s.close();
     }
 
-
+    /**
+     * @return
+     */
     public static ArrayList<UsersEntity> getAllUsers() {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -89,7 +90,11 @@ public class UserDAOImpl implements UserDAO {
 //        return null;
 //    }
 
-
+    /**
+     * @param userName
+     * @param password
+     * @return
+     */
     public UsersEntity getUser(String userName, String password) {
         UsersEntity user;
         Session s = getSession();
@@ -109,6 +114,9 @@ public class UserDAOImpl implements UserDAO {
 //
 //
 
+    /**
+     * @return
+     */
 
     private Session getSession() {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");

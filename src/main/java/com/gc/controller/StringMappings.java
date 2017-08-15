@@ -20,24 +20,14 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
-/**
- * (Alphabetical Order)
- * <p>
- * Farha Hanif
- * https://github.com/fhanif
- * <p>
- * Angelo LaCivita
- * https://github.com/angelolacivita
- * <p>
- * Matthew Menna
- * https://github.com/mattmenna
- * https://www.linkedin.com/in/matthew-menna/
- */
 
 @Controller
 //@RequestMapping("link")
 public class StringMappings {
-
+    /**
+     * @param request
+     * @return
+     */
     @RequestMapping("/") // returns the login page
     //the String method returns the jsp page that we want to show
     public ModelAndView login2(HttpServletRequest request) {
@@ -54,62 +44,87 @@ public class StringMappings {
             }
         }
 
-        return new ModelAndView("login","","");
+        return new ModelAndView("login", "", "");
     }
 
+    /**
+     * @return
+     */
     @RequestMapping("/about") // needs copy
     //the String method returns the jsp page that we want to show
     public String about() {
         return "about";
     }
 
+    /**
+     * @return
+     */
     @RequestMapping("/contact")
     //the String method returns the jsp page that we want to show
     public String contact() {
         return "contact";
     }
 
+    /**
+     * @return
+     */
     @RequestMapping("/submitslackmessage")
     public String submitslackmessage() {
 
         return "slackmessage";
     }
 
+    /**
+     * @return
+     */
     @RequestMapping("/tempPage")
     public String tempPage() {
 
         return "tempPage";
     }
 
+    /**
+     * @return
+     */
     @RequestMapping("/registrationsuccess")
     //the String method returns the jsp page that we want to show
     public String registrationsuccess() {
         return "registrationsuccess";
     }
 
+    /**
+     * @return
+     */
     @RequestMapping("/logintest") // returns the login page
     //the String method returns the jsp page that we want to show
     public String logintest() {
 
         return "loginTEST";
     }
+
+    /**
+     * @param model
+     * @param userIdCookie
+     * @param userNameCookie
+     * @return
+     */
     @RequestMapping("/dashboard")
-    public ModelAndView dashboard(Model model, @CookieValue("userIdCookie")String userIdCookie, @CookieValue("userNameCookie") String userNameCookie){
+    public ModelAndView dashboard(Model model, @CookieValue("userIdCookie") String userIdCookie, @CookieValue("userNameCookie") String userNameCookie) {
         CommentsDAO commentsDAO = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
         ArrayList<CommentsEntity> commentsList = commentsDAO.getUserComments(Integer.parseInt(userIdCookie));
-        model.addAttribute("cList",commentsList);
+        model.addAttribute("cList", commentsList);
 
         PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
         ArrayList<PostsEntity> postsList = postsDAO.getUserPosts(Integer.parseInt(userIdCookie));
-        model.addAttribute("pList",postsList);
+        model.addAttribute("pList", postsList);
 
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
         int walletValue = walletDAO.getWallet(Integer.parseInt(userIdCookie));
         model.addAttribute("walletValue", walletValue);
 
-        model.addAttribute("userName",userNameCookie);
+        model.addAttribute("userName", userNameCookie);
 
-        return new ModelAndView("dashboard","command","");
+        return new ModelAndView("dashboard", "command", "");
     }
 
 }

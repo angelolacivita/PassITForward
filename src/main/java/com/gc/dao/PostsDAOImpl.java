@@ -11,22 +11,13 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.ui.Model;
 import java.util.ArrayList;
 
-/**
- * (Alphabetical Order)
- * <p>
- * Farha Hanif
- * https://github.com/fhanif
- * <p>
- * Angelo LaCivita
- * https://github.com/angelolacivita
- * <p>
- * Matthew Menna
- * https://github.com/mattmenna
- * https://www.linkedin.com/in/matthew-menna/
- */
+
 
 public class PostsDAOImpl implements PostsDAO {
-
+    /**
+     *
+     * @param newPost
+     */
     public void save(PostsEntity newPost) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -35,6 +26,12 @@ public class PostsDAOImpl implements PostsDAO {
         s.close();
     }
 
+    /**
+     *
+     * @param model
+     * @param languageId
+     * @return
+     */
     public ArrayList<PostsEntity> getAllPosts(Model model, int languageId) {
 
         Session s = getSession();
@@ -52,6 +49,10 @@ public class PostsDAOImpl implements PostsDAO {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<PostsEntity> getAllPosts() {
         Session s = getSession();
         //Transaction tx = s.beginTransaction();
@@ -60,6 +61,11 @@ public class PostsDAOImpl implements PostsDAO {
         return (ArrayList<PostsEntity>) p.list();
     }
 
+    /**
+     *
+     * @param userId
+     * @return
+     */
     public ArrayList<PostsEntity> getUserPosts(int userId) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -69,6 +75,10 @@ public class PostsDAOImpl implements PostsDAO {
         return (ArrayList<PostsEntity>) p.list();
     }
 
+    /**
+     *
+     * @param postID
+     */
     public void deletePost(int postID) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -78,6 +88,10 @@ public class PostsDAOImpl implements PostsDAO {
         s.close();
     }
 
+    /**
+     *
+     * @return
+     */
     private Session getSession() {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFact = cfg.buildSessionFactory();

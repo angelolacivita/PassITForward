@@ -21,22 +21,15 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 /**
- * (Alphabetical Order)
- * <p>
- * Farha Hanif
- * https://github.com/fhanif
- * <p>
- * Angelo LaCivita
- * https://github.com/angelolacivita
- * <p>
- * Matthew Menna
- * https://github.com/mattmenna
- * https://www.linkedin.com/in/matthew-menna/
+ *
  */
-
-    @Controller
+@Controller
 public class CommentLanguagePostsController {
-
+    /**
+     * @param model
+     * @param languageId
+     * @return
+     */
     @RequestMapping("/challenges")
     //the String method returns the jsp page that we want to show
     public ModelAndView challenges(Model model, @RequestParam("languageId") int languageId) {
@@ -47,6 +40,11 @@ public class CommentLanguagePostsController {
                 ModelAndView("challenges", "pList", postsList);
     }
 
+    /**
+     * @param model
+     * @param postId
+     * @return
+     */
     @RequestMapping("/comments")
     public ModelAndView comments(Model model, @RequestParam("postId") int postId) {
         CommentsDAO commentsDAO = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
@@ -60,6 +58,11 @@ public class CommentLanguagePostsController {
                 ModelAndView("comments", "cList", commentsList);
     }
 
+    /**
+     * @param languageId
+     * @param model
+     * @return
+     */
     @RequestMapping("/newchallenge")
     public ModelAndView newchallenge(@RequestParam("languageId") int languageId, Model model) {
         PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
@@ -68,6 +71,13 @@ public class CommentLanguagePostsController {
         return new ModelAndView("newchallenge", "command", new PostsEntity());
     }
 
+    /**
+     * @param newPosts
+     * @param model
+     * @param languageId
+     * @param userIdCookie
+     * @return
+     */
     @RequestMapping("/create-challenge")
     public String createchallenge(@ModelAttribute PostsEntity newPosts, Model model,
                                   @RequestParam("languageId") int languageId, @CookieValue("userIdCookie") String userIdCookie) {
@@ -79,6 +89,11 @@ public class CommentLanguagePostsController {
         return "redirect:challenges?languageId=" + languageId;
     }
 
+    /**
+     * @param postId
+     * @param model
+     * @return
+     */
     @RequestMapping("/newcomment")
     public ModelAndView newcomment(@RequestParam("postId") int postId, Model model) {
         CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
@@ -87,6 +102,13 @@ public class CommentLanguagePostsController {
         return new ModelAndView("newcomment", "command", new CommentsEntity());
     }
 
+    /**
+     * @param newComment
+     * @param model
+     * @param postId
+     * @param userIdCookie
+     * @return
+     */
     @RequestMapping("/create-comment")
     public String createcomment(@ModelAttribute CommentsEntity newComment, Model model,
                                 @RequestParam("postId") int postId, @CookieValue("userIdCookie") String userIdCookie) {
@@ -99,17 +121,29 @@ public class CommentLanguagePostsController {
         return "redirect:comments?postId=" + postId;
     }
 
+    /**
+     * @param userId
+     * @param postId
+     * @return
+     */
     @RequestMapping("/upvote")
-    public String upvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId){
+    public String upvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId) {
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
         walletDAO.creditToWallet(1, userId);
-    return "redirect:comments?postId=" + postId;
+        return "redirect:comments?postId=" + postId;
 
-    }@RequestMapping("/downvote")
-    public String downvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId){
+    }
+
+    /**
+     * @param userId
+     * @param postId
+     * @return
+     */
+    @RequestMapping("/downvote")
+    public String downvote(@RequestParam("userId") int userId, @RequestParam("postId") int postId) {
         WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
         walletDAO.debitFromWallet(1, userId);
-    return "redirect:comments?postId=" + postId;
+        return "redirect:comments?postId=" + postId;
 
     }
 }

@@ -9,21 +9,11 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 
-/**
- * (Alphabetical Order)
- * <p>
- * Farha Hanif
- * https://github.com/fhanif
- * <p>
- * Angelo LaCivita
- * https://github.com/angelolacivita
- * <p>
- * Matthew Menna
- * https://github.com/mattmenna
- * https://www.linkedin.com/in/matthew-menna/
- */
-public class LanguagesDAOImpl implements LanguagesDAO {
 
+public class LanguagesDAOImpl implements LanguagesDAO {
+    /**
+     * @return
+     */
     public ArrayList<LanguagesEntity> getAllLanguages() {
 
         Session s = getSession();
@@ -33,6 +23,9 @@ public class LanguagesDAOImpl implements LanguagesDAO {
         return (ArrayList<LanguagesEntity>) l.list();
     }
 
+    /**
+     * @param languageID
+     */
     public void deleteLanguage(int languageID) {
         Session s = getSession();
         Transaction tx = s.beginTransaction();
@@ -42,6 +35,9 @@ public class LanguagesDAOImpl implements LanguagesDAO {
         s.close();
     }
 
+    /**
+     * @return
+     */
     private Session getSession() {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFact = cfg.buildSessionFactory();
