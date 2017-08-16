@@ -36,10 +36,11 @@ public class HomeController {
 
     private UsersEntity loggedInUser;
 
-    /**
-     * @param model
-     * @param request
-     * @return
+    /**This is a RequestMapping that displays the home screen. It does a check on the userIdCookie and returns
+     * either the login page if not logged in or the home page with a list of the challenges organized by programming language
+     * @param model not used
+     * @param request HTTPServletRequest to recall the userIdCookie
+     * @return if cookie is present returns ModelAndView of home screen with a list of languages as model data, if cookie is missing returns a model of login page.
      */
     @RequestMapping("/home") // this page shows the challenges for each language
     //the String method returns the jsp page that we want to show
@@ -61,7 +62,7 @@ public class HomeController {
         return new ModelAndView("login", "", "");
     }
 
-    /**
+    /**Depreceated???????
      * @param model
      * @return
      */
@@ -79,14 +80,15 @@ public class HomeController {
 
     private String message;
 
-    /**
-     * @param userName
-     * @param password
-     * @param model
-     * @param request
-     * @param response
-     * @param session
-     * @return
+    /**This is called from the login page after entering the username and password.
+     * Calls the validUserAndPass method and returns null if no username and password is present
+     * @param userName parameter is requested from login page
+     * @param password parameter is represted from login page
+     * @param model not used
+     * @param request not used
+     * @param response adds userIdCookie with value of userid (Interger is cast as string) and adds userNameCookie with value of username
+     * @param session not used
+     * @return returns loginsuccess page if username and password
      */
     @RequestMapping(value = "/loginUser")
     public String loginUser(@RequestParam("userName") String userName, @RequestParam("password") String password, Model model, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
@@ -106,10 +108,11 @@ public class HomeController {
         }
     }
 
-    /**
-     * @param userName
-     * @param password
-     * @return
+    /**Method called by RequestMapping for /loginUser, calls UserDAO method getUser which
+     * returns a UserEntity if username and password are valid
+     * @param userName string passed in from RequestMapping /loginUser from login form
+     * @param password string passed in from RequestMapping /loginUser from login form
+     * @return UserEntity if username and password match and null if no method
      */
     private UsersEntity validUserAndPass(String userName, String password) {
         UserDAO userDAO = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
@@ -117,8 +120,8 @@ public class HomeController {
         return userDAO.getUser(userName, password);
     }
 
-    /**
-     * @return
+    /**RequestMapping for loginsuccess page reached after successful login
+     * @return loginsuccess.jsp
      */
     @RequestMapping("/loginsuccess")
     //the String method returns the jsp page that we want to show
@@ -128,21 +131,21 @@ public class HomeController {
         //if else statement
     }
 
-    /**
-     * @param model
-     * @return
+    /**Request Mapping for registration page which passes in a UsersEntity model for the Spring Registration form
+     * @param model not used
+     * @return registration form page with UsersEntity as attributes in the spring form
      */
     @RequestMapping("/registration")
-    //the String method returns the jsp page that we want to show
     public ModelAndView registration(Model model) {
 
         return new ModelAndView("registration", "command", new UsersEntity());
     }
 
-    /**
-     * @param newUser
-     * @param model
-     * @return
+    /** Request mapping called after clicking create profile from registration page.
+     * Creates a wallet with a default value of 10 if registration is successful
+     * @param newUser ModelAttributes populated from spring form on registration page
+     * @param model model holds attributes for user name and wallet value to display on registration success page
+     * @return view of registration success with firstname and walletvalue as attributes
      */
     @RequestMapping("/create-profile")
     public String registration(@ModelAttribute UsersEntity newUser, Model model) {
@@ -164,7 +167,7 @@ public class HomeController {
         return "registrationsuccess";
     }
 
-    /**
+    /**Depreceated????
      * @param username
      * @param password
      * @param model
@@ -184,9 +187,10 @@ public class HomeController {
         //if else statement
     }
 
-    /**
-     * @param response
-     * @return
+    /**RequestMapping for logout link at top of every page. Creates 3 cookies with same names as those created during
+     * browseing the sites and sets the maxage to 0
+     * @param response HttpServletResponse to call cookies
+     * @return logout page
      */
     @RequestMapping("/logout")
     public String logout(HttpServletResponse response) {
@@ -202,8 +206,9 @@ public class HomeController {
         return "logout";
     }
 
-    /**
-     * @return
+    /**RequestMapping for pleaselogin page which is what the user sees if trying to access
+     * the home page without logging in
+     * @return pleaselogin page
      */
     @RequestMapping("/pleaselogin")
     public String pleaselogin() {
