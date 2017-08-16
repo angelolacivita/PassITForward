@@ -32,7 +32,8 @@ public class PostsDAOImpl implements PostsDAO {
      * @param languageId
      * @return
      */
-    public ArrayList<PostsEntity> getAllPosts(Model model, int languageId) {
+    public ArrayList<PostsEntity>
+    getAllPosts(Model model, int languageId) {
 
         Session s = getSession();
         //Transaction tx = s.beginTransaction();

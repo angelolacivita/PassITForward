@@ -64,7 +64,7 @@ public class OAuthMethods {
             for (String line; (line = reader.readLine()) != null; ) {
                 jsonStr += line;
             }
-            System.out.println("We made it this far at least");
+            //System.out.println("We made it this far at least");
             JSONObject json = new JSONObject(jsonStr);
             userID = json.getJSONObject("user").get("id").toString();
 
