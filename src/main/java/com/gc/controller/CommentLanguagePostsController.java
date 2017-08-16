@@ -146,11 +146,13 @@ public class CommentLanguagePostsController {
             walletDAO.creditToWallet(2, Integer.parseInt(userIdCookie));
 
             msg3 = "";
+            msg2 = "";
             return "redirect:comments?postId=" + postId;
 
         }
 
             msg3 = "Your comment has already been registered for this post. You cannot comment again.";
+            msg2 = "";
             return "redirect:comments?postId=" + postId;
 
     }
@@ -174,10 +176,12 @@ public class CommentLanguagePostsController {
             votesDAO.vote(Integer.parseInt(userIdCookie), commentsId, 1);
             walletDAO.creditToWallet(1, userId);
             msg2 = "";
+            msg3 = "";
             return "redirect:comments?postId=" + postId;
 
         }
             msg2 = "Your vote has already been registered";
+            msg3 = "";
             return "redirect:comments?postId=" + postId;
 
     }
@@ -198,10 +202,12 @@ public class CommentLanguagePostsController {
             votesDAO.vote(Integer.parseInt(userIdCookie), commentsId, -1);
             walletDAO.debitFromWallet(1, userId);
             msg2 = "";
+            msg3 = "";
             return "redirect:comments?postId=" + postId;
 
         }
         msg2 = "Your vote has already been registered";
+        msg3 = "";
         return "redirect:comments?postId=" + postId;
 
     }

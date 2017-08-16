@@ -77,6 +77,15 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
+    public UsersEntity checkRegistry(String userName, String email) {
+        UsersEntity user;
+        Session s = getSession();
+        user = (UsersEntity) s.createQuery("from UsersEntity where userName = '" + userName + "' or email= '" + email + "'").setMaxResults(1).uniqueResult();
+        s.close();
+
+        return user;
+    }
+
 
 
     /**

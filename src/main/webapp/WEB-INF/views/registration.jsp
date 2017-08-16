@@ -86,6 +86,7 @@ Place Code for body of page below-->
         <fieldset>
             <!-- Form Name -->
             <legend>Register</legend>
+            <h3 class="text-danger">${message}</h3>
 
             <!-- First name-->
             <div class="form-group">
