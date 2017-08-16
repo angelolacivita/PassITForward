@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.persistence.MapKeyColumn;
@@ -70,10 +71,12 @@ public class StringMappings {
      * @return
      */
     @RequestMapping("/submitslackmessage")
-    public String submitslackmessage() {
+    public String submitslackmessage(Model model, @RequestParam ("userChannel") String userChannel) {
 
+        model.addAttribute("userChannel",userChannel);
         return "slackmessage";
     }
+
 
     /**
      * @return
