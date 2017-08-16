@@ -100,7 +100,7 @@ Place Code for body of page below-->
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
             <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/angelo.png" alt="">
-            <h3>Angelo Lacivita
+            <h3>Angelo LaCivita
                 <small>Software Developer</small>
             </h3>
             <p><a href="https://github.com/angelolacivita">Github</a></p>
