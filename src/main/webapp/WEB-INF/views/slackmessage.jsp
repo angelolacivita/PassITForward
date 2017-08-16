@@ -91,7 +91,7 @@ Place Code for body of page below-->
             </div>
             <div class="form-group">
                 <label class="control-label" for="recieverChannel">Enter the username of the user you want to direct message on the PassITForward slack team:</label><br>
-                <input type="text" class="form-control input-lg" id="recieverChannel" name="channel">
+                <input type="text" class="form-control input-lg" id="recieverChannel" name="channel" value="${userChannel}">
             </div>
             <div class="form-group">
                 <label class="col-md-12 control-label" for="singlebutton"></label>
@@ -103,12 +103,12 @@ Place Code for body of page below-->
 <script>
     //    var url_string = window.location.href;
     //    var url = new URL(url_string);
-    //    var code = url.searchParams.get("code");
-    document.getElementById('messsageText').value = slackmessage;
-    document.getElementsById('recieverChannel').value = channel;
-    window.onload = function () {
-        document.forms['temp'].submit();
-    }
+//    //    var code = url.searchParams.get("code");
+//    document.getElementById('messsageText').value = slackmessage;
+//    document.getElementsById('recieverChannel').value = channel;
+//    window.onload = function () {
+//        document.forms['temp'].submit();
+//    }
 </script>
 
 <footer id="myFooter">

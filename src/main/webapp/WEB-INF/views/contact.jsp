@@ -100,7 +100,7 @@ Place Code for body of page below-->
 
             <p><a href="https://github.com/fhanif">Github</a></p>
             <P><a href="http://linkedin.com/in/farhahanif">LinkedIn</a></P>
-            <p>Slack Button</p>
+            <p><a href="/submitslackmessage?userChannel=fhanif">Message me on Slack!</a></p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
             <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/angelo.png" height="200" width="200" alt="Angelo LaCivita">
@@ -109,7 +109,8 @@ Place Code for body of page below-->
 
             <p><a href="https://github.com/angelolacivita">Github</a></p>
             <p><a href="https://www.linkedin.com/in/angelo-lacivita-cpa/">LinkedIn</a></p>
-            <p>Slack Button</p>
+            <p><a href="/submitslackmessage?userChannel=angelo">Message me on Slack!</a></p>
+
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
             <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/matt.png" height="200" width="200" alt="Matthew Menna">
@@ -118,7 +119,8 @@ Place Code for body of page below-->
 
             <p><a href="https://github.com/mattmenna">Github</a></p>
             <P><a href="https://www.linkedin.com/in/matthew-menna/">LinkedIn</a></P>
-            <p>Slack Button</p>
+            <p><a href="/submitslackmessage?userChannel=mattmenna">Message me on Slack!</a></p>
+
         </div>
 
     </div>
