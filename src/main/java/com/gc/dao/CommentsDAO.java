@@ -13,8 +13,6 @@ public interface CommentsDAO {
 
     ArrayList<CommentsEntity> getUserComments(int userId);
 
-    void deleteCommentsByUser(int userID);
-
-    void deleteComment(int commentID);
+    CommentsEntity commentCheck (int userId, int postId);
 
 }

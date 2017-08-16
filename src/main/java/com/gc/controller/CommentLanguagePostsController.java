@@ -56,12 +56,13 @@ public class CommentLanguagePostsController {
 
         Map votesmap = votesDAO.totalVotes();
         model.addAttribute("votesmap", votesmap);
-        System.out.println(votesmap.get("8"));
+        //System.out.println(votesmap.get("8"));
 
         PostsDAO postsDAO = DaoFactory.getPostsDaoInstance(DaoFactory.POSTS_HIBERNATE_DAO);
         ArrayList<PostsEntity> postsList = postsDAO.getAllPosts();
         model.addAttribute("pList", postsList);
         model.addAttribute("msg2", msg2);
+        model.addAttribute("msg3", msg3);
 
         return new
                 ModelAndView("comments", "cList", commentsList);
@@ -118,6 +119,7 @@ public class CommentLanguagePostsController {
         CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
         ArrayList<CommentsEntity> commentsList = commentsdao.getAllComments(model, postId);
 
+
         return new ModelAndView("newcomment", "command", new CommentsEntity());
 
     }
@@ -129,16 +131,28 @@ public class CommentLanguagePostsController {
      * @param userIdCookie
      * @return
      */
+
+    private String msg3;
     @RequestMapping("/create-comment")
     public String createcomment(@ModelAttribute CommentsEntity newComment, Model model,
                                 @RequestParam("postId") int postId, @CookieValue("userIdCookie") String userIdCookie) {
         CommentsDAO commentsdao = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
-        newComment.setUserId(Integer.parseInt(userIdCookie));
-        commentsdao.save(newComment);
-        WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
-        walletDAO.creditToWallet(2, Integer.parseInt(userIdCookie));
 
-        return "redirect:comments?postId=" + postId;
+        if (commentsdao.commentCheck(Integer.parseInt(userIdCookie),postId) == null) {
+
+            newComment.setUserId(Integer.parseInt(userIdCookie));
+            commentsdao.save(newComment);
+            WalletDAO walletDAO = DaoFactory.getWalletDaoInstance(DaoFactory.WALLET_HIBERNATE_DAO);
+            walletDAO.creditToWallet(2, Integer.parseInt(userIdCookie));
+
+            msg3 = "";
+            return "redirect:comments?postId=" + postId;
+
+        }
+
+            msg3 = "Your comment has already been registered for this post. You cannot comment again.";
+            return "redirect:comments?postId=" + postId;
+
     }
 
     /**

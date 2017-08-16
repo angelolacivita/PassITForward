@@ -16,7 +16,7 @@ public interface UserDAO {
 
     ArrayList<UsersEntity> getAllUsers();
 
-    //boolean checkUser(String userName, String password);
+
 
 
 }

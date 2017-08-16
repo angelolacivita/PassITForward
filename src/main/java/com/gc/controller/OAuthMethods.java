@@ -78,37 +78,7 @@ public class OAuthMethods {
         return userID;
     }
 
-//    public static String getChannelId (String token) {
-//        String channelId = "";
-//
-//        try {
-//            URL url = new URL("https://slack.com/api/im.list?token=" + token);
-//
-//            BufferedReader reader;
-//            String jsonStr = "";
-//            reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
-//
-//            for (String line; (line = reader.readLine()) != null; ) {
-//                jsonStr += line;
-//            }
-//            //System.out.println("We made it this far at least");
-//            JSONObject json = new JSONObject(jsonStr);
-//            channelId = json.getJSONObject("ims").get("id").toString();
-//
-//            System.out.println(channelId);
-//
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return channelId;
-//    }
+
 
     /**
      * @param token

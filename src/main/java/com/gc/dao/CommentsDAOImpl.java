@@ -26,29 +26,20 @@ public class CommentsDAOImpl implements CommentsDAO {
         s.close();
     }
 
-    /**
-     * @param userID
-     */
-    public void deleteCommentsByUser(int userID) {
-        Session s = getSession();
-        Transaction tx = s.beginTransaction();
-        s.delete(userID);
 
-        tx.commit();
-        s.close();
-    }
 
-    /**
-     * @param commentID
-     */
-    public void deleteComment(int commentID) {
-        Session s = getSession();
-        Transaction tx = s.beginTransaction();
-        s.delete(commentID);
 
-        tx.commit();
-        s.close();
-    }
+//    /**
+//     * @param commentID
+//     */
+//    public void deleteComment(int commentID) {
+//        Session s = getSession();
+//        Transaction tx = s.beginTransaction();
+//        s.delete(commentID);
+//
+//        tx.commit();
+//        s.close();
+//    }
 
     /**
      * @return
@@ -94,6 +85,16 @@ public class CommentsDAOImpl implements CommentsDAO {
         c.add(Restrictions.like("userId", userId));
 
         return (ArrayList<CommentsEntity>) c.list();
+    }
+
+    public CommentsEntity commentCheck (int userId, int postId){
+
+        CommentsEntity comment;
+        Session s = getSession();
+        comment = (CommentsEntity) s.createQuery("from CommentsEntity where userId = " + userId + " and postId= " + postId).setMaxResults(1).uniqueResult();
+        s.close();
+
+        return comment;
     }
 
 }
