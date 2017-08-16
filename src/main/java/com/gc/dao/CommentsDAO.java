@@ -13,5 +13,6 @@ public interface CommentsDAO {
 
     ArrayList<CommentsEntity> getUserComments(int userId);
 
+    CommentsEntity commentCheck (int userId, int postId);
 
 }

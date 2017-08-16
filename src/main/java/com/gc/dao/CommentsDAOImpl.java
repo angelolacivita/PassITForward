@@ -87,4 +87,14 @@ public class CommentsDAOImpl implements CommentsDAO {
         return (ArrayList<CommentsEntity>) c.list();
     }
 
+    public CommentsEntity commentCheck (int userId, int postId){
+
+        CommentsEntity comment;
+        Session s = getSession();
+        comment = (CommentsEntity) s.createQuery("from CommentsEntity where userId = " + userId + " and postId= " + postId).setMaxResults(1).uniqueResult();
+        s.close();
+
+        return comment;
+    }
+
 }

@@ -84,6 +84,7 @@ Place Code for body of page below-->
     <div class="container">
         <h1>${postTitle}</h1>
         <h2 class="text-danger">${msg2}</h2>
+        <h2 class="text-danger">${msg3}</h2>
         <h3>${postDescription}</h3>
         <h3><a href="newcomment?postId=${postId}">Post new comment</a></h3>
     </div>
