@@ -142,7 +142,7 @@ Place Code for body of page below-->
     </div>
     <div class="second-bar">
         <div class="container">
-            <h2 class="logo"><a href="/home"> </a></h2>
+            <h2 class="logo"><a href="/home">passITforward</a></h2>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><i id="social-fb"
                                                        class="fa fa-facebook-square fa-3x social"></i></a>

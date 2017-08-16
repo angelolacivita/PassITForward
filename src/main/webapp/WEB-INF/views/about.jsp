@@ -84,40 +84,7 @@ Place Code for body of page below-->
     </div>
 </div>
 
-<div class="container">
-    <!-- Team Members Row -->
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="my-4">The passITforward Team!</h2>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center mb-4">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/farha.png" alt="">
-            <h3>Farha Hanif
-                <small>Java Developer</small>
-            </h3>
-            <p><a href="https://github.com/fhanif">Github</a></p>
-            <P><a href="http://linkedin.com/in/farhahanif">LinkedIn</a></P>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center mb-4">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/angelo.png" alt="">
-            <h3>Angelo LaCivita
-                <small>Software Developer</small>
-            </h3>
-            <p><a href="https://github.com/angelolacivita">Github</a></p>
-            <p><a href="https://www.linkedin.com/in/angelo-lacivita-cpa/">LinkedIn</a></p>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center mb-4">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/matt.png" alt="">
-            <h3>Matthew Menna
-                <small>Software Developer</small>
-            </h3>
-            <p><a href="https://github.com/mattmenna">Github</a></p>
-            <P><a href="https://www.linkedin.com/in/matthew-menna/">LinkedIn</a></P>
-        </div>
 
-    </div>
-
-</div>
 
 
 <footer id="myFooter">
@@ -145,7 +112,7 @@ Place Code for body of page below-->
     </div>
     <div class="second-bar">
         <div class="container">
-            <h2 class="logo"><a href="/home">  </a></h2>
+            <h2 class="logo"><a href="/home">passITforward</a></h2>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><i id="social-fb"
                                                        class="fa fa-facebook-square fa-3x social"></i></a>

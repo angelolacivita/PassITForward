@@ -87,47 +87,44 @@ Place Code for body of page below-->
         <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
     </div>
 </div>
-
 <div class="container">
-    <!-- Example row of columns -->
+    <!-- Team Members Row -->
     <div class="row">
-        <div class="col-md-4">
-            <h2>Java</h2>
-            <p>Number of Projects : 10<br>
-            Number of answers: 20<br>
-            Popularity: High</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-12">
+            <h2 class="my-4">The passITforward Team!</h2><br>
         </div>
-        <div class="col-md-4">
-            <h2>C#</h2>
-            <p>Number of Projects : 11<br>
-                Number of answers: 21<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/farha.png" height="200" width="200" alt="Farha Hanif">
+            <h3><a href="mailto:farhahanif94@gmail.com">Farha Hanif</a></h3>
+            <h4>Software Developer</h4>
+
+            <p><a href="https://github.com/fhanif">Github</a></p>
+            <P><a href="http://linkedin.com/in/farhahanif">LinkedIn</a></P>
+            <p>Slack Button</p>
         </div>
-        <div class="col-md-4">
-            <h2>CSS</h2>
-            <p>Number of Projects : 12<br>
-                Number of answers: 22<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/angelo.png" height="200" width="200" alt="Angelo LaCivita">
+            <h3><a href="mailto:angelo.lacivita@gmail.com">Angelo LaCivita</a></h3>
+            <h4>Software Developer</h4>
+
+            <p><a href="https://github.com/angelolacivita">Github</a></p>
+            <p><a href="https://www.linkedin.com/in/angelo-lacivita-cpa/">LinkedIn</a></p>
+            <p>Slack Button</p>
         </div>
-        <div class="col-md-4">
-            <h2>JavaScript</h2>
-            <p>Number of Projects : 13<br>
-                Number of answers: 23<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/matt.png" height="200" width="200" alt="Matthew Menna">
+            <h3><a href="mailto:mattmenna@gmail.com">Matthew Menna</a></h3>
+            <h4>Software Developer</h4>
+
+            <p><a href="https://github.com/mattmenna">Github</a></p>
+            <P><a href="https://www.linkedin.com/in/matthew-menna/">LinkedIn</a></P>
+            <p>Slack Button</p>
         </div>
-        <div class="col-md-4">
-            <p>Number of Projects : 14<br>
-                Number of answers: 24<br>
-                Popularity: High</p>
-            <a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
+
     </div>
 
 </div>
+<br><br><br><br>
 
 <footer id="myFooter">
     <div class="container">
@@ -154,7 +151,7 @@ Place Code for body of page below-->
     </div>
     <div class="second-bar">
         <div class="container">
-            <h2 class="logo"><a href="/home">  </a></h2>
+            <h2 class="logo"><a href="/home">passITforward</a></h2>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><i id="social-fb"
                                                        class="fa fa-facebook-square fa-3x social"></i></a>
