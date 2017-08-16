@@ -19,3 +19,5 @@ target/
 
 #hibernate
 hibernate.cfg.xml
+
+Secrets.java
