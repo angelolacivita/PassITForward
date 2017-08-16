@@ -57,7 +57,6 @@ public class HomeController {
                 return new
                         ModelAndView("home", "lList", languageList);
             }
-
         }
         return new ModelAndView("login", "", "");
     }
