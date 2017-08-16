@@ -137,7 +137,7 @@ public class HomeController {
      */
     @RequestMapping("/registration")
     public ModelAndView registration(Model model) {
-
+        model.addAttribute("message", message);
         return new ModelAndView("registration", "command", new UsersEntity());
     }
 
@@ -151,6 +151,11 @@ public class HomeController {
     public String registration(@ModelAttribute UsersEntity newUser, Model model) {
         UserDAO userdao = DaoFactory.getUserDaoInstance(DaoFactory.USERS_HIBERNATE_DAO);
         ArrayList<UsersEntity> allUsers = userdao.getAllUsers();
+
+        if (userdao.checkRegistry(newUser.getUserName(), newUser.getEmail()) != null ){
+            message = "username or email already in use";
+            return "redirect:registration";
+        }
 
         Integer userIDforWallet = userdao.save(newUser);
 

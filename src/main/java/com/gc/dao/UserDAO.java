@@ -16,6 +16,8 @@ public interface UserDAO {
 
     ArrayList<UsersEntity> getAllUsers();
 
+    UsersEntity checkRegistry(String userName, String email);
+
 
 
 
