@@ -24,9 +24,9 @@ import java.util.ArrayList;
 @Controller
 //@RequestMapping("link")
 public class StringMappings {
-    /**
-     * @param request
-     * @return
+    /**Home page login checks for previous logins and returns either home or login page
+     * @param request gets previous cookie value
+     * @return a model and view of the home page with the languages listed or the login page
      */
     @RequestMapping("/") // returns the login page
     //the String method returns the jsp page that we want to show
@@ -47,20 +47,18 @@ public class StringMappings {
         return new ModelAndView("login", "", "");
     }
 
-    /**
-     * @return
+    /**Return of .jsp
+     * @return The about page
      */
-    @RequestMapping("/about") // needs copy
-    //the String method returns the jsp page that we want to show
+    @RequestMapping("/about")
     public String about() {
         return "about";
     }
 
-    /**
-     * @return
+    /**Return of .jsp
+     * @return The contact page
      */
     @RequestMapping("/contact")
-    //the String method returns the jsp page that we want to show
     public String contact() {
         return "contact";
     }
@@ -102,11 +100,11 @@ public class StringMappings {
         return "loginTEST";
     }
 
-    /**
-     * @param model
-     * @param userIdCookie
-     * @param userNameCookie
-     * @return
+    /**Dashboard view for signed in user.
+     * @param model holds attributes for username and walletValue
+     * @param userIdCookie userID number stored as string
+     * @param userNameCookie userName
+     * @return ModelAndView of dashboard
      */
     @RequestMapping("/dashboard")
     public ModelAndView dashboard(Model model, @CookieValue("userIdCookie") String userIdCookie, @CookieValue("userNameCookie") String userNameCookie) {

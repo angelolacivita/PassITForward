@@ -26,21 +26,6 @@ public class CommentsDAOImpl implements CommentsDAO {
         s.close();
     }
 
-
-
-
-//    /**
-//     * @param commentID
-//     */
-//    public void deleteComment(int commentID) {
-//        Session s = getSession();
-//        Transaction tx = s.beginTransaction();
-//        s.delete(commentID);
-//
-//        tx.commit();
-//        s.close();
-//    }
-
     /**
      * @return
      */
@@ -87,6 +72,12 @@ public class CommentsDAOImpl implements CommentsDAO {
         return (ArrayList<CommentsEntity>) c.list();
     }
 
+    /**
+     *
+     * @param userId
+     * @param postId
+     * @return
+     */
     public CommentsEntity commentCheck (int userId, int postId){
 
         CommentsEntity comment;
