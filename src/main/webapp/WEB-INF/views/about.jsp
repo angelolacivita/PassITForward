@@ -88,31 +88,33 @@ Place Code for body of page below-->
     <!-- Team Members Row -->
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="my-4">Our Team</h2>
+            <h2 class="my-4">The passITforward Team!</h2>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/angelo_lacivita.jpg" height="200" width="200"alt="">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/farha.png" alt="">
+            <h3>Farha Hanif
+                <small>Java Developer</small>
+            </h3>
+            <p><a href="https://github.com/fhanif">Github</a></p>
+            <P><a href="http://linkedin.com/in/farhahanif">LinkedIn</a></P>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/angelo.png" alt="">
             <h3>Angelo Lacivita
                 <small>Software Developer</small>
             </h3>
-            <p><a href="http://github.com/angelolacivita">Github</a></p>
+            <p><a href="https://github.com/angelolacivita">Github</a></p>
             <p><a href="https://www.linkedin.com/in/angelo-lacivita-cpa/">LinkedIn</a></p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/matt_menna.jpg" height="200" width="200" alt="">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="/resources/img/matt.png" alt="">
             <h3>Matthew Menna
                 <small>Software Developer</small>
             </h3>
             <p><a href="https://github.com/mattmenna">Github</a></p>
             <P><a href="https://www.linkedin.com/in/matthew-menna/">LinkedIn</a></P>
         </div>
-        <div class="col-lg-4 col-sm-6 text-center mb-4">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
-            <h3>John Smith
-                <small>Job Title</small>
-            </h3>
-            <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
-        </div>
+
     </div>
 
 </div>
