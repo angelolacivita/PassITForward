@@ -97,7 +97,7 @@ Place Code for body of page below-->
     <c:forEach var="myvar" items="${cList}">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Comment #${myvar.commentsId}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Comment #&nbsp;${myvar.commentsId}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="upvote?userId=${myvar.userId}&postId=${myvar.postId}&commentsId=${myvar.commentsId}">
                     <i class="fa fa-arrow-up" style="color:green" aria-hidden="true"></i>
                 </a>${votesmap.get(Integer.toString(myvar.commentsId))}
