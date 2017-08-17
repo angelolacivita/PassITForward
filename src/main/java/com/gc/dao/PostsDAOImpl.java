@@ -46,6 +46,7 @@ public class PostsDAOImpl implements PostsDAO {
         p.add(Restrictions.like("languageId", languageId));
 
 
+        s.close();
         return (ArrayList<PostsEntity>) p.list();
 
     }
@@ -59,6 +60,7 @@ public class PostsDAOImpl implements PostsDAO {
         //Transaction tx = s.beginTransaction();
         Criteria p = s.createCriteria(PostsEntity.class);
 
+        s.close();
         return (ArrayList<PostsEntity>) p.list();
     }
 
@@ -72,6 +74,9 @@ public class PostsDAOImpl implements PostsDAO {
         Transaction tx = s.beginTransaction();
         Criteria p = s.createCriteria(PostsEntity.class);
         p.add(Restrictions.like("userId", userId));
+
+        tx.commit();
+        s.close();
 
         return (ArrayList<PostsEntity>) p.list();
     }

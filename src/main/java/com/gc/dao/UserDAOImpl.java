@@ -35,6 +35,7 @@ public class UserDAOImpl implements UserDAO {
         c.add(Restrictions.like("firstName", "Matt"));
 
         UsersEntity userInfo = (UsersEntity) c;
+        s.close();
 
         return userInfo.getUserId();
     }
@@ -59,6 +60,8 @@ public class UserDAOImpl implements UserDAO {
         Transaction tx = s.beginTransaction();
         Criteria u = s.createCriteria(UsersEntity.class);
 
+        tx.commit();
+        s.close();
         return (ArrayList<UsersEntity>) u.list();
     }
 
