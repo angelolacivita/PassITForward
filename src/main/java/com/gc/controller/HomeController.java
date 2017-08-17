@@ -168,7 +168,7 @@ public class HomeController {
 
         model.addAttribute("firstName", newUser.getFirstName());
         model.addAttribute("walletValue", newWallet.getWalletValue());
-
+        message = "";
         return "registrationsuccess";
     }
 

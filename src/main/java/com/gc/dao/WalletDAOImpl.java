@@ -38,7 +38,11 @@ public class WalletDAOImpl implements WalletDAO {
         ArrayList<WalletEntity> wallet = (ArrayList<WalletEntity>) w.list();
         int currentBalance = wallet.get(0).getWalletValue();
 
+
+        s.close();
         return currentBalance;
+
+
     }
 
     /**

@@ -112,7 +112,7 @@ public class StringMappings {
      * @param userNameCookie userName
      * @return ModelAndView of dashboard
      */
-    @RequestMapping("/dashboard")
+    @RequestMapping("/dashboard") // check for cookieValue and return login page if null
     public ModelAndView dashboard(Model model, @CookieValue("userIdCookie") String userIdCookie, @CookieValue("userNameCookie") String userNameCookie) {
         CommentsDAO commentsDAO = DaoFactory.getCommentsDaoInstance(DaoFactory.COMMENTS_HIBERNATE_DAO);
         ArrayList<CommentsEntity> commentsList = commentsDAO.getUserComments(Integer.parseInt(userIdCookie));
