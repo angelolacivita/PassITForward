@@ -29,7 +29,7 @@ public class LanguagesDAOImpl implements LanguagesDAO {
     /**
      * @return
      */
-    private Session getSession() {
+    private static Session getSession() {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFact = cfg.buildSessionFactory();
         return sessionFact.openSession();
