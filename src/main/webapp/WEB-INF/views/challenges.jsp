@@ -96,9 +96,9 @@ Place Code for body of page below-->
     <c:forEach var="myvar" items="${pList}">
         <div class="panel panel-default">
             <div class="panel-heading">Post Title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="/comments?postId=${myvar.postId}"><i class="fa fa-reply" aria-hidden="true"></i></a>
-
                 <a href="/comments?postId=${myvar.postId}">${myvar.postTitle}</a></div>
+
+                <a href="/comments?postId=${myvar.postId}">Post a Comment <i class="fa fa-reply" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
             <div class="panel-body">Description<p>${myvar.postDescription}</p></div>
 
