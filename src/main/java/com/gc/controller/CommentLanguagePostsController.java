@@ -180,7 +180,7 @@ public class CommentLanguagePostsController {
             return "redirect:comments?postId=" + postId;
 
         }
-            msg2 = "Your vote has already been registered";
+            //msg2 = "Your vote has already been registered";
             msg3 = "";
             return "redirect:comments?postId=" + postId;
 
@@ -206,7 +206,7 @@ public class CommentLanguagePostsController {
             return "redirect:comments?postId=" + postId;
 
         }
-        msg2 = "Your vote has already been registered";
+        //msg2 = "Your vote has already been registered";
         msg3 = "";
         return "redirect:comments?postId=" + postId;
 
