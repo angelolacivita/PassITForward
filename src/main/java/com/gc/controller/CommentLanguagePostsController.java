@@ -150,9 +150,9 @@ public class CommentLanguagePostsController {
             return "redirect:comments?postId=" + postId;
 
         }
-
-            msg3 = "Your comment has already been registered for this post. You cannot comment again.";
             msg2 = "";
+            msg3 = "Your comment has already been registered for this post. You cannot comment again.";
+
             return "redirect:comments?postId=" + postId;
 
     }
