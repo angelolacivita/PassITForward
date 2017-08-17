@@ -54,6 +54,7 @@ public class HomeController {
             if (cookienamestring.equals("userIdCookie")) {
                 LanguagesDAO languagesDAO = DaoFactory.getLanguagesDaoInstance(DaoFactory.LANGUAGES_HIBERNATE_DAO);
                 ArrayList<LanguagesEntity> languageList = languagesDAO.getAllLanguages();
+                message="";
                 return new
                         ModelAndView("home", "lList", languageList);
             }
@@ -100,6 +101,7 @@ public class HomeController {
             userNameCookie.setMaxAge(60 * 60 * 24);
             response.addCookie(userCookie);
             response.addCookie(userNameCookie);
+            message="";
             return "loginsuccess";
         } else {
             message = "Incorrect username or password";
