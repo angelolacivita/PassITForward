@@ -81,32 +81,32 @@ Place Code for body of page below-->
         <br>
         <h1>Wallet Balance - ${walletValue}</h1>
 
-        <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                <h4>Label</h4>
-                <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                <h4>Label</h4>
-                <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                <h4>Label</h4>
-                <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                <h4>Label</h4>
-                <span class="text-muted">Something else</span>
-            </div>
-        </div>
+        <%--<div class="row placeholders">--%>
+            <%--<div class="col-xs-6 col-sm-3 placeholder">--%>
+                <%--<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="--%>
+                     <%--width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">--%>
+                <%--<h4>Label</h4>--%>
+                <%--<span class="text-muted">Something else</span>--%>
+            <%--</div>--%>
+            <%--<div class="col-xs-6 col-sm-3 placeholder">--%>
+                <%--<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="--%>
+                     <%--width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">--%>
+                <%--<h4>Label</h4>--%>
+                <%--<span class="text-muted">Something else</span>--%>
+            <%--</div>--%>
+            <%--<div class="col-xs-6 col-sm-3 placeholder">--%>
+                <%--<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="--%>
+                     <%--width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">--%>
+                <%--<h4>Label</h4>--%>
+                <%--<span class="text-muted">Something else</span>--%>
+            <%--</div>--%>
+            <%--<div class="col-xs-6 col-sm-3 placeholder">--%>
+                <%--<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="--%>
+                     <%--width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">--%>
+                <%--<h4>Label</h4>--%>
+                <%--<span class="text-muted">Something else</span>--%>
+            <%--</div>--%>
+        <%--</div>--%>
 
         <h2 class="sub-header">Section title</h2>
         <div class="table-responsive">
@@ -171,8 +171,7 @@ Place Code for body of page below-->
             </div>
             <div class="col-sm-3 info">
                 <h5>Information</h5>
-                <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et
-                    malesuada fames ac ante ipsum primis in faucibus. </p>
+                <p> We created passITforward as an alternative to some of the more popular solution websites that don't reward well thought out responses. Our goal is to create a site that encourages users to respond to others problems. </p>
             </div>
         </div>
     </div>

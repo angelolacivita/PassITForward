@@ -124,8 +124,7 @@ Place Code for body of page below-->
             </div>
             <div class="col-sm-3 info">
                 <h5>Information</h5>
-                <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et
-                    malesuada fames ac ante ipsum primis in faucibus. </p>
+                <p> We created passITforward as an alternative to some of the more popular solution websites that don't reward well thought out responses. Our goal is to create a site that encourages users to respond to others problems. </p>
             </div>
         </div>
     </div>
