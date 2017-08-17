@@ -60,7 +60,7 @@ public class PostsDAOImpl implements PostsDAO {
         //Transaction tx = s.beginTransaction();
         Criteria p = s.createCriteria(PostsEntity.class);
 
-        //s.close();
+        s.close();
         return (ArrayList<PostsEntity>) p.list();
     }
 
