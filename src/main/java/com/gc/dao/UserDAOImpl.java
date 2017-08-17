@@ -61,7 +61,7 @@ public class UserDAOImpl implements UserDAO {
         Criteria u = s.createCriteria(UsersEntity.class);
 
         tx.commit();
-        s.close();
+        //s.close();
         return (ArrayList<UsersEntity>) u.list();
     }
 
