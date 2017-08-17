@@ -25,7 +25,7 @@
     <meta name="description" content="passItforward is the site to get your answers answered!">
     <meta name="author" content="">
 
-    <title>passITforward - REPLACE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</title>
+    <title>passITforward - Dashboard</title>
 
     <link rel="icon" href="<c:url value="/resources/favicon.ico"/>"/>
     <link href="<c:url value="/resources/css/Footer-with-logo.css"/>" rel="stylesheet">
