@@ -54,8 +54,8 @@ public class CommentsDAOImpl implements CommentsDAO {
         model.addAttribute("postTitle", temp.getPostTitle());
         model.addAttribute("postDescription", temp.getPostDescription());
 
-        tx.commit();
-        s.close();
+        //tx.commit();
+        //s.close();
 
         return (ArrayList<CommentsEntity>) c.list();
     }
@@ -72,8 +72,8 @@ public class CommentsDAOImpl implements CommentsDAO {
         Criteria c = s.createCriteria(CommentsEntity.class);
         c.add(Restrictions.like("userId", userId));
 
-        tx.commit();
-        s.close();
+        //tx.commit();
+        //s.close();
 
         return (ArrayList<CommentsEntity>) c.list();
     }

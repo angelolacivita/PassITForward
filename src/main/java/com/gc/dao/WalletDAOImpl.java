@@ -39,7 +39,7 @@ public class WalletDAOImpl implements WalletDAO {
         int currentBalance = wallet.get(0).getWalletValue();
 
 
-        s.close();
+        //s.close();
         return currentBalance;
 
 

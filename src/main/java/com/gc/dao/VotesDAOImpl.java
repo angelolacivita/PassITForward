@@ -68,7 +68,7 @@ public class VotesDAOImpl implements VotesDAO {
             System.out.println(row[0].toString() + "," + row[1].toString());
         }
 
-        s.close();
+        //s.close();
         return votesMap;
     }
 

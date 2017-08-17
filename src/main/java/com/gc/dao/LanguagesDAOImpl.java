@@ -20,8 +20,8 @@ public class LanguagesDAOImpl implements LanguagesDAO {
         Transaction tx = s.beginTransaction();
         Criteria l = s.createCriteria(LanguagesEntity.class);
 
-        tx.commit();
-        s.close();
+        //tx.commit();
+        //s.close();
         return (ArrayList<LanguagesEntity>) l.list();
     }
 
