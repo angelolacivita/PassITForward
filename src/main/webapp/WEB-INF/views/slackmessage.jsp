@@ -25,7 +25,7 @@
     <meta name="description" content="passItforward is the site to get your answers answered!">
     <meta name="author" content="">
 
-    <title>passITforward - REPLACE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</title>
+    <title>passITforward - Slack Message</title>
 
     <link rel="icon" href="<c:url value="/resources/favicon.ico"/>"/>
     <link href="<c:url value="/resources/css/Footer-with-logo.css"/>" rel="stylesheet">
@@ -34,7 +34,7 @@
 
     <link href="<c:url value="/resources/css/dashboard.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/starter-template.css"/>" rel="stylesheet">
-    <link href="<c:url value="/resources/css/signin.css"/>" rel="stylesheet">
+
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
