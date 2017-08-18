@@ -1,6 +1,7 @@
 package com.gc.dao;
 
 import com.gc.models.WalletEntity;
+import com.gc.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,18 +13,24 @@ import java.util.ArrayList;
 
 
 public class WalletDAOImpl implements WalletDAO {
+    private static SessionFactory sessionFactory;
+
+    public WalletDAOImpl(){
+        sessionFactory = HibernateUtil.getSessionFactory();
+
+    }
     /**
      * @param newWallet
      * @return
      */
     public Integer save(WalletEntity newWallet) {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
 
         Integer id = (Integer) s.save(newWallet);
 
         tx.commit();
-        s.close();
+        //s.close();
         return id;
     }
 
@@ -32,7 +39,7 @@ public class WalletDAOImpl implements WalletDAO {
      * @return
      */
     public int getWallet(int userId) {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Criteria w = s.createCriteria(WalletEntity.class);
         w.add(Restrictions.like("userId", userId));
         ArrayList<WalletEntity> wallet = (ArrayList<WalletEntity>) w.list();
@@ -49,12 +56,12 @@ public class WalletDAOImpl implements WalletDAO {
      * @param walletID
      */
     public void deleteWalletID(int walletID) {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
         s.delete(walletID);
 
         tx.commit();
-        s.close();
+        //s.close();
     }
 
     /**
@@ -62,7 +69,7 @@ public class WalletDAOImpl implements WalletDAO {
      * @param userId
      */
     public void creditToWallet(int credit, int userId) {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
 
         Criteria w = s.createCriteria(WalletEntity.class);
@@ -72,7 +79,7 @@ public class WalletDAOImpl implements WalletDAO {
         wallet.get(0).setWalletValue(currentBalance + credit);
 
         tx.commit();
-        s.close();
+        //s.close();
 
     }
 
@@ -81,7 +88,7 @@ public class WalletDAOImpl implements WalletDAO {
      * @param userId
      */
     public void debitFromWallet(int debit, int userId) {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
 
         Criteria w = s.createCriteria(WalletEntity.class);
@@ -91,15 +98,15 @@ public class WalletDAOImpl implements WalletDAO {
         wallet.get(0).setWalletValue(currentBalance - debit);
 
         tx.commit();
-        s.close();
+        //s.close();
     }
-
-    /**
-     * @return
-     */
-    private static Session getSession() {
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        return sessionFact.openSession();
-    }
+//
+//    /**
+//     * @return
+//     */
+//    private static Session getSession() {
+//        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+//        SessionFactory sessionFact = cfg.buildSessionFactory();
+//        return sessionFact.openSession();
+//    }
 }

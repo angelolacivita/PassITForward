@@ -2,6 +2,7 @@ package com.gc.dao;
 
 import com.gc.models.UsersEntity;
 import com.gc.models.VotesEntity;
+import com.gc.util.HibernateUtil;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,6 +19,12 @@ import java.util.Map;
  * Created by fhani on 8/15/2017.
  */
 public class VotesDAOImpl implements VotesDAO {
+    private static SessionFactory sessionFactory;
+
+    public VotesDAOImpl(){
+        sessionFactory = HibernateUtil.getSessionFactory();
+
+    }
     /**
      *
      * @param userId
@@ -25,7 +32,7 @@ public class VotesDAOImpl implements VotesDAO {
      * @param votevalue
      */
     public void vote(int userId, int commentId, int votevalue) {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
         VotesEntity vote = new VotesEntity();
         vote.setCommentId(commentId);
@@ -34,7 +41,7 @@ public class VotesDAOImpl implements VotesDAO {
 
         s.save(vote);
         tx.commit();
-        s.close();
+        //s.close();
     }
 
     /**
@@ -45,9 +52,9 @@ public class VotesDAOImpl implements VotesDAO {
      */
     public VotesEntity voteCheck(int userId, int commentsId) {
         VotesEntity voter;
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         voter = (VotesEntity) s.createQuery("from VotesEntity where userId = " + userId + " and commentId= " + commentsId).setMaxResults(1).uniqueResult();
-        s.close();
+        //s.close();
 
         return voter;
 
@@ -59,7 +66,7 @@ public class VotesDAOImpl implements VotesDAO {
      */
     public Map totalVotes() {
         Map<String, String> votesMap = new HashMap<String, String>();
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         // System.out.println(commentsId);
         List<Object[]> totalVotes = s.createSQLQuery("SELECT commentID,SUM(voteValue) FROM votes GROUP BY commentID")
                 .list();
@@ -71,15 +78,15 @@ public class VotesDAOImpl implements VotesDAO {
         //s.close();
         return votesMap;
     }
-
-    /**
-     *
-     * @return
-     */
-    private static Session getSession() {
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        return sessionFact.openSession();
-    }
+//
+//    /**
+//     *
+//     * @return
+//     */
+//    private static Session getSession() {
+//        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+//        SessionFactory sessionFact = cfg.buildSessionFactory();
+//        return sessionFact.openSession();
+//    }
 
 }

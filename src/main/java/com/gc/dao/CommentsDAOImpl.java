@@ -2,6 +2,7 @@ package com.gc.dao;
 
 import com.gc.models.CommentsEntity;
 import com.gc.models.PostsEntity;
+import com.gc.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,25 +16,33 @@ import java.util.ArrayList;
 
 
 public class CommentsDAOImpl implements CommentsDAO {
+
+    private static SessionFactory sessionFactory;
+
+    public CommentsDAOImpl() {
+        sessionFactory = HibernateUtil.getSessionFactory();
+
+    }
+
     /**
      * @param newComments
      */
     public void save(CommentsEntity newComments) {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
         s.save(newComments);
         tx.commit();
-        s.close();
+        //s.close();
     }
-
-    /**
-     * @return
-     */
-    private static Session getSession() {
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        return sessionFact.openSession();
-    }
+//
+//    /**
+//     * @return
+//     */
+//    private static Session getSession() {
+//        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+//        SessionFactory sessionFact = cfg.buildSessionFactory();
+//        return sessionFact.openSession();
+//    }
 
     /**
      * @param model
@@ -42,7 +51,7 @@ public class CommentsDAOImpl implements CommentsDAO {
      */
     public ArrayList<CommentsEntity> getAllComments(Model model, int postId) {
 
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
         PostsEntity temp = (PostsEntity) s.get(PostsEntity.class, postId);
 
@@ -54,7 +63,7 @@ public class CommentsDAOImpl implements CommentsDAO {
         model.addAttribute("postTitle", temp.getPostTitle());
         model.addAttribute("postDescription", temp.getPostDescription());
 
-        //tx.commit();
+        tx.commit();
         //s.close();
 
         return (ArrayList<CommentsEntity>) c.list();
@@ -66,13 +75,13 @@ public class CommentsDAOImpl implements CommentsDAO {
      */
     public ArrayList<CommentsEntity> getUserComments(int userId) {
 
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
 
         Criteria c = s.createCriteria(CommentsEntity.class);
         c.add(Restrictions.like("userId", userId));
 
-        //tx.commit();
+        tx.commit();
         //s.close();
 
         return (ArrayList<CommentsEntity>) c.list();
@@ -87,9 +96,9 @@ public class CommentsDAOImpl implements CommentsDAO {
     public CommentsEntity commentCheck (int userId, int postId){
 
         CommentsEntity comment;
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         comment = (CommentsEntity) s.createQuery("from CommentsEntity where userId = " + userId + " and postId= " + postId).setMaxResults(1).uniqueResult();
-        s.close();
+        //s.close();
 
         return comment;
     }

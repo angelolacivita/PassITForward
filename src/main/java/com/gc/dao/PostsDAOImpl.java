@@ -2,6 +2,7 @@ package com.gc.dao;
 
 import com.gc.models.LanguagesEntity;
 import com.gc.models.PostsEntity;
+import com.gc.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,7 +16,12 @@ import java.util.ArrayList;
 
 public class PostsDAOImpl implements PostsDAO {
 
+private static SessionFactory sessionFactory;
 
+public PostsDAOImpl(){
+    sessionFactory = HibernateUtil.getSessionFactory();
+
+}
 
 
     /**
@@ -23,11 +29,11 @@ public class PostsDAOImpl implements PostsDAO {
      * @param newPost
      */
     public void save(PostsEntity newPost) {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
         s.save(newPost);
         tx.commit();
-        s.close();
+        //s.close();
     }
 
     /**
@@ -39,7 +45,7 @@ public class PostsDAOImpl implements PostsDAO {
     public ArrayList<PostsEntity>
     getAllPosts(Model model, int languageId) {
 
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         //Transaction tx = s.beginTransaction();
 
         LanguagesEntity temp = (LanguagesEntity) s.get(LanguagesEntity.class, languageId);
@@ -60,7 +66,7 @@ public class PostsDAOImpl implements PostsDAO {
      * @return
      */
     public ArrayList<PostsEntity> getAllPosts() {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         //Transaction tx = s.beginTransaction();
         Criteria p = s.createCriteria(PostsEntity.class);
 
@@ -74,12 +80,12 @@ public class PostsDAOImpl implements PostsDAO {
      * @return
      */
     public ArrayList<PostsEntity> getUserPosts(int userId) {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
         Criteria p = s.createCriteria(PostsEntity.class);
         p.add(Restrictions.like("userId", userId));
 
-       // tx.commit();
+        tx.commit();
         //s.close();
 
         return (ArrayList<PostsEntity>) p.list();
@@ -90,23 +96,23 @@ public class PostsDAOImpl implements PostsDAO {
      * @param postID
      */
     public void deletePost(int postID) {
-        Session s = getSession();
+        Session s = sessionFactory.openSession();
         Transaction tx = s.beginTransaction();
         s.delete(postID);
 
         tx.commit();
-        s.close();
+        //s.close();
     }
-
-    /**
-     *
-     * @return
-     */
-    private static Session getSession() {
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        return sessionFact.openSession();
-
-    }
+//
+//    /**
+//     *
+//     * @return
+//     */
+//    private static Session getSession() {
+//        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+//        SessionFactory sessionFact = cfg.buildSessionFactory();
+//        return sessionFact.openSession();
+//
+//    }
 
 }
